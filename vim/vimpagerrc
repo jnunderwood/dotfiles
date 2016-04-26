@@ -1,0 +1,75 @@
+" settings for vimpager
+" @see https://github.com/rkitover/vimpager
+
+"set noloadplugins  " disable loading plugins
+
+" -- vundle settings {{{
+"
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" plugins
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'flazz/vim-colorschemes'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Put your non-Plugin stuff after this section
+
+"
+" -- }}}
+
+" -- miscellaneous settings {{{
+"
+
+set listchars=tab:▸\ ,extends:❯,precedes:❮,trail:␣
+set number
+set modeline
+set modelines=5
+
+let c_comment_strings=1
+
+"
+" -- }}}
+
+" -- theme settings {{{
+"
+
+set t_Co=256  " terminal option to allow for 256 color; do not use with solarized
+set background=dark  " use light fonts on dark background
+
+color railscasts
+hi Special    term=bold      ctermfg=130 guifg=#af5f00
+hi Identifier term=underline ctermfg=130 guifg=#af5f00
+hi Type       term=underline ctermfg=130 guifg=#df5f00
+
+" transparent bg; use only use if terminal bg matches chosen colorscheme
+" hi Normal ctermbg=none
+
+"
+" -- }}}
+
+" -- vimpager settings {{{
+"
+
+" use gvim for your pager window
+"let vimpager_use_gvim=1
+
+" pass through text that is smaller than the terminal height
+" let vimpager_passthrough=0
+
+"
+" -- }}}
+
+" ------------------------------------------------------------------------------
+" vim: set filetype=vim foldmethod=marker foldcolumn=2:

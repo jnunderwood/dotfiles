@@ -1,0 +1,20 @@
+# Path to my bash configuration files
+export BASHDIR=$HOME/.dotfiles/bash/
+
+# load default bash settings
+if [ -f $BASHDIR/default.bashrc ]; then
+    . $BASHDIR/default.bashrc
+fi
+
+# load personal bash settings
+if [ -f $BASHDIR/after.bashrc ]; then
+    . $BASHDIR/after.bashrc
+fi
+
+# ----------------------------------------------------------------
+# other programs' settings may be appended to the end of this file
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/junderwo/.sdkman"
+[[ -s "/home/junderwo/.sdkman/bin/sdkman-init.sh" ]] && source "/home/junderwo/.sdkman/bin/sdkman-init.sh"
+

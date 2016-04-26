@@ -1,0 +1,89 @@
+# ===========================================================================
+#
+# ~/etc/bash.d/profile - bash configuration
+#
+# author: John Underwood (jnunderwood@gmail.com)
+# date:   21 May 2001 (last modified these notes)
+#
+# From the 'bash' man page, INVOCATION section:
+#  Login shells:
+#    On login (subject to the -noprofile option):
+#          if /etc/profile exists, source it.
+#
+#          if ~/.bash_profile exists, source it,
+#            else if ~/.bash_login exists, source it,
+#              else if ~/.profile exists, source it.
+#
+#    On exit:
+#          if ~/.bash_logout exists, source it.
+#
+#  Non-login interactive shells:
+#    On startup (subject to the -norc and -rcfile options):
+#          if ~/.bashrc exists, source it.
+#
+#  Non-interactive shells:
+#    On startup:
+#          if the environment variable ENV is non-null, expand
+#          it and source the file it names, as if the command
+#                  if [ "$ENV" ]; then . $ENV; fi
+#          had been executed, but do not use PATH to search
+#          for the pathname.  When not started in Posix mode, bash
+#          looks for BASH_ENV before ENV.
+#
+#  Readline library / Command-line editing:
+#    This is the library that handles reading input when using
+#    an interactive shell. Default key bindings are similar to emacs.
+#    This may be overridden to vi-style key bindings, for example,
+#    in the file $INPUTRC. This variable is set to /etc/inputrc
+#    in /etc/profile. You may override it in this file to ~/.inputrc.
+#    My $INPUTRC file contains the line: set editing-mode vi
+#    Set in .bashrc (interactive shell settings).
+#
+# ===========================================================================
+
+#
+# ~/.bash_profile: executed by bash(1) for login shells.
+#
+# @see /etc/profile
+#
+# User dependent .bash_profile file
+
+if [ -e /etc/bash.bashrc ] ; then
+  source /etc/bash.bashrc
+fi
+
+if [ -e ~/.bashrc ] ; then
+  source ~/.bashrc
+fi
+
+# Set PATH so it includes user's private bin if it exists
+if [ -d ~/bin ] ; then
+  PATH="~/bin:${PATH}"
+fi
+
+# Set MANPATH so it includes users' private man if it exists
+if [ -d ~/man ]; then
+  MANPATH="~/man:${MANPATH}"
+fi
+
+# Set INFOPATH so it includes users' private info if it exists
+if [ -d ~/info ]; then
+  INFOPATH="~/info:${INFOPATH}"
+fi
+
+if [ -e /etc/bash_completion ] ; then
+  source /etc/bash_completion
+fi
+
+#if [ -e ~/etc/bash_groovy_completion_1.sh ] ; then
+#  source ~/etc/bash_groovy_completion_1.sh
+#fi
+
+#if [ -e ~/etc/bash_groovy_completion_2.sh ] ; then
+#  source ~/etc/bash_groovy_completion_2.sh
+#fi
+
+#if [ -e ~/etc/bash_completion.d/grails.sh ] ; then
+#  source ~/etc/bash_completion.d/grails.sh
+#fi
+

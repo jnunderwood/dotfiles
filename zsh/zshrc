@@ -1,0 +1,140 @@
+# .zshrc
+
+# antigen {{{
+#
+
+# load antigen
+source ~/dotfiles/antigen/antigen.zsh
+
+# load the oh-my-zsh's library
+antigen use oh-my-zsh
+
+# load a theme
+# antigen theme ys
+
+# load bundles
+antigen bundles <<EOBUNDLES
+  # bundles from default repo
+  # colored-man
+  command-not-found
+  extract
+  git
+  git-extras
+  svn
+
+  # bundles from other repos
+  # jimhester/per-directory-history
+  sharat87/autoenv
+  sharat87/zsh-vim-mode
+  # yerinle/zsh-sdkman
+  yerinle/zsh-gvm
+  zsh-users/zsh-completions src
+  zsh-users/zsh-history-substring-search
+  zsh-users/zsh-syntax-highlighting
+EOBUNDLES
+
+# tell antigen that we are done
+antigen apply
+
+#
+# end antigen }}}
+
+# environment variables {{{
+#
+
+# paranoid file permissions
+umask 007
+
+# locale settings
+# using "C" is useful for expected sorting of filenames
+# export LC_ALL="C.UTF-8"  # use this for foreign character support
+# export LC_ALL="C"        # use this if the next commands do not work...
+#
+# Enforce correct locales from the beginning:
+# LC_ALL is unset since it overwrites everything
+# LANG=en_US.UTF-8 is used, except for:
+# LC_COLLATE=C   C-language conventions are used for sorting
+# LC_MESSAGES=C  never translates program output
+# LC_TIME=en_DK  produces yyyy-mm-dd hh:mm date/time output
+#unset LC_ALL
+export LANG=en_US.UTF-8
+export LC_COLLATE=C
+export LC_MESSAGES=C
+export LC_TIME=en_DK.UTF-8
+
+# settings for 'less'
+export PAGER='/usr/bin/less'
+export LESS="-EiMRX"  # LESS="-M"
+#export LESSOPEN="|/usr/local/bin/lesspipe.sh %s"
+
+# Java
+# export JAVA_HOME=$HOME/java/jdk17
+
+# miscellaneous
+#export GOROOT=/usr/local/go
+
+# common variables
+# export PATH=$JAVA_HOME/bin:$PATH:~/bin    # :$GOROOT/bin:~/android/studio/bin
+export PATH=$PATH:~/bin
+export EDITOR='/usr/bin/vim'
+export USE_EDITOR=$EDITOR
+export VISUAL=$EDITOR
+
+# zsh variables
+export DISABLE_CORRECTION="true"
+export COMPLETION_WAITING_DOTS="true"
+export UPDATE_ZSH_DAYS=1
+export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd .."
+export HISTSIZE=25000
+export SAVEHIST=10000
+
+#
+# end environment variables }}}
+
+# other settings {{{
+#
+
+# zsh options; @see http://zsh.sourceforge.net/Doc/Release/Options.html
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY
+setopt NOCLOBBER
+setopt RM_STAR_WAIT
+setopt INC_APPEND_HISTORY_TIME
+
+# enable debugging (useful for declare/typeset builtins)
+# shopt extdebug > /dev/null || shopt -s extdebug
+
+autoload -U compinit
+compinit
+
+#
+# end other settings }}}
+
+# aliases, functions, and themes {{{
+#
+
+source ~/dotfiles/zsh/aliases.zsh
+source ~/dotfiles/zsh/functions.zsh
+source ~/dotfiles/zsh/my.zsh-theme
+
+#
+# end aliases, functions, and themes }}}
+
+# ----------------------------------------------------------------
+# other programs' settings may be appended to the end of this file
+
+# jEnv
+# to export JAVA_HOME, do:
+# jenv enable-plugin export
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/junderwo/.sdkman"
+[[ -s "/home/junderwo/.sdkman/bin/sdkman-init.sh" ]] && source "/home/junderwo/.sdkman/bin/sdkman-init.sh"
+
+#
+# vim: set ft=zsh fdm=marker:
