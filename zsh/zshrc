@@ -75,7 +75,7 @@ export LESS="-EiMRX"  # LESS="-M"
 
 # common variables
 # export PATH=$JAVA_HOME/bin:$PATH:~/bin    # :$GOROOT/bin:~/android/studio/bin
-export PATH=$PATH:~/bin
+export PATH=~/.npm-global/bin:$PATH:~/bin
 export EDITOR='/usr/bin/vim'
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR

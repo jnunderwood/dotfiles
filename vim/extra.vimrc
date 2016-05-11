@@ -15,7 +15,9 @@ Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
+" Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/MatchTagAlways'
+Plugin 'jiangmiao/auto-pairs'
 " Plugin 'altercation/vim-colors-solarized'
 
 " Brief help

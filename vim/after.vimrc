@@ -254,7 +254,7 @@ let g:tagbar_left = 1
 
 " good
 " set guifont=Cousine\ 10
-set guifont=Monospace\ 11
+set guifont=Monospace\ 9
 " set guifont=Liberation\ Mono\ 10
 " set guifont=Ubuntu\ Mono\ 12
 
@@ -345,9 +345,9 @@ function! InitMyTheme() " {{{
 
     " -- transparent bg
     " use only use if terminal bg matches chosen colorscheme
-    " if !has('gui_running')
-    "     hi Normal ctermbg=none
-    " endif
+    if !has('gui_running')
+        hi Normal ctermbg=none
+    endif
 endfunction " }}}
 
 function! InitMySolarized() " {{{
