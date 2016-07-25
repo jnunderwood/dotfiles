@@ -100,6 +100,11 @@ function which_old {
 # miscellaneous functions {{{
 #
 
+# for urxvt terminal; maybe others as well?
+function fontsize() {
+    printf '\33]50;%s%d\007' "xft:Bitstream Vera Sans Mono:size=$1::antialias=true:hinting=true"
+}
+
 function hc() {
     /usr/bin/herbstclient "$@"
 }
