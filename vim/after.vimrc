@@ -109,6 +109,7 @@ set modeline
 set guioptions-=m  " turnoff the menu
 set shell=/bin/bash
 set mouse=a
+set hlsearch
 
 " help with syntax highlighting errors
 "let sh_minlines=200         " default = 200
@@ -194,6 +195,10 @@ let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'gsp' :
 
 " Tagbar
 let g:tagbar_left = 1
+
+" Syntastic (which is correct?)
+let g:syntastic_javascript_chekers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 " use vim tabs like buffers
 " @see https://stackoverflow.com/questions/102384/using-vims-tabs-like-buffers
