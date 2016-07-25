@@ -1,1 +1,1 @@
-/home/junderwo/.vimrc
+vimrc
