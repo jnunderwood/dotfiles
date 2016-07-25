@@ -18,6 +18,8 @@ Plugin 'airblade/vim-gitgutter'
 " Plugin 'Yggdroot/indentLine'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'ternjs/tern_for_vim.git'
+Plugin 'pangloss/vim-javascript'
 " Plugin 'altercation/vim-colors-solarized'
 
 " Brief help
