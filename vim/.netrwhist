@@ -1,7 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='scp://junderwo@lawson/lawprod10/xhrnet/personnelactions/'
-let g:netrw_dirhist_2='scp://junderwo@lawsondev/'
-let g:netrw_dirhist_3='scp://junderwo@lawsondev/lawtest10/'
-let g:netrw_dirhist_4='scp://junderwo@lawsondev/lawtest10/xhrnet/'
-let g:netrw_dirhist_5='scp://junderwo@lawsondev/lawtest10/xhrnet/personnelactions/'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='scp://junderwo@lawson/lawprod10/'
+let g:netrw_dirhist_2='scp://junderwo@lawson/lawprod10/xhrnet/'
+let g:netrw_dirhist_3='scp://junderwo@lawson/lawprod10/xhrnet/personnelactions/'

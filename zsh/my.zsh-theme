@@ -31,6 +31,7 @@ ZSH_THEME_GIT_PROMPT_DIVERGED_REMOTE=" %{$fg_bold[red]%}<>"
 
 # Prompt format: \n[TIME] DIRECTORY  BRANCH STATE\n$
 PROMPT="
+%{$fg[green]%}$(box_name)\
 %{$fg[white]%}[%*]\
 %{$terminfo[bold]$fg[blue]%} ${current_dir}%{$reset_color%}\
 ${git_info}

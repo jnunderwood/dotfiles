@@ -4,6 +4,7 @@
 " USE Plugin 'troydm/easybuffer.vim'  " set in .vimrc
 " Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'jpo/vim-railscasts-theme'
+Plugin 'blueshirts/darcula'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 Plugin 'xolox/vim-colorscheme-switcher'

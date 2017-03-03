@@ -259,7 +259,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " good
 " set guifont=Cousine\ 10
-set guifont=Monospace\ 9
+set guifont=Monospace\ 16
 " set guifont=Liberation\ Mono\ 10
 " set guifont=Ubuntu\ Mono\ 12
 
@@ -289,9 +289,9 @@ set guifont=Monospace\ 9
 "   twilight, vibrantink, vividchalk, vj, xterm16, zmrok
 "
 " + good dark themes without black backgrounds:
-"   camo, ekvoli, freya (gui), gruvbox, jellyx, mint, mustang, native, obsidian,
-"   railscasts, rdark, rdark-terminal, selenitic, solarized, tango2, watermark,
-"   wombat, wombat256mod, xoria256
+"   camo, darcula, ekvoli, freya (gui), gruvbox, jellyx, mint, mustang, native,
+"   obsidian, railscasts, rdark, rdark-terminal, selenitic, solarized, tango2,
+"   watermark, wombat, wombat256mod, xoria256
 "
 " + good light themes:
 "   dawn, github, jhlight, kaltex, moria, nedit, osx_like, peaksea, smp, soso
@@ -309,17 +309,18 @@ function! InitMyTheme() " {{{
     " -- favorite dark themes
     set background=dark
 
-    color railscasts
-    hi Special    term=bold      ctermfg=130 guifg=#af5f00
-    hi Identifier term=underline ctermfg=130 guifg=#af5f00
-    hi Type       term=underline ctermfg=130 guifg=#df5f00
+    "color railscasts
+    "hi Special    term=bold      ctermfg=130 guifg=#af5f00
+    "hi Identifier term=underline ctermfg=130 guifg=#af5f00
+    "hi Type       term=underline ctermfg=130 guifg=#df5f00
     " hi CursorLine ctermbg=237
     " hi Normal ctermbg=234 guibg=#181818
     " hi Folded ctermfg=255 ctermbg=238
     " hi Comment gui=none
 
-    " color xoria256
+    color darcula
 
+    " color xoria256
     " color base16-grayscale
     " color desertEx
     " color gruvbox
@@ -351,7 +352,7 @@ function! InitMyTheme() " {{{
     " -- transparent bg
     " use only use if terminal bg matches chosen colorscheme
     if !has('gui_running')
-        hi Normal ctermbg=none
+        "hi Normal ctermbg=none
     endif
 endfunction " }}}
 
