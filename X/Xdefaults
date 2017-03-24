@@ -51,25 +51,25 @@ URxvt*letterSpace:    -1
 
 URxvt.background:  #2B2B2B
 URxvt.foreground:  #a9b7c6
-*color0:      #2B2B2B
-*color1:      #cc7832
-*color2:      #629755
-*color3:      #fec66c
-!*color4:      #5859b7  ! too dark
-*color4:      CornflowerBlue
-*color5:      #9876aa
-*color6:      #259185
-*color7:      #a9b7c6
+*color0:           #2B2B2B
+*color1:           #cc7832
+*color2:           #629755
+*color3:           #fec66c
+!*color4:           #5859b7  ! too dark
+*color4:           CornflowerBlue
+*color5:           #9876aa
+*color6:           #259185
+*color7:           #a9b7c6
 ! the lighter/stronger variants
-*color8:      #4d4d4d
-*color9:      #de7620
-*color10:     #59a547
-*color11:     #fec64c
-!*color12:     #4041cf  ! too dark
-*color12:     CornflowerBlue
-*color13:     #9e64bc
-*color14:     #179f90
-*color15:     #ced6de
+*color8:           #4d4d4d
+*color9:           #de7620
+*color10:          #59a547
+*color11:          #fec64c
+!*color12:          #4041cf  ! too dark
+*color12:          CornflowerBlue
+*color13:          #9e64bc
+*color14:          #179f90
+*color15:          #ced6de
 
 ! -----------------------------
 ! PERL EXTENSIONS
@@ -97,15 +97,15 @@ URxvt.keysym.M-s:      perl:keyboard-select:search
 !URxvt.url-select.underline: true
 
 ! font-size
-!URxvt.keysym.C-plus:  perl:font-size:increase
-!URxvt.keysym.C-minus: perl:font-size:decrease
+!URxvt.keysym.C-equal:  perl:font-size:increase
+!URxvt.keysym.C-minus:  perl:font-size:decrease
 URxvt.keysym.C-Up:     font-size:increase
 URxvt.keysym.C-Down:   font-size:decrease
 URxvt.keysym.C-S-Up:   font-size:incglobal
 URxvt.keysym.C-S-Down: font-size:decglobal
 URxvt.keysym.C-equal:  font-size:reset
 URxvt.keysym.C-slash:  font-size:show
-URxvt.font-size.step: 1
+URxvt.font-size.step:  1
 
 ! -----------------------------
 ! Other settings

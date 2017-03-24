@@ -251,6 +251,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 "   !@#$%^&*()_+-={}|[]\:"'<>?
 "
 " best
+" set guifont=Deja\ Vue\ Sans\ Mono\ 11
 " set guifont=Source\ Code\ Pro\ for\ Powerline\ 11
 
 " better
@@ -260,7 +261,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 " good
 " set guifont=Cousine\ 10
 set guifont=Monospace\ 16
-" set guifont=Fira\ Code\ 16  " does not work in gvim
+" set guifont=Fira\ Code\ 16  " ligatures do not work in gvim
 " set guifont=Liberation\ Mono\ 10
 " set guifont=Ubuntu\ Mono\ 12
 
@@ -268,7 +269,7 @@ set guifont=Monospace\ 16
 " set guifont=Anonymous\ Pro\ 11
 " set guifont=Inconsolata\ 12
 
-" bad
+" not-so-good
 " set guifont=Courier\ 10
 " set guifont=Courier\ New\ 11
 " set guifont=Droid\ Sans\ Mono\ 10
