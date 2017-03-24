@@ -66,3 +66,4 @@ todo.txt.bak
 /vim/bundle*
 *.tar.gz
 *.tar
+*.bak
