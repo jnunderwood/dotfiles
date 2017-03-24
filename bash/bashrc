@@ -1,5 +1,5 @@
 # Path to my bash configuration files
-export BASHDIR=$HOME/.dotfiles/bash/
+export BASHDIR=$HOME/dotfiles/bash/
 
 # load default bash settings
 if [ -f $BASHDIR/default.bashrc ]; then

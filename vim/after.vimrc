@@ -260,6 +260,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 " good
 " set guifont=Cousine\ 10
 set guifont=Monospace\ 16
+" set guifont=Fira\ Code\ 16  " does not work in gvim
 " set guifont=Liberation\ Mono\ 10
 " set guifont=Ubuntu\ Mono\ 12
 

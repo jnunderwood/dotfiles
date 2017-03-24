@@ -188,7 +188,7 @@ bar {
 # start programs which have statusbar icons
 
 # network monitor applet
-#exec --no-startup-id /usr/bin/nm-applet
+exec --no-startup-id /usr/bin/nm-applet
 
 # solaar, applet for logitech wireless mouse
 #exec --no-startup-id /usr/bin/solaar

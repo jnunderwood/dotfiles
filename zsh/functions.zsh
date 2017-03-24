@@ -4,7 +4,7 @@
 # + aliases do not work very well when using | and $@
 # + filename sorting dependent on LC_ALL env variable
 
-function  ls { /bin/ls -CF $@; } # /bin/ls --color=auto -CF $@; }
+function  ls { /bin/ls --color=always -CF $@; } # /bin/ls --color=auto -CF $@; }
 function   l { ls       $@ ; } # | $PAGER -L; }
 function  lf { ls       $@ ; } # --group-directories-first $@; } # | $PAGER -L; }
 function  ll { ls -hl   $@ | $PAGER -L; }
