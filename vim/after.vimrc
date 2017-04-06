@@ -200,6 +200,9 @@ let g:tagbar_left = 1
 let g:syntastic_javascript_chekers = ['eslint']
 let g:syntastic_javascript_checkers = ['eslint']
 
+" airline
+let g:airline_powerline_fonts = 1
+
 " use vim tabs like buffers
 " @see https://stackoverflow.com/questions/102384/using-vims-tabs-like-buffers
 "tab sball
@@ -260,8 +263,8 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " good
 " set guifont=Cousine\ 10
-set guifont=Monospace\ 16
-" set guifont=Fira\ Code\ 16  " ligatures do not work in gvim
+" set guifont=Monospace\ 10
+set guifont=Fira\ Code\ 10  " ligatures do not work in gvim
 " set guifont=Liberation\ Mono\ 10
 " set guifont=Ubuntu\ Mono\ 12
 

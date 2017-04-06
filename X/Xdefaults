@@ -4,11 +4,11 @@
 
 URxvt*borderless:        false
 URxvt*internalBorder:    0
-URxvt*iso14755:          false
-URxvt*iso14755_52:       false
+URxvt*iso14755:          true
+URxvt*iso14755_52:       true
 URxvt*jumpScroll:        true
 URxvt*scrollBar:         false
-URxvt*scrollTryOutput:   false
+URxvt*scrollTtyOutput:   false
 URxvt*scrollTtyKeypress: true
 URxvt*urgentOnBell:      true
 URxvt*visualBell:        false

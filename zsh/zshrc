@@ -24,12 +24,13 @@ antigen bundles <<EOBUNDLES
 
   # bundles from other repos
   # jimhester/per-directory-history
+  nobeans/zsh-sdkman
   sharat87/autoenv
   sharat87/zsh-vim-mode
-  # yerinle/zsh-sdkman
-  yerinle/zsh-gvm
   zsh-users/zsh-completions src
   zsh-users/zsh-history-substring-search
+
+  # this must be last
   zsh-users/zsh-syntax-highlighting
 EOBUNDLES
 
@@ -125,18 +126,16 @@ source ~/dotfiles/zsh/my.zsh-theme
 #
 # end aliases, functions, and themes }}}
 
-# ----------------------------------------------------------------
-# other programs' settings may be appended to the end of this file
-
-# jEnv
-# to export JAVA_HOME, do:
-# jenv enable-plugin export
-#export PATH="$HOME/.jenv/bin:$PATH"
-#eval "$(jenv init -)"
+# other programs' settings {{{
+# may be appended to the end of this file
+#
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/junderwo/.sdkman"
 [[ -s "/home/junderwo/.sdkman/bin/sdkman-init.sh" ]] && source "/home/junderwo/.sdkman/bin/sdkman-init.sh"
+
+#
+# }}}
 
 #
 # vim: set ft=zsh fdm=marker:
