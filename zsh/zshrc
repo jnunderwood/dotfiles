@@ -1,41 +1,69 @@
 # .zshrc
 
+# zgen {{{
+#
+
+if [ -f ~/.zgen-setup ]; then
+  source ~/.zgen-setup
+fi
+
+#
+# end zgen }}}
+
+# zgen-old {{{
+###
+### # load zgen
+### source "${HOME}/.zgen/zgen.zsh"
+###
+### # if the init scipt doesn't exist
+### if ! zgen saved; then
+  ### zgen oh-my-zsh
+###
+  ### # oh-my-zsh plugins
+  ### zgen oh-my-zsh plugins/colored-man-pages
+  ### zgen oh-my-zsh plugins/command-not-found
+  ### zgen oh-my-zsh plugins/extract
+  ### zgen oh-my-zsh plugins/git
+  ### zgen oh-my-zsh plugins/git-extras
+  ### zgen oh-my-zsh plugins/sudo
+  ### zgen oh-my-zsh plugins/vagrant
+###
+  ### # bulk load plugins
+  ### zgen loadall <<EOPLUGINS
+    ### chrissicool/zsh-256color
+    ### djui/alias-tips
+    ### nobeans/zsh-sdkman
+    ### rimraf/k
+    ### sharat87/autoenv
+    ### sharat87/zsh-vim-mode
+    ### skx/sysadmin-util
+    ### srijanshetty/docker-zsh
+    ### unixorn/autoupdate-zgen
+    ### unixorn/git-extra-commands
+    ### unixorn/jpb.zshplugin
+    ### zsh-users/zsh-autosuggestions
+    ### zsh-users/zsh-completions src
+    ### zsh-users/zsh-history-substring-search
+    ### zsh-users/zsh-syntax-highlighting
+### EOPLUGINS
+  ### # ^ can't indent this EOPLUGINS
+###
+  ### # other plugins
+  ### # zgen load jimhester/per-directory-history
+  ### # zgen load yerinle/zsh-gvm
+###
+  ### # generate the init script from plugins above
+  ### zgen save
+### fi
+###
+# end zgen-old }}}
+
 # antigen {{{
 #
 
-# load antigen
-source $HOME/dotfiles/antigen/antigen.zsh
-
-# load the oh-my-zsh's library
-antigen use oh-my-zsh
-
-# load a theme
-# antigen theme ys
-
-# load bundles
-antigen bundles <<EOBUNDLES
-  # bundles from default repo
-  # colored-man
-  command-not-found
-  extract
-  git
-  git-extras
-  svn
-
-  # bundles from other repos
-  # jimhester/per-directory-history
-  nobeans/zsh-sdkman
-  sharat87/autoenv
-  sharat87/zsh-vim-mode
-  zsh-users/zsh-completions src
-  zsh-users/zsh-history-substring-search
-
-  # this must be last
-  zsh-users/zsh-syntax-highlighting
-EOBUNDLES
-
-# tell antigen that we are done
-antigen apply
+###if [ -f ~/.antigen-setup ]; then
+  ###source ~/.antigen-setup
+###fi
 
 #
 # end antigen }}}
@@ -44,7 +72,10 @@ antigen apply
 #
 
 # paranoid file permissions
-umask 007
+#umask 007
+
+# less paranoid file permissions
+umask 002
 
 # locale settings
 # using "C" is useful for expected sorting of filenames
@@ -66,18 +97,17 @@ export LC_MESSAGES="C"
 export LC_TIME="en_DK.UTF-8"
 
 # settings for 'less'
-export PAGER='$HOME/bin/less.sh'   # /usr/bin/less'
+# export PAGER='$HOME/bin/less.sh'
+export PAGER='/usr/bin/less'
 export LESS="-EiMRX"  # LESS="-M"
 #export LESSOPEN="|/usr/local/bin/lesspipe.sh %s"
+export LESSOPEN="|$HOME/bin/lesspipe.sh %s"
 
-# Java
+# programming languages
+export GOPATH=$HOME/gocode
 # export JAVA_HOME=$HOME/java/jdk17
 
-# miscellaneous
-export GOPATH=$HOME/gocode
-
 # common variables
-# export PATH=$JAVA_HOME/bin:$PATH:$HOME/bin    # :$GOROOT/bin:$HOME/android/studio/bin
 export PATH=$HOME/.npm-global/bin:$HOME/bin:$GOPATH/bin:$PATH
 export EDITOR='/usr/bin/vim'
 export USE_EDITOR=$EDITOR
@@ -98,20 +128,28 @@ export SAVEHIST=10000
 #
 
 # zsh options; @see http://zsh.sourceforge.net/Doc/Release/Options.html
-setopt EXTENDED_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_REDUCE_BLANKS
-setopt HIST_VERIFY
-# setopt NOCLOBBER
-setopt RM_STAR_WAIT
-setopt INC_APPEND_HISTORY_TIME
+setopt append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt hist_verify
+# setopt noclobber
+setopt rm_star_wait
+setopt share_history
+# setopt inc_append_history_time
 
 # enable debugging (useful for declare/typeset builtins)
 # shopt extdebug > /dev/null || shopt -s extdebug
 
 autoload -U compinit
 compinit
+
+# vi-mode
+bindkey -v
 
 #
 # end other settings }}}
@@ -131,8 +169,8 @@ source $HOME/dotfiles/zsh/my.zsh-theme
 #
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/junderwo/.sdkman"
-[[ -s "/home/junderwo/.sdkman/bin/sdkman-init.sh" ]] && source "/home/junderwo/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 #
 # }}}
