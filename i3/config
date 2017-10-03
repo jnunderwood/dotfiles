@@ -189,6 +189,9 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
+# Workspace assignments
+assign [class="^Vncconfig$"] 0
+
 # Start i3bar to display a workspace bar
 bar {
     #tray_output primary
@@ -197,7 +200,7 @@ bar {
     status_command $HOME/bin/conky-i3bar
 }
 
-# start programs which have statusbar icons
+# start these programs when i3 starts
 
 # network monitor applet (careful on remote desktops!)
 exec --no-startup-id /usr/bin/nm-applet
@@ -209,9 +212,12 @@ exec --no-startup-id /usr/bin/nm-applet
 #exec --no-startup-id gnome-settings-daemon
 #exec --no-startup-id gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
+# VNC Config
+exec /usr/bin/vnc4config
+
 # DPI for 27" UltraHD monitor
-exec --no-startup-id xrandr --dpi 163
+exec_always --no-startup-id xrandr --dpi 163
 
 # DPI for 15.6" UltraHD laptop screen
-#exec --no-startup-id xrandr --dpi 282
+#exec_always --no-startup-id xrandr --dpi 282
 

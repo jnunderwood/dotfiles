@@ -4,25 +4,25 @@
 "    ~/.vim/vimrc as of 2014-09-09
 "
 
-" override lines 329-334 (re-enable arrow keys)
+" override lines 350-353 (re-enable arrow keys)
 nmap <left>  h
 nmap <up>    k
 nmap <down>  j
 nmap <right> l
 
-" override line 398 (removed eol char)
+" override line 417 (removed eol char)
 set listchars=tab:▸\ ,extends:❯,precedes:❮,trail:␣
 
-" override line 642 (vimrc) and line 16 (~/.vim/functions/my_fold_text.vim)
+" override line 659 (vimrc) and line 16 (~/.vim/functions/my_fold_text.vim)
 " reset foldtext method to default instead of MyFoldText()
 set foldtext=foldtext()
 
-set modelines=5      " override line 418
-set norelativenumber " override line 421
-set textwidth=0      " override line 442
-set nowrap           " override line 445
-set colorcolumn=0    " override line 448
-set novisualbell     " override line 452
+set modelines=5      " override line 437
+set norelativenumber " override line 440
+set textwidth=0      " override line 461
+set nowrap           " override line 464
+set colorcolumn=0    " override line 467
+set novisualbell     " override line 471
 
 " override lines 560-562
 " Splits ,sv and ,sh to open new splits (vertical and horizontal)
@@ -31,14 +31,10 @@ unmap <leader>h
 nnoremap <leader>sv <C-w>v<C-w>l
 nnoremap <leader>sh <C-w>s<C-w>j
 
-" override line 375
+" override line 394
 iunabbrev z@
 
-" override lines 540-542
-unmap H
-unmap L
-
-" override lines 470-479
+" override lines 491-497
 set cursorline
 augroup cline
     au!
