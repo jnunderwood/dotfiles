@@ -190,7 +190,8 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 # Workspace assignments
-assign [class="^Vncconfig$"] 0
+assign [class="^Vncconfig$"] 10
+assign [class="^chromium-browser$"] 1
 
 # Start i3bar to display a workspace bar
 bar {
@@ -216,8 +217,8 @@ exec --no-startup-id /usr/bin/nm-applet
 exec /usr/bin/vnc4config
 
 # DPI for 27" UltraHD monitor
-exec_always --no-startup-id xrandr --dpi 163
+#exec_always --no-startup-id xrandr --dpi 163
 
 # DPI for 15.6" UltraHD laptop screen
-#exec_always --no-startup-id xrandr --dpi 282
+exec_always --no-startup-id xrandr --dpi 282
 
