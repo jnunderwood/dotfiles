@@ -303,46 +303,13 @@ set guifont=Fira\ Code\ 10  " ligatures do not work in gvim
 
 function! InitMyTheme() " {{{
     if !has('gui_running')
-        " terminal option to allow for 256 color; do not use with solarized
         set t_Co=256
     endif
 
     " -- favorite dark themes
     set background=dark
 
-    "color railscasts
-    "hi Special    term=bold      ctermfg=130 guifg=#af5f00
-    "hi Identifier term=underline ctermfg=130 guifg=#af5f00
-    "hi Type       term=underline ctermfg=130 guifg=#df5f00
-    " hi CursorLine ctermbg=237
-    " hi Normal ctermbg=234 guibg=#181818
-    " hi Folded ctermfg=255 ctermbg=238
-    " hi Comment gui=none
-
     color darcula
-
-    " color xoria256
-    " color base16-grayscale
-    " color desertEx
-    " color gruvbox
-    " color jellyx
-    " color obsidian
-    " color selenitic
-
-    " color mustang
-    " hi Folded ctermbg=0  " use black backgound for folds
-
-    " color candycode
-    " hi Folded cterm=none gui=none  " turn off underlining
-
-    " color desert256
-    " modify CursorLine slightly; only works if cursorline is on
-    " hi CursorLine cterm=NONE ctermbg=236 guibg=Grey20
-
-    " color golden
-    " turn terminal background to black instead of transparent
-    " hi Normal ctermbg=black
-
 
     " -- favorite light themes
     " set background=light
@@ -353,43 +320,10 @@ function! InitMyTheme() " {{{
     " -- transparent bg
     " use only use if terminal bg matches chosen colorscheme
     if !has('gui_running')
-        "hi Normal ctermbg=none
+        hi Normal ctermbg=none
     endif
 endfunction " }}}
 
-function! InitMySolarized() " {{{
-    " @see http://vimawesome.com/plugin/vim-colors-solarized-sparks-fly
-
-    " let g:solarized_bold=0     " turn off bold
-    " let g:solarized_italic=0   " turn off italic
-    let g:solarized_underline=0  " turn off underline
-    syntax enable
-    set background=dark
-    colorscheme solarized
-
-    hi Comment gui=none
-    if !has('gui_running')
-        " override defaults:
-        " let g:solarized_termcolors=256  " only use if term is not configured for solarized
-        hi Normal ctermfg=8 ctermbg=NONE  " transparent bg, useful with solarized terminal colors
-        hi Identifier         ctermfg=DarkCyan
-        hi vimGroup           ctermfg=DarkCyan
-        hi vimCmdSep          ctermfg=DarkCyan
-        hi vimHiLink          ctermfg=DarkCyan
-        hi vimHiGroup         ctermfg=DarkCyan
-        hi htmlTagName        ctermfg=DarkCyan
-        hi htmlSpecialTagName ctermfg=DarkCyan
-        hi varId              ctermfg=DarkCyan
-        hi Directory          ctermfg=DarkCyan
-        hi MoreMsg            ctermfg=DarkCyan
-        hi ModeMsg            ctermfg=DarkCyan
-        hi DiffText           ctermfg=DarkCyan
-        hi helpHyperTextJump  ctermfg=DarkCyan
-        hi hs_hlFunctionName  ctermfg=DarkCyan
-    endif " 'gui_running'
-endfunction " }}}
-
-" call InitMySolarized()
 call InitMyTheme()
 
 " }}}
