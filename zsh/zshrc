@@ -51,7 +51,7 @@ export GOPATH=$HOME/gocode
 
 # common variables
 export PATH=$HOME/.npm-global/bin:$HOME/bin:$GOPATH/bin:$PATH
-export EDITOR='/usr/bin/vim'
+export EDITOR='/usr/bin/nvim'  # '/usr/bin/vim'
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
@@ -119,3 +119,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 #
 # vim: set ft=zsh fdm=marker:
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

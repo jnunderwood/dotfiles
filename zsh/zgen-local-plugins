@@ -14,7 +14,7 @@ zgen oh-my-zsh plugins/vagrant
 # bulk load plugins
 zgen loadall <<EOPLUGINS
   chrissicool/zsh-256color
-  djui/alias-tips
+  # djui/alias-tips
   # jimhester/per-directory-history
   nobeans/zsh-sdkman
   rimraf/k

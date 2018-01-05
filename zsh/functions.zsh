@@ -171,22 +171,33 @@ function dashedtitle {
 
 function update {
     /usr/bin/sudo -v
-    dashedtitle 65 "Updating Packages (no output expected)... apt-get update -qq"
-    /usr/bin/sudo /usr/bin/apt-get update -qq
+    /bin/echo "*** Updating Packages (no output expected) ***"
+    /bin/echo "apt-get update -qq --fix-missing"
+    /usr/bin/sudo /usr/bin/apt-get update -qq --fix-missing
+    /bin/echo ""
+
     /usr/bin/sudo -v
-    dashedtitle 65 "Upgrading Packages... apt-get upgrade"
-    /usr/bin/sudo /usr/bin/apt-get upgrade
+    /bin/echo "*** Upgrading Packages ***"
+    /bin/echo "apt-get upgrade --with-new-pkgs"
+    /usr/bin/sudo /usr/bin/apt-get -y upgrade --with-new-pkgs
+    /bin/echo ""
+
     /usr/bin/sudo -v
-    dashedtitle 65 "Upgrading Distribution... apt-get dist-upgrade"
+    /bin/echo "*** Upgrading Distribution ***"
+    /bin/echo "apt-get dist-upgrade"
     /usr/bin/sudo /usr/bin/apt-get dist-upgrade
+    /bin/echo ""
+
     /usr/bin/sudo -v
-    dashedtitle 65 "Auto-Removing Packages... apt-get autoremove"
+    /bin/echo "*** Auto-Removing Packages ***"
+    /bin/echo "apt-get autoremove"
     /usr/bin/sudo /usr/bin/apt-get autoremove
     /bin/echo ""
+
     /usr/bin/sudo -v
-    dashedtitle 65 "Auto-Cleaning Local Repository... apt-get autoclean"
+    /bin/echo "*** Auto-Cleaning Local Repository ***"
+    /bin/echo "apt-get autoclean"
     /usr/bin/sudo /usr/bin/apt-get autoclean
-    /bin/echo ""
 }
 
 function af {
