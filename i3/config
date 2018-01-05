@@ -1,6 +1,7 @@
+# ------------------------------------------------------------------------------
+
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
-#
 
 # i3 config file (v4)
 #
@@ -11,10 +12,10 @@
 #
 # To get a config file with the same key positions, but for your current
 # layout, use the i3-config-wizard
-#
 
-# modifier key; Mod1=Alt, Mod4=Win
-set $mod Mod1
+# ------------------------------------------------------------------------------
+# fonts
+# ------------------------------------------------------------------------------
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -26,12 +27,12 @@ set $mod Mod1
 # use this font instead
 font pango:Fira Code Retina 10
 
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn't scale on retina/hidpi displays.
+# ------------------------------------------------------------------------------
+# key bindings
+# ------------------------------------------------------------------------------
+
+# modifier key; Mod1=Alt, Mod4=Win
+set $mod Mod1
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient - vi key bindings!
@@ -43,13 +44,8 @@ set $right l
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# No border for new windows
-#new_window none
-
-# window borders (not working yet)
-# use 'xprop' to determine a window's class
-for_window [class="chromium-browser"] border none
-for_window [class="urxvt"] border pixel 1
+# return to previous workspace using Alt+Tab; not working
+bindsysm Mod1+Tab workspace back_and_forth
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
@@ -58,8 +54,10 @@ bindsym $mod+Return exec urxvt
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
+# start a program launcher
 bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec synapse
+#
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -122,6 +120,10 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
+
+# switch to previous and next workspaces
+bindsym $mod+Ctrl+$left workspace prev
+bindsym $mod+Ctrl+$right workspace next
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -186,8 +188,26 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym Mod4+l mode "$mode_system"
+
+# ------------------------------------------------------------------------------
+# windows settings
+# ------------------------------------------------------------------------------
 
 # colors
 # class                 border  backgr. text    indicator child_border
@@ -198,19 +218,43 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
-# Workspace assignments
+# window borders (not working yet)
+# use 'xprop' to determine a window's class
+for_window [class="Wfica"] border none
+for_window [class="chromium-browser"] border none
+for_window [class="urxvt"] border pixel 1
+
+# ------------------------------------------------------------------------------
+# workspace assignments
+# ------------------------------------------------------------------------------
+
+# use 'xprop' to determine a window's class
 #assign [class="^Vncconfig$"] 10
-#assign [class="^chromium-browser$"] 1
+assign [class="^Wfica$"] 1
+assign [class="^chromium-browser$"] 2
+assign [class="^pidgin$"] 2
+
+# ------------------------------------------------------------------------------
+# status bar
+# ------------------------------------------------------------------------------
 
 # Start i3bar to display a workspace bar
 bar {
     #tray_output primary
     # display the system information i3status finds out, if available
-    status_command /usr/bin/i3status --config ~/dotfiles/i3/i3status.conf
-    #status_command $HOME/bin/conky-i3bar
+    #status_command /usr/bin/i3status --config ~/dotfiles/i3/i3status.conf
+    status_command $HOME/bin/conky-i3bar
 }
 
+# ------------------------------------------------------------------------------
 # start these programs when i3 starts
+# ------------------------------------------------------------------------------
+
+# background image
+exec --no-startup-id feh --bg-scale $HOME/Pictures/haiku2k72HDfree.jpg
+
+# screensaver
+exec --no-startup-id xscreensaver
 
 # network monitor applet (careful on remote desktops!)
 exec --no-startup-id /usr/bin/nm-applet
@@ -223,15 +267,21 @@ exec --no-startup-id /usr/bin/solaar
 exec --no-startup-id /usr/bin/volumeicon
 
 # keyring
-#exec --no-startup-id gnome-settings-daemon
-#exec --no-startup-id gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id gnome-settings-daemon
+exec --no-startup-id gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # VNC Config
 # exec /usr/bin/vnc4config
 
-# DPI for 27" UltraHD monitor
-#exec_always --no-startup-id xrandr --dpi 163
+# ------------------------------------------------------------------------------
+# start these programs when i3 starts or restarts
+# ------------------------------------------------------------------------------
+
+# DPI for 27" UltraHD monitor, mirrored display on laptop
+exec_always --no-startup-id xrandr --dpi 163 --output eDP-1-1 --mode 3840x2160 --scale 1x1 --output DP-1-1 --same-as eDP-1-1 --mode 3840x2160 --scale 1x1
 
 # DPI for 15.6" UltraHD laptop screen
-exec_always --no-startup-id xrandr --dpi 282
+#exec_always --no-startup-id xrandr --dpi 282
+
+# ------------------------------------------------------------------------------
 
