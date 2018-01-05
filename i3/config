@@ -24,7 +24,7 @@ set $mod Mod1
 #font pango:DejaVu Sans Mono 15
 
 # use this font instead
-font pango:Fira Code Retina 9
+font pango:Fira Code Retina 10
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -154,6 +154,15 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%  # increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%  # decrease sound volume
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp   exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -190,15 +199,15 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
 # Workspace assignments
-assign [class="^Vncconfig$"] 10
-assign [class="^chromium-browser$"] 1
+#assign [class="^Vncconfig$"] 10
+#assign [class="^chromium-browser$"] 1
 
 # Start i3bar to display a workspace bar
 bar {
     #tray_output primary
     # display the system information i3status finds out, if available
-    #status_command /usr/bin/i3status --config ~/dotfiles/i3/i3status.conf
-    status_command $HOME/bin/conky-i3bar
+    status_command /usr/bin/i3status --config ~/dotfiles/i3/i3status.conf
+    #status_command $HOME/bin/conky-i3bar
 }
 
 # start these programs when i3 starts
@@ -207,14 +216,18 @@ bar {
 exec --no-startup-id /usr/bin/nm-applet
 
 # solaar, applet for logitech wireless mouse
-#exec --no-startup-id /usr/bin/solaar
+exec --no-startup-id /usr/bin/solaar
+
+# volume applet
+#exec --no-startup-id /usr/bin/pasystray
+exec --no-startup-id /usr/bin/volumeicon
 
 # keyring
 #exec --no-startup-id gnome-settings-daemon
 #exec --no-startup-id gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # VNC Config
-exec /usr/bin/vnc4config
+# exec /usr/bin/vnc4config
 
 # DPI for 27" UltraHD monitor
 #exec_always --no-startup-id xrandr --dpi 163
