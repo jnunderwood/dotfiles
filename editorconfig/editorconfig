@@ -25,6 +25,9 @@ indent_size = 2
 indent_size = 2
 insert_final_newline = ignore
 
+[*.yml]
+indent_size = 4
+
 [*.html]
 indent_size = 2
 

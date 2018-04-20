@@ -166,6 +166,10 @@ nnoremap <silent> <leader>ml :call AppendModeline()<CR>
 " plugin-specific settings {{{
 "
 
+" vim-session
+let g:session_autosave = 'no'
+let g:session_directory = '~/tmp/vim/sessions/'
+
 " NERDTree
 " Check if NERDTree is open or active
 function! IsNERDTreeOpen()
@@ -190,7 +194,19 @@ noremap <F2> :call SyncTree()<CR>
 let g:mta_filetypes = { 'html' : 1, 'xhtml' : 1, 'xml' : 1, 'jinja' : 1, 'gsp' : 1 }
 
 " Tagbar
-let g:tagbar_left = 1
+"let g:tagbar_left = 1
+let g:tagbar_type_groovy = {
+    \ 'ctagstype' : 'groovy',
+    \ 'kinds'     : [
+        \ 'p:package:1',
+        \ 'c:classes',
+        \ 'i:interfaces',
+        \ 't:traits',
+        \ 'e:enums',
+        \ 'm:methods',
+        \ 'f:fields:1'
+    \ ]
+\ }
 
 " Syntastic (which is correct?)
 let g:syntastic_javascript_chekers = ['eslint']

@@ -1,0 +1,58 @@
+// vim:ts=4:sw=4:et
+{
+    // tabbed split container with 2 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": 1,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 4,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 2074,
+               "width": 3832,
+               "x": 4,
+               "y": 38
+            },
+            "name": "i3: Layout saving in i3 - Chromium",
+            "percent": 0.5,
+            "swallows": [
+               {
+               // "class": "^Chromium\\-browser$",
+               // "instance": "^chromium\\-browser$",
+               // "title": "^i3\\:\\ Layout\\ saving\\ in\\ i3\\ \\-\\ Chromium$",
+               // "transient_for": "^$",
+               // "window_role": "^browser$"
+               }
+            ],
+            "type": "con"
+        },
+        {
+            "border": "normal",
+            "current_border_width": 4,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 2074,
+               "width": 3832,
+               "x": 4,
+               "y": 38
+            },
+            "name": "m3800 | Lorenzo Bettini - Chromium",
+            "percent": 0.5,
+            "swallows": [
+               {
+               // "class": "^Chromium\\-browser$",
+               // "instance": "^chromium\\-browser$",
+               // "title": "^m3800\\ \\|\\ Lorenzo\\ Bettini\\ \\-\\ Chromium$",
+               // "transient_for": "^$",
+               // "window_role": "^browser$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

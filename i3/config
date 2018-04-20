@@ -218,11 +218,20 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
-# window borders (not working yet)
+# window borders
 # use 'xprop' to determine a window's class
-for_window [class="Wfica"] border none
-for_window [class="chromium-browser"] border none
-for_window [class="urxvt"] border pixel 1
+#for_window [class="Wfica"] border pixel 1
+for_window [class="chromium-browser"] border pixel 1
+for_window [class="Code"] border pixel 1
+for_window [class="URxvt"] border pixel 1
+
+# enable floating mode for all Citrix/Outlook windows
+#for_window [class="Wfica"] floating enable
+#for_window [class="Wfica_Seamless"] floating enable
+for_window [class="Pidgin"] floating enable
+#
+# make Pidgin windows sticky
+for_window [class="Pidgin"] sticky enable
 
 # ------------------------------------------------------------------------------
 # workspace assignments
@@ -230,9 +239,8 @@ for_window [class="urxvt"] border pixel 1
 
 # use 'xprop' to determine a window's class
 #assign [class="^Vncconfig$"] 10
-assign [class="^Wfica$"] 1
-assign [class="^chromium-browser$"] 2
-assign [class="^pidgin$"] 2
+assign [class="Wfica"] 1
+assign [class="chromium-browser"] 2
 
 # ------------------------------------------------------------------------------
 # status bar
@@ -250,11 +258,8 @@ bar {
 # start these programs when i3 starts
 # ------------------------------------------------------------------------------
 
-# background image
-exec --no-startup-id feh --bg-scale $HOME/Pictures/haiku2k72HDfree.jpg
-
-# screensaver
-exec --no-startup-id xscreensaver
+# instant messaging
+exec --no-startup-id /usr/bin/pidgin
 
 # network monitor applet (careful on remote desktops!)
 exec --no-startup-id /usr/bin/nm-applet
@@ -276,6 +281,12 @@ exec --no-startup-id gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnom
 # ------------------------------------------------------------------------------
 # start these programs when i3 starts or restarts
 # ------------------------------------------------------------------------------
+
+# background image
+exec_always --no-startup-id feh --bg-scale $HOME/Pictures/haiku2k72HDfree.jpg
+
+# screensaver
+exec_always --no-startup-id xautolock -time 5 -secure -locker "/usr/bin/i3lock --color=000000"
 
 # DPI for 27" UltraHD monitor, mirrored display on laptop
 exec_always --no-startup-id xrandr --dpi 163 --output eDP-1-1 --mode 3840x2160 --scale 1x1 --output DP-1-1 --same-as eDP-1-1 --mode 3840x2160 --scale 1x1

@@ -17,9 +17,9 @@ function ltu { ll -rtuA $@ | $PAGER -L; }
 function lls { ll -rS   $@ | $PAGER -L; }
 function lss { ll -rS   $@ | $PAGER -L; }
 
-function chpwd() {
-  ls
-}
+#function chpwd() {
+#  ls
+#}
 
 #
 # }}}
@@ -48,6 +48,19 @@ function ldapemp {
         $HOME/bin/ldapfind $opt "(employeeNumber=$@)"
     elif [ $# -eq 1 ]; then
         $HOME/bin/ldapfind "(employeeNumber=$@)"
+    else
+        $HOME/bin/ldapfind
+    fi
+}
+
+function ldapmail {
+    # FIXME: loop through multiple options
+    if [ $# -gt 1 ]; then
+        opt=$1
+        shift
+        $HOME/bin/ldapfind $opt "(mail=$@)"
+    elif [ $# -eq 1 ]; then
+        $HOME/bin/ldapfind "(mail=$@)"
     else
         $HOME/bin/ldapfind
     fi
@@ -179,7 +192,7 @@ function update {
     /usr/bin/sudo -v
     /bin/echo "*** Upgrading Packages ***"
     /bin/echo "apt-get upgrade --with-new-pkgs"
-    /usr/bin/sudo /usr/bin/apt-get -y upgrade --with-new-pkgs
+    /usr/bin/sudo /usr/bin/apt-get upgrade --with-new-pkgs
     /bin/echo ""
 
     /usr/bin/sudo -v

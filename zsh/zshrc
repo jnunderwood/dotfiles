@@ -19,6 +19,9 @@ fi
 # less paranoid file permissions
 umask 002
 
+# allow for core dumps
+#ulimit -c unlimited
+
 # locale settings
 # using "C" is useful for expected sorting of filenames
 # export LC_ALL="C.UTF-8"  # use this for foreign character support
@@ -51,7 +54,7 @@ export GOPATH=$HOME/gocode
 
 # common variables
 export PATH=$HOME/.npm-global/bin:$HOME/bin:$GOPATH/bin:$PATH
-export EDITOR='/usr/bin/nvim'  # '/usr/bin/vim'
+export EDITOR='/usr/bin/vim'  # '/usr/bin/nvim'
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
@@ -110,6 +113,14 @@ source $HOME/dotfiles/zsh/my.zsh-theme
 # may be appended to the end of this file
 #
 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# Add NVMto PATH for scripting. Make sure this is the last PATH variable change.
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -120,5 +131,3 @@ export SDKMAN_DIR="$HOME/.sdkman"
 #
 # vim: set ft=zsh fdm=marker:
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"

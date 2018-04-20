@@ -20,6 +20,8 @@ Plugin 'Valloric/MatchTagAlways'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'ternjs/tern_for_vim.git'
 Plugin 'pangloss/vim-javascript'
+" Plugin 'groovyindent-unix'
+" Plugin 'majutsushi/tagbar'
 " Plugin 'altercation/vim-colors-solarized'
 
 " Brief help

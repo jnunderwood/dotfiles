@@ -1,0 +1,2761 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_152" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="driverName">
+     <string>JDBC-LDAP Bridge</string>
+    </void>
+    <void property="driverclass">
+     <string>com.octetstring.jdbcLdap.sql.JdbcLdapDriver</string>
+    </void>
+    <void property="group">
+     <string>z: Other</string>
+    </void>
+    <void property="name">
+     <string>Active Directory</string>
+    </void>
+    <void property="password">
+     <string>abcdefg</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:ldap://unch.unc.edu:389/DC=unch,DC=unc,DC=edu</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>CN=cfxbind,CN=Users,DC=unch,DC=unc,DC=edu</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>AWS</string>
+         </void>
+         <void method="add">
+          <string>LawsonImport</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>AWS</string>
+    </void>
+    <void property="name">
+     <string>AWS - Test, sql server</string>
+    </void>
+    <void property="password">
+     <string>@wsd3v!</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>dbo</string>
+         </void>
+         <void method="add">
+          <string>LAWSON</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://sql2014-un1-t01:1433/aws_dev</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>awsrwdev</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/AWS.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>AWS</string>
+         </void>
+         <void method="add">
+          <string>LawsonImport</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>AWS</string>
+    </void>
+    <void property="name">
+     <string>AWS - Production, sql server</string>
+    </void>
+    <void property="password">
+     <string>awsrwprod</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>dbo</string>
+         </void>
+         <void method="add">
+          <string>LAWSON</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://entsql8-un2-p01:1433/aws</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>awsrwprod</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/AWS.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>AWS</string>
+         </void>
+         <void method="add">
+          <string>LawsonImport</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: AWS</string>
+    </void>
+    <void property="name">
+     <string>AWS - PRODUCTION</string>
+    </void>
+    <void property="password">
+     <string>awsrwprod</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>dbo</string>
+         </void>
+         <void method="add">
+          <string>LAWSON</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://entsql08db.unch.unc.edu:1433/aws</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>awsrwprod</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/AWS.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter" id="ObjectNameFilter0">
+      <void id="Collections$UnmodifiableCollection0" property="filterExpressions"/>
+      <void property="filterExpressions">
+       <object idref="Collections$UnmodifiableCollection0"/>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: AWS</string>
+    </void>
+    <void property="name">
+     <string>AWS - TEST</string>
+    </void>
+    <void property="password">
+     <string>awsrwprod</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter" id="ObjectNameFilter1">
+      <void id="Collections$UnmodifiableCollection1" property="filterExpressions"/>
+      <void property="filterExpressions">
+       <object idref="Collections$UnmodifiableCollection1"/>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://sqltest08.unch.unc.edu;database=aws_dev</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>awsrwprod</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter" id="ObjectNameFilter2">
+      <void id="Collections$UnmodifiableCollection2" property="filterExpressions"/>
+      <void property="filterExpressions">
+       <object idref="Collections$UnmodifiableCollection2"/>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>100</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: AWS</string>
+    </void>
+    <void property="name">
+     <string>AWS aws_back</string>
+    </void>
+    <void property="password">
+     <string>awsrwtest</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter" id="ObjectNameFilter3">
+      <void id="Collections$UnmodifiableCollection3" property="filterExpressions"/>
+      <void property="filterExpressions">
+       <object idref="Collections$UnmodifiableCollection3"/>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://sqltest08.unch.unc.edu;database=aws_back</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>awsrwtest</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter" id="ObjectNameFilter4">
+      <void id="Collections$UnmodifiableCollection4" property="filterExpressions"/>
+      <void property="filterExpressions">
+       <object idref="Collections$UnmodifiableCollection4"/>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>100</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: AWS</string>
+    </void>
+    <void property="name">
+     <string>AWS prod (old)</string>
+    </void>
+    <void property="password">
+     <string>awsrwprod</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter" id="ObjectNameFilter5">
+      <void id="Collections$UnmodifiableCollection5" property="filterExpressions"/>
+      <void property="filterExpressions">
+       <object idref="Collections$UnmodifiableCollection5"/>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://entsqldb.unch.unc.edu:1433/aws</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>awsrwprod</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>100</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: AWS</string>
+    </void>
+    <void property="name">
+     <string>AWS test (old)</string>
+    </void>
+    <void property="password">
+     <string>awsrwprod</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://sqltest.unch.unc.edu;instance=aws;database=aws</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>awsrwprod</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="driverName">
+     <string>Microsoft SQL Server</string>
+    </void>
+    <void property="driverclass">
+     <string>com.microsoft.sqlserver.jdbc.SQLServerDriver</string>
+    </void>
+    <void property="group">
+     <string>Clean Hands</string>
+    </void>
+    <void property="name">
+     <string>Clean Hands - Production, sql server</string>
+    </void>
+    <void property="password">
+     <string>cleanhands_own22</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:sqlserver://sql2014-un1-p01.unch.unc.edu;database=cleanhands</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>cleanhands_own</string>
+    </void>
+    <void property="workspaceFile">
+     <string>CleanHands.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="driverName">
+     <string>Microsoft SQL Server</string>
+    </void>
+    <void property="driverclass">
+     <string>com.microsoft.sqlserver.jdbc.SQLServerDriver</string>
+    </void>
+    <void property="group">
+     <string>Clean Hands</string>
+    </void>
+    <void property="name">
+     <string>Clean Hands - Staging, sql server</string>
+    </void>
+    <void property="password">
+     <string>cleanhands_own22</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:sqlserver://sql2014-un1-t01.unch.unc.edu;database=cleanhands</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>cleanhands_own</string>
+    </void>
+    <void property="workspaceFile">
+     <string>CleanHands.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>eaw</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: EAW</string>
+    </void>
+    <void property="name">
+     <string>EAW - PRODUCTION</string>
+    </void>
+    <void property="password">
+     <string>awsrwprod</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>dbo</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://entsql08db.unch.unc.edu;database=EAW</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>awsrwprod</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/EAW.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: EAW</string>
+    </void>
+    <void property="name">
+     <string>EAW - TEST</string>
+    </void>
+    <void property="password">
+     <string>awsrwprod</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://sqltest08.unch.unc.edu;database=EAW</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>awsrwprod</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/EAW.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>eip</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: EIP</string>
+    </void>
+    <void property="name">
+     <string>EIP - PRODUCTION (2012)</string>
+    </void>
+    <void property="password">
+     <string>eip123</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>dbo</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://entsql08db.unch.unc.edu;database=eip</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>eip</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/EIP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: EIP</string>
+    </void>
+    <void property="name">
+     <string>EIP - PRODUCTION (2013)</string>
+    </void>
+    <void property="password">
+     <string>eipDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:tcp://aws1/eip</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>eipSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/EIP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: EIP</string>
+    </void>
+    <void property="name">
+     <string>EIP - TEST (2012)</string>
+    </void>
+    <void property="password">
+     <string>eip123</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://sqltest08.unch.unc.edu;database=eip</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>eip</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/EIP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: EIP</string>
+    </void>
+    <void property="name">
+     <string>EIP - TEST (2013)</string>
+    </void>
+    <void property="password">
+     <string>eipDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:tcp://awsdev/eip</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>eipSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/EIP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="driverName">
+     <string>SQLite</string>
+    </void>
+    <void property="driverclass">
+     <string>org.sqlite.JDBC</string>
+    </void>
+    <void property="group">
+     <string>Employees Service</string>
+    </void>
+    <void property="name">
+     <string>Employee Service - local, sqlite</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:sqlite:/home/junderwo/repos/webapps/employees-service-feathers/app/data/employees.sqlite</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="driverName">
+     <string>Microsoft SQL Server</string>
+    </void>
+    <void property="driverclass">
+     <string>com.microsoft.sqlserver.jdbc.SQLServerDriver</string>
+    </void>
+    <void property="group">
+     <string>Equity</string>
+    </void>
+    <void property="name">
+     <string>Equity - PRODUCTION</string>
+    </void>
+    <void property="password">
+     <string>z72BrA32i</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:sqlserver://entsql8-un2-p01.unch.unc.edu;database=equity</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>equityown</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>100</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: Other</string>
+    </void>
+    <void property="name">
+     <string>Faculty CMS - adminsql</string>
+    </void>
+    <void property="password">
+     <string>plone</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://adminsql.unch.unc.edu:1433/faculty_cms</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>zope</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="driverName">
+     <string>Oracle</string>
+    </void>
+    <void property="driverclass">
+     <string>oracle.jdbc.OracleDriver</string>
+    </void>
+    <void property="group">
+     <string>Lawson</string>
+    </void>
+    <void property="name">
+     <string>Lawson - test</string>
+    </void>
+    <void property="password">
+     <string>uncquery</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>LAWSON</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:oracle:thin:@lawsondev.unch.unc.edu:1522:test10</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>lawquery</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>LawsonImport</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: Lawson</string>
+    </void>
+    <void property="name">
+     <string>Lawson Import - PRODUCTION</string>
+    </void>
+    <void property="password">
+     <string>awsrwprod</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>LAWSON</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://entsql8-un2-p01.unch.unc.edu;owner=LAWSON;database=LawsonImport</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>awsrwprod</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/LawsonImport.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>LawsonImport</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: Lawson</string>
+    </void>
+    <void property="name">
+     <string>Lawson Import - TEST</string>
+    </void>
+    <void property="password">
+     <string>awsrwprod</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>Lawson</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://sqltest08.unch.unc.edu;owner=LAWSON;database=LawsonImport</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>awsrwprod</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="connectionTimeout">
+     <int>30</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>Oracle</string>
+    </void>
+    <void property="driverclass">
+     <string>oracle.jdbc.OracleDriver</string>
+    </void>
+    <void property="group">
+     <string>z: Lawson</string>
+    </void>
+    <void property="name">
+     <string>Lawson Rex - PRODUCTION</string>
+    </void>
+    <void property="password">
+     <string>jund3rw0</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>lawprd</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:oracle:thin:@lawson.rexhealth.com:1521:law9p</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>junderwo</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/Lawson.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="connectionTimeout">
+     <int>30</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>Oracle</string>
+    </void>
+    <void property="driverclass">
+     <string>oracle.jdbc.OracleDriver</string>
+    </void>
+    <void property="group">
+     <string>z: Lawson</string>
+    </void>
+    <void property="name">
+     <string>Lawson UNC - PRODUCTION</string>
+    </void>
+    <void property="password">
+     <string>john$user</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>LAWSON</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:oracle:thin:@lawsonprod.unch.unc.edu:1521:lawprd</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>johninq</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/Lawson.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="driverName">
+     <string>MySQL</string>
+    </void>
+    <void property="driverclass">
+     <string>com.mysql.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: Survey</string>
+    </void>
+    <void property="name">
+     <string>Lime Survey 1.9 - localhost</string>
+    </void>
+    <void property="password">
+     <string></string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:mysql://localhost/limesurvey19</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>root</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>OIP</string>
+    </void>
+    <void property="name">
+     <string>OIP - local, H2 mixed</string>
+    </void>
+    <void property="password">
+     <string>oipDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:file:/srv/apps/oip/db/oip;AUTO_SERVER=TRUE;IGNORECASE=TRUE</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>oipSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/OIP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: OIP</string>
+    </void>
+    <void property="name">
+     <string>OIP - local, server (2014)</string>
+    </void>
+    <void property="password">
+     <string>oipDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:tcp://localhost/oip;IGNORECASE=TRUE</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>oipSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/OIP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: OIP</string>
+    </void>
+    <void property="name">
+     <string>OIP - PRODUCTION, mixed (2014)</string>
+    </void>
+    <void property="password">
+     <string>oipDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:file:/X:/apps/oip/db/oip;AUTO_SERVER=TRUE;IGNORECASE=TRUE</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>oipSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/OIP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: OIP</string>
+    </void>
+    <void property="name">
+     <string>OIP - PRODUCTION, server (2015)</string>
+    </void>
+    <void property="password">
+     <string>oipDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:tcp://aws1.unch.unc.edu/oip;IGNORECASE=TRUE</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>oipSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/OIP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>OIP</string>
+    </void>
+    <void property="name">
+     <string>OIP - Production, sql server</string>
+    </void>
+    <void property="password">
+     <string>931#eiP$yuM</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://entsql8-un2-p01;database=eip</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>eip</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/OIP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>OIP</string>
+    </void>
+    <void property="name">
+     <string>OIP - Test, sql server</string>
+    </void>
+    <void property="password">
+     <string>eip123</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://sqltest08.unch.unc.edu;database=eip</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>eip</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>ParkReg</string>
+    </void>
+    <void property="name">
+     <string>ParkReg - PRODUCTION</string>
+    </void>
+    <void property="password">
+     <string>parkreg</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://ENTSQL08DB.unch.unc.edu;database=ParkReg</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>parkreg_user</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/ParkReg.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>ParkReg</string>
+    </void>
+    <void property="name">
+     <string>ParkReg - TEST</string>
+    </void>
+    <void property="password">
+     <string>parkreg</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://sqltest08.unch.unc.edu;database=parkReg</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>parkReg_user</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/ParkReg.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>pto</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>PTO</string>
+    </void>
+    <void property="name">
+     <string>PTO - PRODUCTION</string>
+    </void>
+    <void property="password">
+     <string>pto1234</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>dbo</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://entsql08db.unch.unc.edu;database=pto</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>pto</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/PTO.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: PTO</string>
+    </void>
+    <void property="name">
+     <string>PTO - PRODUCTION old</string>
+    </void>
+    <void property="password">
+     <string>pto1234</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://entsqldb.unch.unc.edu;database=pto</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>pto</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/PTO.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>pto</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>PTO</string>
+    </void>
+    <void property="name">
+     <string>PTO - TEST</string>
+    </void>
+    <void property="password">
+     <string>pto1234</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>dbo</string>
+         </void>
+        </object>
+       </object>
+      </void>
+      <void property="inclusionFilter">
+       <boolean>true</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://sqltest08.unch.unc.edu;database=pto</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>pto</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/PTO.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>pto</string>
+         </void>
+        </object>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: PTO</string>
+    </void>
+    <void property="name">
+     <string>PTO - TEST old</string>
+    </void>
+    <void property="password">
+     <string>pto1234</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>dbo</string>
+         </void>
+        </object>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://sqltest.unch.unc.edu;database=pto</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>pto</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/PTO.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>PTO</string>
+    </void>
+    <void property="name">
+     <string>PTO local h2 srv</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:file:/srv/apps/pto/db/pto;AUTO_SERVER=true;IGNORECASE=true</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>sa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>PTO.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>PTO</string>
+    </void>
+    <void property="name">
+     <string>PTO local h2 tmp</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:file:/home/junderwo/tmp/pto/db/pto;AUTO_SERVER=true;IGNORECASE=true</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>sa</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>SECC</string>
+    </void>
+    <void property="name">
+     <string>SECC - local (2014)</string>
+    </void>
+    <void property="password">
+     <string>seccDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:file:/srv/apps/secc/db/secc;AUTO_SERVER=TRUE;IGNORECASE=TRUE</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>seccSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/COMP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: SECC</string>
+    </void>
+    <void property="ignoreDropErrors">
+     <boolean>true</boolean>
+    </void>
+    <void property="name">
+     <string>SECC - PRODUCTION (2013)</string>
+    </void>
+    <void property="password">
+     <string>seccDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:file:/C:/backup/aws1/20140428/databases/h2/secc;AUTO_SERVER=TRUE;IGNORECASE=TRUE</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>seccSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/SECC.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>SECC</string>
+    </void>
+    <void property="name">
+     <string>SECC - PRODUCTION (2014)</string>
+    </void>
+    <void property="password">
+     <string>seccDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:file:/mnt/aws1/srv/apps/secc/db/secc;AUTO_SERVER=TRUE;IGNORECASE=TRUE</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>seccSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/COMP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: SECC</string>
+    </void>
+    <void property="ignoreDropErrors">
+     <boolean>true</boolean>
+    </void>
+    <void property="name">
+     <string>SECC - TEST (2013)</string>
+    </void>
+    <void property="password">
+     <string>seccDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:tcp://awsdev/secc</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>seccSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/SECC.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>Shared Leave</string>
+    </void>
+    <void property="name">
+     <string>Shared Leave - local</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:file:/srv/apps/sharedleave/db/sharedleave;AUTO_SERVER=true;IGNORECASE=true</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>sa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>PTO.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>PatientConnect_test</string>
+         </void>
+        </object>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: Survey</string>
+    </void>
+    <void property="name">
+     <string>Survey Tool - PRODUCTION</string>
+    </void>
+    <void property="password">
+     <string>!Gators5</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>dbo</string>
+         </void>
+        </object>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://WCXMLSQL08/PatientConnect</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>smcdonal</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/Survey.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="catalogFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>PatientConnect_test</string>
+         </void>
+        </object>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: Survey</string>
+    </void>
+    <void property="name">
+     <string>Survey Tool - TEST</string>
+    </void>
+    <void property="password">
+     <string>!Gators5</string>
+    </void>
+    <void property="schemaFilter">
+     <object class="workbench.db.ObjectNameFilter">
+      <void property="filterExpressions">
+       <object class="java.util.Collections" method="unmodifiableCollection">
+        <object class="java.util.ArrayList">
+         <void method="add">
+          <string>dbo</string>
+         </void>
+        </object>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://sqltest08/PatientConnect_Test</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>smcdonal</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/Survey.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: Total Compensation</string>
+    </void>
+    <void property="name">
+     <string>Total Compensation - local</string>
+    </void>
+    <void property="password">
+     <string>compDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:tcp://localhost/totalcompensation</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>compSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/COMP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: Total Compensation</string>
+    </void>
+    <void property="name">
+     <string>Total Compensation - PRODUCTION</string>
+    </void>
+    <void property="password">
+     <string>compDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:tcp://aws.unch.unc.edu/totalcompensation</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>compSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/COMP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: Total Compensation</string>
+    </void>
+    <void property="name">
+     <string>Total Compensation - TEST</string>
+    </void>
+    <void property="password">
+     <string>compDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:tcp://awsdev.unch.unc.edu/totalcompensation</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>compSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/COMP.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: TPS</string>
+    </void>
+    <void property="name">
+     <string>TPS - local, mixed</string>
+    </void>
+    <void property="password">
+     <string>tpsDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:file:/opt/apps/tps/db/tps;AUTO_SERVER=TRUE;IGNORECASE=TRUE</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>tpsSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/TPS.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: TPS</string>
+    </void>
+    <void property="name">
+     <string>TPS - local, server</string>
+    </void>
+    <void property="password">
+     <string>tpsDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:tcp://localhost/tps</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>tpsSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/TPS.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: TPS</string>
+    </void>
+    <void property="name">
+     <string>TPS - PRODUCTION, mixed</string>
+    </void>
+    <void property="password">
+     <string>tpsDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:file://Z:/apps/tps/db/tps;AUTO_SERVER=TRUE;IGNORECASE=TRUE</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>tpsSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/TPS.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>H2 Database Engine</string>
+    </void>
+    <void property="driverclass">
+     <string>org.h2.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: UNC CareLink</string>
+    </void>
+    <void property="name">
+     <string>UNCCareLink - local, mixed</string>
+    </void>
+    <void property="password">
+     <string>carelinkDb</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:h2:file:/srv/apps/unccarelink/db/unccarelink;AUTO_SERVER=TRUE;IGNORECASE=TRUE</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>carelinkSa</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/UNCCareLink.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>z: UNC CareLink</string>
+    </void>
+    <void property="name">
+     <string>UNCCareLink - prod sql server</string>
+    </void>
+    <void property="password">
+     <string>yCAREs0much$r</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://imrsql.unch.unc.edu/;carelink</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>Carelink_User</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/UNCCareLink.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>UNC CareLink</string>
+    </void>
+    <void property="name">
+     <string>UNCCareLink - production sql server</string>
+    </void>
+    <void property="password">
+     <string>yCAREs0much$r</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://imrsql.unch.unc.edu/;carelink</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>Carelink_User</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/UNCCareLink.wksp</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="workbench.db.ConnectionProfile">
+    <void property="autocommit">
+     <boolean>true</boolean>
+    </void>
+    <void property="connectionTimeout">
+     <int>15</int>
+    </void>
+    <void property="defaultFetchSize">
+     <int>500</int>
+    </void>
+    <void property="driverName">
+     <string>jTDS</string>
+    </void>
+    <void property="driverclass">
+     <string>net.sourceforge.jtds.jdbc.Driver</string>
+    </void>
+    <void property="group">
+     <string>UNC CareLink</string>
+    </void>
+    <void property="name">
+     <string>UNCCareLink - test sql server</string>
+    </void>
+    <void property="password">
+     <string>yCAREs0much$r</string>
+    </void>
+    <void property="storeExplorerSchema">
+     <boolean>true</boolean>
+    </void>
+    <void property="url">
+     <string>jdbc:jtds:sqlserver://imrtestdb.unch.unc.edu/;carelink</string>
+    </void>
+    <void property="useSeparateConnectionPerTab">
+     <boolean>true</boolean>
+    </void>
+    <void property="username">
+     <string>Carelink_User</string>
+    </void>
+    <void property="workspaceFile">
+     <string>/home/junderwo/.sqlworkbench/UNCCareLink.wksp</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

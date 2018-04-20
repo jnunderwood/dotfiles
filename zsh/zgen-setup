@@ -81,6 +81,12 @@ load-starter-plugin-list() {
   # in a repository securely by encrypting them with gnupg
   zgen load StackExchange/blackbox
 
+  # Zsh plugin for installing, updating and loading nvm
+  zgen load lukechilds/zsh-nvm
+
+  # Better completion for npm
+  zgen load lukechilds/zsh-better-npm-completion
+
   # Load some oh-my-zsh plugins
   zgen oh-my-zsh plugins/pip
   zgen oh-my-zsh plugins/sudo
