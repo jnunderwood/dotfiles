@@ -126,16 +126,16 @@ bindsym $mod+Ctrl+$left workspace prev
 bindsym $mod+Ctrl+$right workspace next
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace 1: Windows
+bindsym $mod+2 workspace 2: Chrome
+bindsym $mod+3 workspace 3: Dev
+bindsym $mod+4 workspace 4: Dev
+bindsym $mod+5 workspace 5: Dev
+bindsym $mod+6 workspace 6: Dev
+bindsym $mod+7 workspace 7: Dev
+bindsym $mod+8 workspace 8: WebTools
+bindsym $mod+9 workspace 9: Staging
+bindsym $mod+0 workspace 10: Production
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1

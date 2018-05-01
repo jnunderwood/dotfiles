@@ -48,6 +48,9 @@ export LESS="-EiMRX"  # LESS="-M"
 #export LESSOPEN="|/usr/local/bin/lesspipe.sh %s"
 export LESSOPEN="|$HOME/bin/lesspipe.sh %s"
 
+# todo.txt
+export TODOTXT_DEFAULT_ACTION=ls
+
 # programming languages
 export GOPATH=$HOME/gocode
 # export JAVA_HOME=$HOME/java/jdk17
