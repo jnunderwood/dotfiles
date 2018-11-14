@@ -4,3 +4,4 @@ Session.vim
 *.tar.gz
 *.tar
 *.bak
+vim/plugged

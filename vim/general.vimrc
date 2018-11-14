@@ -1,0 +1,150 @@
+
+set undofile
+set undolevels=3000
+set undoreload=10000
+set undodir=~/tmp/nvim/undo//      " undo files
+"set undodir=~/.config/nvim/undodir
+
+set backup    " keep a backup file
+set backupdir=~/tmp/nvim/backup//  " backup files
+set directory=~/tmp/nvim/swap//    " swap files
+
+if has('mouse')
+  set mouse=a
+endif
+
+if has("autocmd")
+  augroup vimrcEx
+    au!
+
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=108
+
+    " Trim whitespace onsave
+    autocmd BufWritePre * %s/\s\+$//e
+
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is the default
+    " position when opening a file.
+    autocmd BufReadPost *
+          \ if line("'\"") > 1 && line("'\"") <= line("$") |
+          \   exe "normal! g`\"" |
+          \ endif
+
+  augroup END
+endif " has("autocmd")
+
+" tab stuff
+set tabstop=4
+set softtabstop=4
+set expandtab
+set smarttab
+set shiftwidth=4
+set autoindent
+set smartindent
+
+" Unix as standard file type
+set fileformats=unix,dos,mac
+set fileformat=unix
+
+" Always utf8
+set fileencoding=utf-8
+set termencoding=utf-8
+
+set list
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+  " ,eol:¶
+endif
+
+" clipboard
+set clipboard=unnamedplus
+
+set completeopt=longest,menuone,preview
+
+" miscellaneous
+set hidden  " buffer becomes hidden when abandoned
+set magic  " for regular expressions
+set incsearch
+set hlsearch
+set number
+set ruler       " show the cursor position all the time
+set wildmenu
+set cursorline
+set showcmd     " display incomplete commands
+set nowrap
+set ignorecase
+"set foldcolumn=4
+set nostartofline
+set norelativenumber
+set number
+set modeline
+set formatoptions+=j  " delete comment character when joining commented lines
+"set guioptions-=m  " turnoff the menu
+
+" shell
+if executable('/usr/bin/zsh')
+  set shell=/usr/bin/zsh
+else
+  set shell=/bin/bash
+endif
+
+" detect .md as markdown instead of modula-2
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+"
+" stop highlighting of underscores in markdown files
+autocmd BufNewFile,BufRead,BufEnter *.md,*.markdown :syntax match markdownIgnore "_"
+
+" add timstamp to backup files
+:if !exists("autocommands_loaded")
+:  let autocommands_loaded = 1
+:  au BufWrite * let &backupext = '-' . strftime("%Y%m%d-%H%M%S") . '~'
+:endif
+
+" function to set the working directory to the project's root, or to
+" the parent directory of the current file if a root cannot be found
+function! s:setcwd()
+  let cph = expand('%:p:h', 1)
+  if cph =~ '^.\+://' | retu | en
+  for mkr in ['.git/', '.hg/', '.svn/', '.bzr/', '_darcs/', '.vimprojects']
+    let wd = call('find'.(mkr =~ '/$' ? 'dir' : 'file'), [mkr, cph.';'])
+    if wd != '' | let &acd = 0 | brea | en
+  endfo
+  exe 'lc!' fnameescape(wd == '' ? cph : substitute(wd, mkr.'$', '.', ''))
+endfunction
+"autocmd BufEnter * call s:setcwd()
+
+" diff -w to ignore whitespace instead of -b
+set diffopt+=iwhite
+function DiffW()
+  let opt = "-a --binary "
+  if &diffopt =~ "icase"  | let opt = opt . "-i " | endif
+  if &diffopt =~ "iwhite" | let opt = opt . "-w " | endif  " vim uses -b by default
+  silent execute "!diff " . opt . v:fname_in . " " . v:fname_new . " > " . v:fname_out
+endfunction
+set diffexpr=DiffW()
+
+let c_comment_strings=1
+
+" MULTIPURPOSE TAB KEY
+" Indent if we're at the beginning of a line. Else, do completion.
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-p>"
+    endif
+endfunction
+
+" performance improvement settings
+" @see http://stackoverflow.com/questions/4775605/vim-syntax-highlight-improve-performance
+" @see http://vim.wikia.com/wiki/Fix_syntax_highlighting
+"syntax sync minlines=256
+"set cursorcolumn
+"set nocursorline
+
+" ripgrep
+set grepprg=rg\ --vimgrep
+
