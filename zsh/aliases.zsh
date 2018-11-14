@@ -1,10 +1,13 @@
+# -----------------------------------------------------------------------------
+# zsh/bash aliases
+# -----------------------------------------------------------------------------
 
 # unalias 'ls'; use functions instead
-unalias ls
-unalias l
-unalias la
-unalias ll
-unalias lsa
+#unalias ls
+#unalias l
+#unalias la
+#unalias ll
+#unalias lsa
 
 # aliases for save file operations
 #alias cp='echo "cp is diabled, use /bin/cp -ip"'
@@ -32,37 +35,27 @@ alias egrep='/bin/egrep --color=auto'
 alias  psa='/bin/ps -aux --forest | /bin/grep -Ev "root |bin |ps |ps -a" | /usr/bin/sort'
 alias  psc='/bin/ps -acux --forest | /bin/grep -Ev "root |bin | ps| grep" | /usr/bin/sort'
 alias  pst='/bin/ps -t $tty | /usr/bin/sort'
-alias psux='/bin/ps -ux --forest'
 alias  psx='/bin/ps -x --forest'
-alias  psg='/bin/ps -x | /usr/bin/head -1; /bin/ps -x --forest | /bin/grep --color=auto'
+alias psux='/bin/ps -ux --forest'
+alias  psg='/bin/ps -ux --forest | /usr/bin/head -1; /bin/ps -ux --forest | /bin/grep -v "color" | /bin/grep --color=auto'
 alias  psf='/bin/ps --forest -eo "%P %U %C %a"'
-alias  psj='/bin/ps --forest U $USER -o "pid pri %cpu %mem vsz rss size stat bsdstart bsdtime command" "$@"'
+alias  psj='/bin/ps --forest U $USER -o "pid pri %cpu %mem vsz rss size stat bsdstart bsdtime command"'
 
 # aliases for other stuff
-#alias      less='/usr/bin/less'
-#alias      more='/bin/more'
-#alias       vim='/usr/bin/vim'
-#alias    whence='type -a'
-#alias    citrix='$ICAROOT/selfservice &'
 alias       resource='. $HOME/dotfiles/zsh/zshrc'
-alias              m='$PAGER'
+alias              m='/usr/bin/bat --theme Darkula'  # $PAGER'
 alias             vi='$EDITOR'
-alias             vp='/usr/bin/vimpager'
 alias            bak='/bin/cp -p $1 $1.bak'
 alias             df='/bin/df -HT'
-alias            dus='/usr/bin/du -BM -s $@'
-alias           dusn='/usr/bin/du -BM -s $@ | /usr/bin/sort -n'
+alias            dus='/usr/bin/du -BM -s'
 alias             ws='/usr/bin/w | /usr/bin/sort -u +0.0 -1.0 | $PAGER'
-alias         findit='/usr/bin/find . -name $@ -print'
-alias       findgrep='/usr/bin/find . -name $@ -exec /bin/grep --color=auto -ls "$@" {} \;'
 alias           myip='ifconfig -a | perl -nle"/(\d+\.\d+\.\d+\.\d+)/ && print $1"'
-#alias            man='/usr/bin/man -P $PAGER'
-alias        manpage='/usr/bin/groff -man $@ | $PAGER'
 alias       printenv='/usr/bin/printenv | sort'
 alias         ssdiff='/usr/bin/sdiff -w$COLUMNS'
 alias            i3k='$PAGER $HOME/dotfiles/i3/i3keys.txt'
 alias       ldaphelp='$HOME/bin/ldapfind'
 alias          notes='$EDITOR $HOME/Documents/Notes.md'
+alias           todo='m $HOME/repos/junderwo/todo/README.md'
 alias              t='$HOME/bin/todo.sh -a -t -d ./todo.cfg'
 alias        weather='/usr/bin/curl wttr.in'
 alias        battery='/usr/bin/upower --show-info /org/freedesktop/UPower/devices/battery_BAT0'
@@ -73,10 +66,9 @@ alias      hibernate='/usr/bin/sudo /usr/sbin/pm-hibernate'
 alias suspend-hybrid='/usr/bin/sudo /usr/sbin/pm-suspend-hybrid'
 alias    vpn-connect='/usr/bin/sudo /usr/sbin/vpnc $HOME/.vpnc.conf'
 alias vpn-disconnect='/usr/bin/sudo /usr/sbin/vpnc-disconnect'
-
-# workaround settings for when problems exist in /etc/inputrc or $HOME/.inputrc
-#alias vIm='$EDITOR'
-#alias exIt='exit'
+#alias        whence='type -a'
+#alias        citrix='$ICAROOT/selfservice &'
+#alias            man='/usr/bin/man -P $PAGER'
 
 #
 # vim: set ft=zsh fdm=marker:

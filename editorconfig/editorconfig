@@ -16,20 +16,20 @@ trim_trailing_whitespace = false
 trim_trailing_whitespace = false
 
 [*.css]
-indent_size = 2
+indent_size = 4
 
 [*.js]
-indent_size = 2
+indent_size = 4
 
 [*.json]
-indent_size = 2
+indent_size = 4
 insert_final_newline = ignore
 
 [*.yml]
 indent_size = 4
 
 [*.html]
-indent_size = 2
+indent_size = 4
 
 [*.py]
 indent_size = 4
@@ -40,11 +40,17 @@ max_line_length = 80
 indent_style = ignore
 insert_final_newline = ignore
 
+# Batch files use tabs for indentation
+[*.bat]
+indent_style = tab
+
 # Makefiles always use tabs for indentation
 [Makefile]
 indent_style = tab
 
-# Batch files use tabs for indentation
-[*.bat]
-indent_style = tab
+[Dockerfile]
+indent_size = 2
+
+[Vagrantfile]
+indent_size = 2
 

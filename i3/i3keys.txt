@@ -1,38 +1,42 @@
 -------------------------------------------------------------------------------
-|                        i3 Window Manager Keybindings                        |
+|                         i3 Window Manager Keybindings                       |
 |-----------------------------------------------------------------------------|
-| Alt+Enter                           | Alt+f                                 |
-| Open a new terminal emulator window | Toggle fullscreen mode.               |
-|                                     |                                       |
-| Alt+d                               | Alt+s                                 |
-| Open dmenu                          | Enable stacking layout for the        |
-|                                     | current container.                    |
-| h/j/k/l  OR  cursor keys            |                                       |
-| Direction (left, down, up, right)   | Alt+e                                 |
-|                                     | Enable default layout for the         |
-| Alt+<direction>                     | current container.                    |
-| Focus window in <direction>.        |                                       |
-|                                     | Alt+w                                 |
-| Alt+Shift+<direction>               | Enable tabbed layout for the          |
-| Move window to <direction>.         | current container.                    |
-|                                     |                                       |
-| Alt+<number>                        | Alt+Shift+Space                       |
-| Switch to workspace <number>.       | Toggle tiling/floating for the        |
-|                                     | current container.                    |
-| Alt+Shift+<number>                  |                                       |
-| Move window to workspace <number>.  | Alt+Space                             |
-|                                     | If current container is floating,     |
-| Alt+Shift+c                         | then select first tiling container.   |
-| Reload i3 configuration file.       | If current container is tiling,       |
-|                                     | then select first floating container. |
-| Alt+Shift+r                         |                                       |
-| Restarts i3 in place.               | Alt+Shift+q                           |
-|                                     | Kills the current window. Quit or     |
-| Alt+v                               | close the current application.        |
-| Vertical split current container    |                                       |
-|                                     | Alt+Shift+e                           |
-| Alt+Shift+v                         | Exit i3, after confirmation.          |
-| Horizontal split current container  |                                       |
+| Alt+Enter                            | Alt+f                                |
+| Open a new terminal emulator window  | Toggle fullscreen mode               |
+|                                      |                                      |
+| Alt+d                                | Alt+s                                |
+| Open dmenu                           | Enable stacking layout for the       |
+|                                      | current container                    |
+| h/j/k/l                              |                                      |
+| Direction (left, down, up, right)    | Alt+e                                |
+|                                      | Enable default layout for the        |
+| Alt+<direction>                      | current container                    |
+| Focus window in <direction>          |                                      |
+|                                      | Alt+w                                |
+| Alt+Shift+<direction>                | Enable tabbed layout for the         |
+| Move window to <direction>           | current container                    |
+|                                      |                                      |
+| Alt+<number>                         | Alt+Shift+Space                      |
+| Switch to workspace <number>         | Toggle tiling/floating for the       |
+|                                      | current container                    |
+| Alt+Shift+<number>                   |                                      |
+| Move window to workspace <number>    | Alt+Space                            |
+|                                      | If current container is floating,    |
+| Alt+Shift+c                          | then select first tiling container   |
+| Reload i3 configuration file         | If current container is tiling,      |
+|                                      | then select first floating container |
+| Alt+Shift+r                          |                                      |
+| Restarts i3 in place                 | Alt+Shift+minus                      |
+|                                      | move window to scratchpad            |
+| Alt+shift+v                          |                                      |
+| Vertical split current container     | Alt+minus                            |
+|                                      | Show or hide next scratchpad window  |
+| Alt+Shift+h                          |                                      |
+| Horizontal split current container   | Alt+Shift+q                          |
+|                                      | Kills the current window             |
+|                                      |                                      |
+|                                      | Alt+Shift+e                          |
+|                                      | Exit i3, after confirmation          |
 -------------------------------------------------------------------------------
 
 vim:foldcolumn=0 nonumber:

@@ -166,6 +166,9 @@ nnoremap <silent> <leader>ml :call AppendModeline()<CR>
 " plugin-specific settings {{{
 "
 
+" runtime should include fzf fuzzy finder
+set rtp+=~/.fzf
+
 " vim-session
 let g:session_autosave = 'no'
 let g:session_directory = '~/tmp/vim/sessions/'
@@ -209,8 +212,8 @@ let g:tagbar_type_groovy = {
 \ }
 
 " Syntastic (which is correct?)
-let g:syntastic_javascript_chekers = ['eslint']
-let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_chekers = ['eslint']
+"let g:syntastic_javascript_checkers = ['eslint']
 
 " airline
 let g:airline_powerline_fonts = 1

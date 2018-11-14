@@ -13,6 +13,10 @@ URxvt*scrollTtyKeypress: true
 URxvt*urgentOnBell:      true
 URxvt*visualBell:        false
 URxvt.saveLines:         8192
+URxvt*transparent:       false
+URxvt*shading:           20
+URxvt*tintColor:         #2B2B2B
+URxvt*cursorBlink:       true
 
 ! -----------------------------
 ! XFT SETTINGS
@@ -24,7 +28,8 @@ Xft.dpi:       163
 !Xft.dpi:       163  for 27-inch monitor
 !Xft.dpi:       282  for 15.6-inch laptop
 Xft.hinting:   true
-Xft.hintstyle: hintslight
+!Xft.hintstyle: hintslight
+Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba:      rgb
 
@@ -33,10 +38,10 @@ Xft.rgba:      rgb
 ! -----------------------------
 
 !URxvt*font: xft:Bitstream Vera Sans Mono:size=10
-URxvt.font:           xft:Fira Code:regular:size=10
-URxvt.boldFont:       xft:Fira Code:bold:size=10
-URxvt.italicFont:     xft:Fira Code:italic:size=10
-URxvt.boldItalicFont: xft:Fira Code:bold:italic:size=10
+URxvt.font:           xft:Fira Code:regular:size=11
+URxvt.boldFont:       xft:Fira Code:bold:size=11
+URxvt.italicFont:     xft:Fira Code:italic:size=11
+URxvt.boldItalicFont: xft:Fira Code:bold:italic:size=11
 URxvt*letterSpace:    -1
 !URxvt*letterSpace: try 0, -1, or -2
 
@@ -56,7 +61,7 @@ URxvt.foreground:  #a9b7c6
 *color2:           #629755
 *color3:           #fec66c
 !*color4:           #5859b7  ! too dark
-*color4:           CornflowerBlue
+*color4:           #4a6da8
 *color5:           #9876aa
 *color6:           #259185
 *color7:           #a9b7c6
@@ -66,7 +71,7 @@ URxvt.foreground:  #a9b7c6
 *color10:          #59a547
 *color11:          #fec64c
 !*color12:          #4041cf  ! too dark
-*color12:          CornflowerBlue
+*color12:          #8baee7
 *color13:          #9e64bc
 *color14:          #179f90
 *color15:          #ced6de
@@ -75,30 +80,30 @@ URxvt.foreground:  #a9b7c6
 ! PERL EXTENSIONS
 ! -----------------------------
 
-!URxvt.perl-lib:        /home/junderwo/dotfiles/urxvt/ext
+URxvt.perl-lib:        /home/junderwo/dotfiles/urxvt/ext
 URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,font-size
 
 ! clipboard
-!URxvt.keysym.M-c:         perl:clipboard:copy
-!URxvt.keysym.M-v:         perl:clipboard:paste
-!URxvt.keysym.C-M-v:       perl:clipboard:paste_escaped
-!URxvt.clipboard.copycmd:  xsel -b
-!URxvt.clipboard.pastecmd: xsel -b
+URxvt.keysym.M-c:         perl:clipboard:copy
+URxvt.keysym.M-v:         perl:clipboard:paste
+URxvt.keysym.C-M-v:       perl:clipboard:paste_escaped
+URxvt.clipboard.copycmd:  xsel -b
+URxvt.clipboard.pastecmd: xsel -b
 
 ! keyboard-select
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-s:      perl:keyboard-select:search
 
 ! url-select
-!URxvt.keysym.M-u:           perl:url-select:select_next
-!URxvt.url-select.autocopy:  true
-!URxvt.url-select.button:    1
-!URxvt.url-select.launcher:  /usr/bin/firefox
-!URxvt.url-select.underline: true
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.url-select.autocopy:  true
+URxvt.url-select.button:    1
+URxvt.url-select.launcher:  /usr/bin/firefox
+URxvt.url-select.underline: true
 
 ! font-size
-!URxvt.keysym.C-equal:  perl:font-size:increase
-!URxvt.keysym.C-minus:  perl:font-size:decrease
+!!URxvt.keysym.C-equal:  perl:font-size:increase
+!!URxvt.keysym.C-minus:  perl:font-size:decrease
 URxvt.keysym.C-Up:     font-size:increase
 URxvt.keysym.C-Down:   font-size:decrease
 URxvt.keysym.C-S-Up:   font-size:incglobal

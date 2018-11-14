@@ -45,22 +45,23 @@ set $right l
 floating_modifier $mod
 
 # return to previous workspace using Alt+Tab; not working
-bindsysm Mod1+Tab workspace back_and_forth
+bindsysm $mod+Tab workspace back_and_forth
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec urxvt
+#bindsym $mod+Return exec lxterminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start a program launcher
+# - launch dmenu; display all executables in your path
 bindsym $mod+d exec dmenu_run
+# - launch synapse
 #bindsym $mod+d exec synapse
-#
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
+# - launch i3-dmenu-desktop; only displays applications with a .desktop file.
+#   It is a wrapper around dmenu, so you need that installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='/usr/bin/dmenu -i -fn "-*-courier-medium-r-*-*-*-180-*-*-*-*-*-*"'
 
 # change focus
@@ -82,14 +83,14 @@ bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod1+Shift+Left move left
-bindsym Mod1+Shift+Down move down
-bindsym Mod1+Shift+Up move up
-bindsym Mod1+Shift+Right move right
+#bindsym $mod+Shift+Left move left
+#bindsym $mod+Shift+Down move down
+#bindsym $mod+Shift+Up move up
+#bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 #bindsym $mod+h split h
-bindsym $mod+shift+v split h
+bindsym $mod+Shift+v split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -127,32 +128,40 @@ bindsym $mod+Ctrl+$right workspace next
 
 # switch to workspace
 bindsym $mod+1 workspace 1: Windows
-bindsym $mod+2 workspace 2: Chrome
+bindsym $mod+2 workspace 2: Web
 bindsym $mod+3 workspace 3: Dev
 bindsym $mod+4 workspace 4: Dev
 bindsym $mod+5 workspace 5: Dev
 bindsym $mod+6 workspace 6: Dev
 bindsym $mod+7 workspace 7: Dev
-bindsym $mod+8 workspace 8: WebTools
-bindsym $mod+9 workspace 9: Staging
-bindsym $mod+0 workspace 10: Production
+bindsym $mod+8 workspace 8: Dev
+bindsym $mod+9 workspace 9: SQL
+bindsym $mod+0 workspace 10: Servers
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace 1: Windows
+bindsym $mod+Shift+2 move container to workspace 2: Web
+bindsym $mod+Shift+3 move container to workspace 3: Dev
+bindsym $mod+Shift+4 move container to workspace 4: Dev
+bindsym $mod+Shift+5 move container to workspace 5: Dev
+bindsym $mod+Shift+6 move container to workspace 6: Dev
+bindsym $mod+Shift+7 move container to workspace 7: Dev
+bindsym $mod+Shift+8 move container to workspace 8: Dev
+bindsym $mod+Shift+9 move container to workspace 9: SQL
+bindsym $mod+Shift+0 move container to workspace 10: Servers
+
+# Enable/disable shared memory logging
+bindsym $mod+x shmlog toggle
+
+# Enable/disable debug logging
+bindsym $mod+Shift+x debuglog toggle
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -161,7 +170,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%  #
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%  # decrease sound volume
 bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
 
-# Sreen brightness controls
+# sreen brightness controls
 bindsym XF86MonBrightnessUp   exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
@@ -179,10 +188,10 @@ mode "resize" {
         bindsym $right      resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
+        #bindsym Left        resize shrink width 10 px or 10 ppt
+        #bindsym Down        resize grow height 10 px or 10 ppt
+        #bindsym Up          resize shrink height 10 px or 10 ppt
+        #bindsym Right       resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -190,10 +199,12 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+# menu for system actions
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown, (m) monitor
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym m exec --no-startup-id i3exit monitor, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
@@ -206,7 +217,7 @@ mode "$mode_system" {
 bindsym Mod4+l mode "$mode_system"
 
 # ------------------------------------------------------------------------------
-# windows settings
+# color settings
 # ------------------------------------------------------------------------------
 
 # colors
@@ -218,19 +229,28 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
+# ------------------------------------------------------------------------------
+# windows settings
+# - use 'xprop' to determine a window's class or name
+# - use 'xwininfo' to determine a window's position
+# ------------------------------------------------------------------------------
+
 # window borders
-# use 'xprop' to determine a window's class
 #for_window [class="Wfica"] border pixel 1
-for_window [class="chromium-browser"] border pixel 1
+for_window [class="Chromium-browser"] border pixel 1
 for_window [class="Code"] border pixel 1
 for_window [class="URxvt"] border pixel 1
+for_window [class="Termite"] border pixel 1
+for_window [class="Lxterminal"] border pixel 1
 
-# enable floating mode for all Citrix/Outlook windows
+# floating windows
 #for_window [class="Wfica"] floating enable
 #for_window [class="Wfica_Seamless"] floating enable
-for_window [class="Pidgin"] floating enable
-#
-# make Pidgin windows sticky
+for_window [name="Buddy List"] floating enable move absolute position 0 px 0 px
+for_window [class="Pidgin"] floating enable move absolute position 3345 px 205 px
+for_window [name="My Desktop"] floating enable move absolute position center
+
+# sticky windows
 for_window [class="Pidgin"] sticky enable
 
 # ------------------------------------------------------------------------------
@@ -239,8 +259,9 @@ for_window [class="Pidgin"] sticky enable
 
 # use 'xprop' to determine a window's class
 #assign [class="^Vncconfig$"] 10
-assign [class="Wfica"] 1
-assign [class="chromium-browser"] 2
+assign [class="Wfica"] 1: Windows
+assign [class="chromium-browser"] 2: Web
+assign [class="Thunderbird"] 2: Web
 
 # ------------------------------------------------------------------------------
 # status bar
@@ -248,8 +269,15 @@ assign [class="chromium-browser"] 2
 
 # Start i3bar to display a workspace bar
 bar {
+    # hidden status bar
+    #mode hide
+    #hidden_state show
+    #modifier $mod
+
+    # primary monitor for system tray
     #tray_output primary
-    # display the system information i3status finds out, if available
+
+    # which status bar to use
     #status_command /usr/bin/i3status --config ~/dotfiles/i3/i3status.conf
     status_command $HOME/bin/conky-i3bar
 }
@@ -258,8 +286,17 @@ bar {
 # start these programs when i3 starts
 # ------------------------------------------------------------------------------
 
+# sync clipboard and cutbuffer
+exec --no-startup-id /usr/bin/autocutsel
+
 # instant messaging
 exec --no-startup-id /usr/bin/pidgin
+
+# email / calendar
+exec --no-startup-id /usr/bin/thunderbird
+
+# mount google drive
+exec --no-startup-id /usr/bin/google-drive-ocamlfuse /home/junderwo/GoogleDrive
 
 # network monitor applet (careful on remote desktops!)
 exec --no-startup-id /usr/bin/nm-applet
@@ -268,8 +305,8 @@ exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/solaar
 
 # volume applet
-#exec --no-startup-id /usr/bin/pasystray
-exec --no-startup-id /usr/bin/volumeicon
+exec --no-startup-id /usr/bin/pasystray
+#exec --no-startup-id /usr/bin/volumeicon
 
 # keyring
 exec --no-startup-id gnome-settings-daemon
@@ -283,13 +320,14 @@ exec --no-startup-id gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnom
 # ------------------------------------------------------------------------------
 
 # background image
-exec_always --no-startup-id feh --bg-scale $HOME/Pictures/haiku2k72HDfree.jpg
+exec_always --no-startup-id feh --bg-scale $HOME/Pictures/Wallpapers/haiku.png
 
-# screensaver
+# screensaver after 5 minutes
 exec_always --no-startup-id xautolock -time 5 -secure -locker "/usr/bin/i3lock --color=000000"
 
 # DPI for 27" UltraHD monitor, mirrored display on laptop
-exec_always --no-startup-id xrandr --dpi 163 --output eDP-1-1 --mode 3840x2160 --scale 1x1 --output DP-1-1 --same-as eDP-1-1 --mode 3840x2160 --scale 1x1
+# exec_always --no-startup-id xrandr --dpi 163
+exec_always --no-startup-id xrandr --dpi 163 --output eDP1 --mode 3840x2160 --scale 1x1 --output DP1 --same-as eDP1 --mode 3840x2160 --scale 1x1
 
 # DPI for 15.6" UltraHD laptop screen
 #exec_always --no-startup-id xrandr --dpi 282

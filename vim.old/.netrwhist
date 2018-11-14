@@ -1,7 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='scp://junderwo@lawsondev//lawtest10/'
 let g:netrw_dirhist_2='scp://junderwo@lawsondev//lawtest10/web/'
 let g:netrw_dirhist_3='scp://junderwo@lawsondev//lawtest10/web/lawson/'
 let g:netrw_dirhist_4='scp://junderwo@lawsondev//lawtest10/web/lawson/portal/'
 let g:netrw_dirhist_5='scp://junderwo@lawsondev//lawtest10/web/lawson/portal/dialogs/'
+let g:netrw_dirhist_6='scp://lawsondev/home/junderwo/lawtest10/xhrnet/directdeposit/'
+let g:netrw_dirhist_7='scp://lawsondev//home/junderwo/lawtest10/xhrnet/directdeposit/'
+let g:netrw_dirhist_8='scp://lawsondev//home/junderwo/lawtest10/xhrnet/directdeposit/jslib/'

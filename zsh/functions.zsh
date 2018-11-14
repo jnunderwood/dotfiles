@@ -1,25 +1,23 @@
 
 # "ls" functions {{{
 # Notes:
-# + aliases do not work very well when using | and $@
+# + aliases do not take parameters; use functions instead
 # + filename sorting dependent on LC_ALL env variable
 
-function  ls { /bin/ls --color=always -CF $@; } # /bin/ls --color=auto -CF $@; }
-function   l { ls       $@ ; } # | $PAGER -L; }
-function  lf { ls       $@ ; } # --group-directories-first $@; } # | $PAGER -L; }
-function  ll { ls -hl   $@ | $PAGER -L; }
-function  la { ll -A    $@ | $PAGER -L; }
-function lla { ll -a    $@ | $PAGER -L; }
-function  lt { ll -rt   $@ | $PAGER -L; }
-function lta { ll -rtA  $@ | $PAGER -L; }
-function ltc { ll -rtcA $@ | $PAGER -L; }
-function ltu { ll -rtuA $@ | $PAGER -L; }
-function lls { ll -rS   $@ | $PAGER -L; }
-function lss { ll -rS   $@ | $PAGER -L; }
-
-#function chpwd() {
-#  ls
-#}
+function  ls { /bin/ls --color=always -CF $@ } # /bin/ls --color=auto -CF $@ }
+function   l { ls       $@ } # | $PAGER -L }
+function  lf { ls       $@ } # --group-directories-first $@ # | $PAGER -L }
+function  ll { ls -hl   $@ | $PAGER -L }
+function  la { ll -A    $@ | $PAGER -L }
+function lla { ll -a    $@ | $PAGER -L }
+function lld { ll -d $@ .* | $PAGER -L }
+function  lt { ll -rt   $@ | $PAGER -L }
+function lta { ll -rtA  $@ | $PAGER -L }
+function ltc { ll -rtcA $@ | $PAGER -L }
+function ltu { ll -rtuA $@ | $PAGER -L }
+function lls { ll -rS   $@ | $PAGER -L }
+function lss { ll -rS   $@ | $PAGER -L }
+#function chpwd() { ls }
 
 #
 # }}}
@@ -32,9 +30,9 @@ function ldapuser {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(sAMAccountName=$@)"
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(sAMAccountName=$@))"
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(sAMAccountName=$@)"
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(sAMAccountName=$@))"
     else
         $HOME/bin/ldapfind
     fi
@@ -45,9 +43,9 @@ function ldapemp {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(employeeNumber=$@)"
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(employeeNumber=$@))"
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(employeeNumber=$@)"
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(employeeNumber=$@))"
     else
         $HOME/bin/ldapfind
     fi
@@ -58,9 +56,9 @@ function ldapmail {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(mail=$@)"
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(mail=$@))"
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(mail=$@)"
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(mail=$@))"
     else
         $HOME/bin/ldapfind
     fi
@@ -71,9 +69,9 @@ function ldapname {
     if [ $# -gt 2 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(&(sn=$1)(givenName=$2))"
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))"
     elif [ $# -eq 2 ]; then
-        $HOME/bin/ldapfind "(&(sn=$1)(givenName=$2))"
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))"
     else
         $HOME/bin/ldapfind
     fi
@@ -87,12 +85,12 @@ function ldapname {
 
 function wd  { /usr/bin/dirname `/usr/bin/which $@`; }
 function llw { /bin/ls -Fl `/usr/bin/which $@`; }
-function mw  { $PAGER `/usr/bin/which $@`; }
+function mw  { /usr/bin/bat `/usr/bin/which $@`; }
 function cdw { cd `wd $@`; }
 function viw { $EDITOR `/usr/bin/which $@`; }
 
-function where_old {
-    files=`builtin type -a -p $@`
+function where2 {
+    files=`builtin type -a -p $@ | /usr/bin/cut -d' ' -f3`
     for file in $files; do
         if [ $file ]; then
             /usr/bin/dlocate -S $file
@@ -100,10 +98,10 @@ function where_old {
     done
 }
 
-function which_old {
+function which2 {
     builtin type "$@"
     if [ $? = 0 ]; then
-        t=`builtin type -t $@`
+        t=`builtin type -w $@ | /usr/bin/cut -d' ' -f2`
         if [ $t = "file" ]; then
             p=`builtin type -p $@`
             /usr/bin/dlocate -S "$p" | /bin/grep --color=auto " $p$"
@@ -111,38 +109,20 @@ function which_old {
     fi
 }
 
+function pathto () {
+    DIRLIST=`echo $PATH|tr : ' '`
+    for e in "$@"; do
+            for d in $DIRLIST; do
+                    test -f "$d/$e" -a -x "$d/$e" && echo "$d/$e"
+            done
+    done
+}
+
 #
 # }}}
 
-# miscellaneous functions {{{
+# audio functions {{{
 #
-
-# for urxvt terminal; maybe others as well?
-function fontsize() {
-    printf '\33]50;%s%d\007' "xft:Bitstream Vera Sans Mono:size=$1::antialias=true:hinting=true"
-}
-
-function hc() {
-    /usr/bin/herbstclient "$@"
-}
-
-function man () {
-    env \
-        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-        LESS_TERMCAP_md=$(printf "\e[1;31m") \
-        LESS_TERMCAP_me=$(printf "\e[0m") \
-        LESS_TERMCAP_se=$(printf "\e[0m") \
-        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-        LESS_TERMCAP_ue=$(printf "\e[0m") \
-        LESS_TERMCAP_us=$(printf "\e[1;32m") \
-            man "$@"
-}
-
-function motd() {
-    /usr/bin/lsb_release -s -d
-    /usr/lib/update-notifier/apt-check --human-readable
-    /usr/lib/ubuntu-release-upgrader/check-new-release -q
-}
 
 function get-sink() {
     sink=`/usr/bin/pactl list short sinks | grep RUNNING | cut -f1`
@@ -170,6 +150,79 @@ function voldown {
     /usr/bin/pactl set-sink-volume `get-sink` -- -5% && killall -SIGUSR1 i3status
 }
 
+#
+# }}}
+
+# miscellaneous functions {{{
+#
+
+# alias for Grails; useful for going between Grails 2.x and 3.x
+function g() {
+    if [[ -a ./grailsw ]]; then
+        ./grailsw $@
+    else
+        grails $@
+    fi
+}
+
+# ripgrep piped through a pager
+function rg() {
+    /usr/bin/rg -pS $@ | /usr/bin/bat --theme Darkula
+}
+
+function findit() {
+    /usr/bin/find . -name $@ -print
+}
+
+function findgrep() {
+    /usr/bin/find . -name $@ -exec /bin/grep --color=auto -ls "$@" {} \;
+}
+
+function manpage() {
+    /usr/bin/groff -man $@ | $PAGER
+}
+
+function dusn() {
+    /usr/bin/du -BM -s $@ | /usr/bin/sort -n
+}
+
+# for urxvt terminal; maybe others as well?
+function fontsize() {
+  # printf '\33]50;%s%d\007' "xft:Bitstream Vera Sans Mono:size=$1::antialias=true:hinting=true"
+  if [ $1 ]; then
+    printf '\33]50;%s%d\007' "xft:Fira Code:size=$1::antialias=true:hinting=true"
+  else
+    echo "Specify font size, e.g., $ fontsize 11"
+  fi
+}
+
+function tm() {
+  [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
+  if [ $1 ]; then
+     tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
+  fi
+  session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
+}
+
+function man () {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+        LESS_TERMCAP_md=$(printf "\e[1;31m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[1;32m") \
+            man "$@"
+}
+
+function motd() {
+    /usr/bin/lsb_release -s -d
+    /usr/lib/update-notifier/apt-check --human-readable
+    /usr/lib/ubuntu-release-upgrader/check-new-release -q
+    /usr/lib/update-notifier/update-motd-reboot-required
+}
+
 function dashedtitle {
     if [ -n "$1" ]; then
         count=0
@@ -184,31 +237,31 @@ function dashedtitle {
 
 function update {
     /usr/bin/sudo -v
-    /bin/echo "*** Updating Packages (no output expected) ***"
-    /bin/echo "apt-get update -qq --fix-missing"
-    /usr/bin/sudo /usr/bin/apt-get update -qq --fix-missing
+    /bin/echo "# Updating Packages (no output expected)"
+    /bin/echo "apt update -qq --fix-missing"
+    /usr/bin/sudo /usr/bin/apt update -qq --fix-missing
     /bin/echo ""
 
     /usr/bin/sudo -v
-    /bin/echo "*** Upgrading Packages ***"
-    /bin/echo "apt-get upgrade --with-new-pkgs"
-    /usr/bin/sudo /usr/bin/apt-get upgrade --with-new-pkgs
+    /bin/echo "# Upgrading Packages"
+    /bin/echo "apt upgrade --with-new-pkgs"
+    /usr/bin/sudo /usr/bin/apt upgrade --with-new-pkgs
     /bin/echo ""
 
     /usr/bin/sudo -v
-    /bin/echo "*** Upgrading Distribution ***"
-    /bin/echo "apt-get dist-upgrade"
-    /usr/bin/sudo /usr/bin/apt-get dist-upgrade
+    /bin/echo "# Upgrading Distribution"
+    /bin/echo "apt full-upgrade"
+    /usr/bin/sudo /usr/bin/apt full-upgrade
     /bin/echo ""
 
     /usr/bin/sudo -v
-    /bin/echo "*** Auto-Removing Packages ***"
-    /bin/echo "apt-get autoremove"
-    /usr/bin/sudo /usr/bin/apt-get autoremove
+    /bin/echo "# Auto-Removing Packages"
+    /bin/echo "apt autoremove"
+    /usr/bin/sudo /usr/bin/apt autoremove
     /bin/echo ""
 
     /usr/bin/sudo -v
-    /bin/echo "*** Auto-Cleaning Local Repository ***"
+    /bin/echo "# Auto-Cleaning Local Repository"
     /bin/echo "apt-get autoclean"
     /usr/bin/sudo /usr/bin/apt-get autoclean
 }
@@ -222,7 +275,8 @@ function findsize {
 }
 
 function aliasnames {
-    alias | /usr/bin/awk -F '=' '{print $1}' | /usr/bin/awk -F ' ' '{print $2}'
+    # alias | /usr/bin/awk -F '=' '{print $1}' | /usr/bin/awk -F ' ' '{print $2}'
+    alias | /usr/bin/awk -F '=' '{print $1}'
 }
 
 function unaliasall {

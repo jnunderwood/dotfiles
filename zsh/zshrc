@@ -34,7 +34,7 @@ umask 002
 # LC_MESSAGES=C  never translates program output
 # LC_TIME=en_DK  produces yyyy-mm-dd hh:mm date/time output
 #unset LC_ALL
-export LANGUAGE="en_US.UTF-8"
+export LANGUAGE="en_US:en"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_COLLATE="C"
@@ -42,24 +42,41 @@ export LC_MESSAGES="C"
 export LC_TIME="en_DK.UTF-8"
 
 # settings for 'less'
-# export PAGER='$HOME/bin/less.sh'
+# export PAGER='$HOME/bin/less.sh'  # start vim with less.vim
 export PAGER='/usr/bin/less'
-export LESS="-EiMRX"  # LESS="-M"
-#export LESSOPEN="|/usr/local/bin/lesspipe.sh %s"
+export LESS="-eiMRX"  # LESS="-M"
 export LESSOPEN="|$HOME/bin/lesspipe.sh %s"
+#export LESSOPEN="|/usr/bin/lesspipe %s"
+
+# terminal
+#export TERM=rxvt-unicode-256color
 
 # todo.txt
 export TODOTXT_DEFAULT_ACTION=ls
 
 # programming languages
-export GOPATH=$HOME/gocode
-# export JAVA_HOME=$HOME/java/jdk17
+export GOPATH=$HOME/go
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
+# gitlab-cli variables
+export GITLAB_API_ENDPOINT=https://webtools.unch.unc.edu/gitlab/api/v4
+export GITLAB_API_PRIVATE_TOKEN=w_TmjwcFYukeSx_RHzXz
+# This one is optional and can be used to set any HTTParty option you may need
+# using YAML hash syntax. For example, this is how you would disable SSL
+# verification (useful if using a self-signed cert).
+#export GITLAB_API_HTTPARTY_OPTIONS="{verify: false}"
 
 # common variables
-export PATH=$HOME/.npm-global/bin:$HOME/bin:$GOPATH/bin:$PATH
-export EDITOR='/usr/bin/vim'  # '/usr/bin/nvim'
+export PATH=$HOME/bin:$GOPATH/bin:$PATH
+export EDITOR='/usr/bin/nvim'  # '/usr/bin/vim'
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
+
+# fzf + rg
+export FZF_DEFAULT_COMMAND='/usr/bin/rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # zsh variables
 export DISABLE_CORRECTION="true"
@@ -68,6 +85,9 @@ export UPDATE_ZSH_DAYS=1
 export HISTIGNORE="&:ls:[bf]g:exit:reset:clear:cd:cd .."
 export HISTSIZE=25000
 export SAVEHIST=10000
+
+# zsh plugin variables
+export PER_DIRECTORY_HISTORY_TOGGLE='^g'
 
 #
 # end environment variables }}}
@@ -89,10 +109,14 @@ setopt hist_verify
 setopt rm_star_wait
 setopt share_history
 # setopt inc_append_history_time
+setopt auto_cd
+
+cdpath=($HOME $HOME/repos/webapps $HOME/repos/junderwo)
 
 # enable debugging (useful for declare/typeset builtins)
 # shopt extdebug > /dev/null || shopt -s extdebug
 
+fpath=($HOME/.zsh/complete $fpath)
 autoload -U compinit
 compinit
 
@@ -105,6 +129,18 @@ bindkey -v
 # aliases, functions, and themes {{{
 #
 
+# remove a few aliases created by zsh plugins
+function unaliasPlugins() {
+    typeset -a commands=('g' 'ls' 'la' 'lr' 'lt' 'll' 'ldot' 'lS' 'lart' 'lrt')
+    for command in $commands; do
+        type=`whence -w $command | /usr/bin/cut -d' ' -f2`
+        if [ $type = "alias" ]; then
+            unalias $command
+        fi
+    done
+}
+unaliasPlugins
+
 source $HOME/dotfiles/zsh/aliases.zsh
 source $HOME/dotfiles/zsh/functions.zsh
 source $HOME/dotfiles/zsh/my.zsh-theme
@@ -115,6 +151,9 @@ source $HOME/dotfiles/zsh/my.zsh-theme
 # other programs' settings {{{
 # may be appended to the end of this file
 #
+
+# fzf - fuzzy finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

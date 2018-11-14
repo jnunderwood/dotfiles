@@ -11,6 +11,7 @@
 if [[ -z "$ZGEN_PARENT_DIR" ]]; then
   ZGEN_PARENT_DIR=$HOME
 fi
+# NOTE: replace 'zgen' directory with '.zgen' - junderwo
 if [[ ! -f $ZGEN_PARENT_DIR/.zgen/zgen.zsh ]]; then
   if [[ ! -d "$ZGEN_PARENT_DIR" ]]; then
     mkdir -p "$ZGEN_PARENT_DIR"

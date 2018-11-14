@@ -1,15 +1,50 @@
+#!/bin/zsh
+#
+# Only including a shebang to trigger Sublime Text to use shell syntax highlighting
+#
+# Copyright 2006-2017 Joseph Block <jpb@unixorn.net>
+#
+# The Zsh Starter Kit allows you to replace the curated plugins list it
+# ships with with a custom one by creating a file named .zgen-local-plugins.
+#
+# This is to make it easier to customize without having to maintain a separate
+# fork of the starter kit.
+#
+# This example file duplicates the list of plugins that shipped with the
+# kit as of 2017-05-07.
+
+ZGEN_LOADED=()
+ZGEN_COMPLETIONS=()
+
+# Load me last
+GENCOMPL_FPATH=$HOME/.zsh/complete
+
 # zgen plugins {{{
 
 zgen oh-my-zsh
 
 # oh-my-zsh plugins
+zgen oh-my-zsh plugins/bgnotify
 zgen oh-my-zsh plugins/colored-man-pages
+zgen oh-my-zsh plugins/colorize
 zgen oh-my-zsh plugins/command-not-found
+zgen oh-my-zsh plugins/docker
+zgen oh-my-zsh plugins/docker-compose
 zgen oh-my-zsh plugins/extract
 zgen oh-my-zsh plugins/git
-zgen oh-my-zsh plugins/git-extras
+# zgen oh-my-zsh plugins/git-extras
+zgen oh-my-zsh plugins/github
+zgen oh-my-zsh plugins/gradle
+zgen oh-my-zsh plugins/last-working-dir
+# zgen oh-my-zsh plugins/per-directory-history
+zgen oh-my-zsh plugins/pip
+zgen oh-my-zsh plugins/python
+zgen oh-my-zsh plugins/rsync
 zgen oh-my-zsh plugins/sudo
 zgen oh-my-zsh plugins/vagrant
+zgen oh-my-zsh plugins/wd
+zgen oh-my-zsh plugins/zsh-navigation-tools
+zgen oh-my-zsh plugins/zsh_reload
 
 # bulk load plugins
 zgen loadall <<EOPLUGINS
@@ -18,8 +53,9 @@ zgen loadall <<EOPLUGINS
   # jimhester/per-directory-history
   nobeans/zsh-sdkman
   rimraf/k
+  RobSis/zsh-completion-generator
   skx/sysadmin-util
-  srijanshetty/docker-zsh
+  # srijanshetty/docker-zsh
   unixorn/autoupdate-zgen
   unixorn/git-extra-commands
   unixorn/jpb.zshplugin
