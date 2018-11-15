@@ -1,22 +1,24 @@
 
 # "ls" functions {{{
+#
+
 # Notes:
 # + aliases do not take parameters; use functions instead
 # + filename sorting dependent on LC_ALL env variable
 
 function  ls { /bin/ls --color=always -CF $@ } # /bin/ls --color=auto -CF $@ }
-function   l { ls       $@ } # | $PAGER -L }
-function  lf { ls       $@ } # --group-directories-first $@ # | $PAGER -L }
-function  ll { ls -hl   $@ | $PAGER -L }
-function  la { ll -A    $@ | $PAGER -L }
-function lla { ll -a    $@ | $PAGER -L }
-function lld { ll -d $@ .* | $PAGER -L }
-function  lt { ll -rt   $@ | $PAGER -L }
-function lta { ll -rtA  $@ | $PAGER -L }
-function ltc { ll -rtcA $@ | $PAGER -L }
-function ltu { ll -rtuA $@ | $PAGER -L }
-function lls { ll -rS   $@ | $PAGER -L }
-function lss { ll -rS   $@ | $PAGER -L }
+function   l { ls $@ } # | $PAGER }
+function  lf { ls --group-directories-first $@ # | $PAGER }
+function  ll { ls -hl $@ | $PAGER }
+function  la { ll -A $@ | $PAGER }
+function lla { ll -a $@ | $PAGER }
+function lld { ll -d $@ .* | $PAGER }
+function  lt { ll -rt $@ | $PAGER }
+function lta { ll -rtA $@ | $PAGER }
+function ltc { ll -rtcA $@ | $PAGER }
+function ltu { ll -rtuA $@ | $PAGER }
+function lls { ll -rS $@ | $PAGER }
+function lss { ll -rS $@ | $PAGER }
 #function chpwd() { ls }
 
 #
