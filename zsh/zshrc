@@ -42,11 +42,14 @@ export LC_MESSAGES="C"
 export LC_TIME="en_DK.UTF-8"
 
 # settings for 'less'
-# export PAGER='$HOME/bin/less.sh'  # start vim with less.vim
-export PAGER='/usr/bin/less'
+#export PAGER='$HOME/bin/less.sh'  # start vim with less.vim
+#export PAGER='/usr/bin/less'
 export LESS="-eiMRX"  # LESS="-M"
 export LESSOPEN="|$HOME/bin/lesspipe.sh %s"
 #export LESSOPEN="|/usr/bin/lesspipe %s"
+
+# use bat as default pager; also see ~/.config/bat/config
+export PAGER='/usr/bin/bat'
 
 # terminal
 #export TERM=rxvt-unicode-256color

@@ -43,7 +43,7 @@ alias  psj='/bin/ps --forest U $USER -o "pid pri %cpu %mem vsz rss size stat bsd
 
 # aliases for other stuff
 alias       resource='. $HOME/dotfiles/zsh/zshrc'
-alias              m='/usr/bin/bat --theme Darkula'  # $PAGER'
+alias              m='$PAGER'
 alias             vi='$EDITOR'
 alias            bak='/bin/cp -p $1 $1.bak'
 alias             df='/bin/df -HT'

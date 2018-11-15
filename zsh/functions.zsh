@@ -236,31 +236,34 @@ function dashedtitle {
 }
 
 function update {
-    /usr/bin/sudo -v
+    /usr/bin/sudo --validate
+    /bin/echo ""
     /bin/echo "# Updating Packages (no output expected)"
     /bin/echo "apt update -qq --fix-missing"
     /usr/bin/sudo /usr/bin/apt update -qq --fix-missing
-    /bin/echo ""
 
-    /usr/bin/sudo -v
-    /bin/echo "# Upgrading Packages"
-    /bin/echo "apt upgrade --with-new-pkgs"
-    /usr/bin/sudo /usr/bin/apt upgrade --with-new-pkgs
-    /bin/echo ""
+    # apt full-upgrade should do this, plus more
+    #/usr/bin/sudo --validate
+    #/bin/echo ""
+    #/bin/echo "# Upgrading Packages"
+    #/bin/echo "apt upgrade --with-new-pkgs"
+    #/usr/bin/sudo /usr/bin/apt upgrade --with-new-pkgs
+    #/bin/echo ""
 
-    /usr/bin/sudo -v
-    /bin/echo "# Upgrading Distribution"
+    /usr/bin/sudo --validate
+    /bin/echo ""
+    /bin/echo "# Upgrading Distribution, including new kernel packages"
     /bin/echo "apt full-upgrade"
     /usr/bin/sudo /usr/bin/apt full-upgrade
-    /bin/echo ""
 
-    /usr/bin/sudo -v
+    /usr/bin/sudo --validate
+    /bin/echo ""
     /bin/echo "# Auto-Removing Packages"
     /bin/echo "apt autoremove"
     /usr/bin/sudo /usr/bin/apt autoremove
-    /bin/echo ""
 
-    /usr/bin/sudo -v
+    /usr/bin/sudo --validate
+    /bin/echo ""
     /bin/echo "# Auto-Cleaning Local Repository"
     /bin/echo "apt-get autoclean"
     /usr/bin/sudo /usr/bin/apt-get autoclean
