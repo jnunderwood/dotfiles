@@ -247,7 +247,7 @@ for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute pos
 for_window [title="My Desktop"] floating enable move absolute position center
 
 # sticky windows
-for_window [class="Pidgin"] sticky enable
+for_window [class="Pidgin" title="^(?!Buddy)"] sticky enable
 
 # ------------------------------------------------------------------------------
 # workspace assignments

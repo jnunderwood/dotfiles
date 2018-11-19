@@ -148,3 +148,6 @@ endfunction
 " ripgrep
 set grepprg=rg\ --vimgrep
 
+" python
+let g:python_host_prog = '/usr/bin/python'   " Python 2
+let g:python3_host_prog = '/usr/bin/python3' " Python 3
