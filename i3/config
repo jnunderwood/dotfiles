@@ -243,8 +243,8 @@ for_window [class="URxvt"] border pixel 1
 
 # floating windows
 for_window [title="Buddy List"] floating enable move absolute position 0 px 0 px
-for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position 3345 px 205 px
-for_window [title="My Desktop"] floating enable move absolute position center
+for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position 3344 px 206 px
+for_window [title="^(My Desktop)"] floating enable move absolute position center
 
 # sticky windows
 for_window [class="Pidgin" title="^(?!Buddy)"] sticky enable

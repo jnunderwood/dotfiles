@@ -218,12 +218,13 @@ function man () {
             man "$@"
 }
 
-function motd() {
-    /usr/bin/lsb_release -s -d
-    /usr/lib/update-notifier/apt-check --human-readable
-    /usr/lib/ubuntu-release-upgrader/check-new-release -q
-    /usr/lib/update-notifier/update-motd-reboot-required
-}
+# replaced by 'update-motd'
+#function motd() {
+#    /usr/bin/lsb_release -s -d
+#    /usr/lib/update-notifier/apt-check --human-readable
+#    /usr/lib/ubuntu-release-upgrader/check-new-release -q
+#    /usr/lib/update-notifier/update-motd-reboot-required
+#}
 
 function dashedtitle {
     if [ -n "$1" ]; then
