@@ -50,6 +50,7 @@ export LESSOPEN="|$HOME/bin/lesspipe.sh %s"
 
 # use bat as default pager; also see ~/.config/bat/config
 export PAGER='/usr/bin/bat'
+export MANPAGER='/usr/bin/bat --style=plain'
 
 # terminal
 #export TERM=rxvt-unicode-256color
