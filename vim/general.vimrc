@@ -36,7 +36,7 @@ if has("autocmd")
   augroup END
 endif " has("autocmd")
 
-" tab stuff
+" indent and tab stuff
 set tabstop=4
 set softtabstop=4
 set expandtab
@@ -53,10 +53,10 @@ set fileformat=unix
 set fileencoding=utf-8
 set termencoding=utf-8
 
+" visualize whitespace; @see theme.vimrc also
+set showbreak=↪\
 set list
-if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+  " ,eol:¶
-endif
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨,space:⋅
 
 " clipboard
 set clipboard=unnamedplus
@@ -81,7 +81,6 @@ set norelativenumber
 set number
 set modeline
 set formatoptions+=j  " delete comment character when joining commented lines
-"set guioptions-=m  " turnoff the menu
 
 " shell
 if executable('/usr/bin/zsh')
@@ -117,7 +116,7 @@ endfunction
 
 " diff -w to ignore whitespace instead of -b
 set diffopt+=iwhite
-function DiffW()
+function! DiffW()
   let opt = "-a --binary "
   if &diffopt =~ "icase"  | let opt = opt . "-i " | endif
   if &diffopt =~ "iwhite" | let opt = opt . "-w " | endif  " vim uses -b by default

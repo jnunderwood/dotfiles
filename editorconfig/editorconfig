@@ -54,3 +54,6 @@ indent_size = 2
 [Vagrantfile]
 indent_size = 2
 
+# vim config files; FIXME: does not work!
+[*.vimrc]
+trim_trailing_whitespace = false

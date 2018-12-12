@@ -76,12 +76,15 @@ endfunction
 let g:indentobject_meaningful_indentation = ["haml", "sass", "python", "yaml", "markdown"]
 
 " vim-indent-line
-"set list lcs=tab:\|\
 let g:indentLine_color_term = 111
 let g:indentLine_color_gui = '#DADADA'
 let g:indentLine_char = 'c'
-"let g:indentLine_char = '∙▹¦'
-let g:indentLine_char = '∙'
+let g:indentLine_char = '∙▹¦'
+"let g:indentLine_char = '∙'
+
+" vim-indent-guides
+"let g:indent_guides_auto_colors = 1
+"let g:indent_guides_guide_size = 1
 
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
