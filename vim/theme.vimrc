@@ -24,7 +24,7 @@ hi LineNr ctermbg=234
 hi CursorLine ctermbg=234
 hi NonText ctermfg=238
 
-" fake highlight only leading spaces
+" fake highlight only leading spaces; @see also "general.vimrc listchars"
 highlight WhiteSpaceBol ctermfg=8
 highlight WhiteSpaceMol ctermfg=235 ctermbg=235
 match WhiteSpaceMol / /

@@ -53,10 +53,10 @@ set fileformat=unix
 set fileencoding=utf-8
 set termencoding=utf-8
 
-" visualize whitespace; @see theme.vimrc also
-set showbreak=↪\
+" visualize whitespace; @see also "theme.vimrc"
 set list
 set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨,space:⋅
+set showbreak=↪\
 
 " clipboard
 set clipboard=unnamedplus
