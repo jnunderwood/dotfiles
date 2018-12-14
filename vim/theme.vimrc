@@ -2,8 +2,8 @@ syntax on
 syntax enable
 set t_Co=256
 
-" true color support - must use a terminal which supports true colors, e.g., termite
-"if (has("termguicolors"))
+" true color support - must use a terminal which supports true colors, e.g., 'termite'
+"if has("termguicolors")
 "  set termguicolors
 "endif
 
@@ -14,7 +14,7 @@ colorscheme darcula
 "set background=dark
 
 hi Normal ctermbg=235
-hi EndOfBuffer ctermbg=235
+"hi EndOfBuffer ctermbg=235
 
 " make background transparent
 "hi Normal ctermbg=NONE
