@@ -49,10 +49,10 @@ bindsysm $mod+Tab workspace back_and_forth
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $mod+Return exec lxterminal # does not support font ligatures
-#bindsym $mod+Return exec termite  # supports true colors; vte dependency does not support font ligatures
-#bindsym $mod+Return exec urxvt # does not support font ligatures
-bindsym $mod+Return exec qterminal # supports font ligatures; does not support true colors
+#bindsym $mod+Return exec urxvt      # does not support font ligatures or true color; resize window also resizes content
+#bindsym $mod+Return exec lxterminal # supports true colors; vte dependency does not support font ligatures
+#bindsym $mod+Return exec termite    # supports true colors; vte dependency does not support font ligatures
+bindsym $mod+Return exec qterminal   # supports font ligatures and true colors; resize window does not resize content
 
 # kill focused window
 bindsym $mod+Shift+q kill
