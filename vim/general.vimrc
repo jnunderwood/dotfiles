@@ -55,7 +55,8 @@ set termencoding=utf-8
 
 " visualize whitespace; @see also "theme.vimrc"
 set list
-set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨,space:⋅
+"set listchars=tab:→\ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨,space:⋅,eol:↲
+set listchars=tab:→\ ,nbsp:␣,trail:•,extends:⟩,precedes:⟨
 set showbreak=↪\
 
 " clipboard
@@ -136,13 +137,6 @@ function! InsertTabWrapper()
         return "\<c-p>"
     endif
 endfunction
-
-" performance improvement settings
-" @see http://stackoverflow.com/questions/4775605/vim-syntax-highlight-improve-performance
-" @see http://vim.wikia.com/wiki/Fix_syntax_highlighting
-"syntax sync minlines=256
-"set cursorcolumn
-"set nocursorline
 
 " ripgrep
 set grepprg=rg\ --vimgrep

@@ -169,7 +169,7 @@ function g() {
 
 # ripgrep piped through a pager
 function rg() {
-    /usr/bin/rg -pS $@ | /usr/bin/bat --theme Darkula
+    /usr/bin/rg -pS $@ | /usr/bin/bat --plain --theme Darkula
 }
 
 function findit() {

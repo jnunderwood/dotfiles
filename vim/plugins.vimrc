@@ -42,6 +42,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'lilydjwg/colorizer', { 'on': 'ColorToggle' }
 Plug 'wavded/vim-stylus'
 Plug 'cohlin/vim-colorschemes'
+Plug 'guns/xterm-color-table.vim'
 
 " programming languages in general
 Plug 'w0rp/ale' " asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration

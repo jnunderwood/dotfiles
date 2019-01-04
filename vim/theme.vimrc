@@ -1,5 +1,4 @@
 " my theme settings
-" for vim color names, @see http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 
 syntax enable
 
@@ -20,18 +19,22 @@ else
   set t_Co=256
 endif
 
-colorscheme darcula
-
-" override some colors
-hi LineNr ctermbg=234
-hi CursorLine ctermbg=234
-hi NonText ctermfg=238 guifg=#444444 guibg=#2b2b2b
-
-" fake highlight only leading spaces; @see also "general.vimrc listchars"
+" visualize whitespace; @see also "general.vimrc listchars"
+" fake highlight only leading spaces
 hi WhiteSpaceBol ctermfg=238 guifg=#444444
 hi WhiteSpaceMol ctermfg=235 ctermbg=235 guifg=#2b2b2b guibg=#2b2b2b
 match WhiteSpaceMol / /
 2match WhiteSpaceBol /^ \+/
+
+" my favorite colorscheme
+colorscheme darcula
+
+" for vim color names and mappings, see colors.vimrc
+
+" override some colors
+hi LineNr ctermfg=60 ctermbg=234 guifg=#5f5f87 guibg=#1c1c1c
+hi CursorLine ctermbg=234 guibg=#1c1c1c
+hi NonText ctermfg=238 guifg=#444444 guibg=#2b2b2b
 
 " override some font styles
 hi Boolean cterm=bold
@@ -59,4 +62,11 @@ hi markdownHeadingDelimiter cterm=bold
 
 " vim-sneak settings
 hi SneakPluginTarget ctermfg=black ctermbg=234 guibg=#181818
+
+" performance improvement settings
+" @see http://stackoverflow.com/questions/4775605/vim-syntax-highlight-improve-performance
+" @see http://vim.wikia.com/wiki/Fix_syntax_highlighting
+"syntax sync minlines=256
+"set cursorcolumn
+"set nocursorline
 
