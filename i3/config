@@ -232,7 +232,6 @@ bindsym XF86AudioPrev  exec playerctl previous
 # color settings
 # ------------------------------------------------------------------------------
 
-# colors
 # class                 border  backgr. text    indicator child_border
 client.focused          #BB6600 #BB6600 #ffffff #2e9ef4   #BB6600
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
