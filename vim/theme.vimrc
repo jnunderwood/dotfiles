@@ -6,25 +6,18 @@ syntax enable
 let g:enable_bold_font = 1
 let g:enable_italic_font = 1
 
-" true colors - must use a terminal which supports true colors
-if has("termguicolors")
+" color settings
+if has("termguicolors") && $COLORTERM == ""
   " set Vim-specific sequences for RGB colors
   " @see https://github.com/vim/vim/issues/993
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
+  "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors " true colors - must use a terminal which supports true colors
 else
-  set t_AB="\<Esc>[48;5;%dm"
-  set t_AF="\<Esc>[38;5;%dm"
+  "set t_AB="\<Esc>[48;5;%dm"
+  "set t_AF="\<Esc>[38;5;%dm"
   set t_Co=256
 endif
-
-" visualize whitespace; @see also "general.vimrc listchars"
-" fake highlight only leading spaces
-hi WhiteSpaceBol ctermfg=238 guifg=#444444
-hi WhiteSpaceMol ctermfg=235 ctermbg=235 guifg=#2b2b2b guibg=#2b2b2b
-match WhiteSpaceMol / /
-2match WhiteSpaceBol /^ \+/
 
 " my favorite colorscheme
 colorscheme darcula
@@ -60,6 +53,13 @@ hi markdownHeadingDelimiter cterm=bold
 "hi Normal ctermbg=NONE
 "hi EndOfBuffer ctermbg=NONE
 
+" visualize whitespace; @see also "general.vimrc listchars"
+" fake highlight only leading spaces
+"hi WhiteSpaceBol ctermfg=238 guifg=#444444
+"hi WhiteSpaceMol ctermfg=235 ctermbg=235 guifg=#2b2b2b guibg=#2b2b2b
+"match WhiteSpaceMol / /
+"2match WhiteSpaceBol /^ \+/
+
 " vim-sneak settings
 hi SneakPluginTarget ctermfg=black ctermbg=234 guibg=#181818
 
@@ -70,3 +70,19 @@ hi SneakPluginTarget ctermfg=black ctermbg=234 guibg=#181818
 "set cursorcolumn
 "set nocursorline
 
+" cursor style; does not work in qterminal
+"   Ps = 0  -> blinking block
+"   Ps = 1  -> blinking block (default)
+"   Ps = 2  -> steady block
+"   Ps = 3  -> blinking underline
+"   Ps = 4  -> steady underline
+"   Ps = 5  -> blinking bar (xterm)
+"   Ps = 6  -> steady bar (xterm)
+" let &t_SI = "\<Esc>[3 q" " normal mode
+" let &t_EI = "\<Esc>[5 q" " insert mode
+
+" terminus cursor shape; does not work in all terminals
+"let g:TerminusCusorShape=1        " enable changing cursor shapes
+"let g:TerminusInsertCusorShape=1  " bar
+"let g:TerminusNormalCusorShape=2  " underline
+"let g:TerminusReplaceCusorShape=0 " block

@@ -1,17 +1,13 @@
 # ------------------------------------------------------------------------------
 
-# Should you change your keyboard layout some time, delete
+# To generate the default settings file, delete
 # this file and re-run i3-config-wizard(1).
 
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 #
-# This config file uses keycodes (bindsym) and was written for the QWERTY
-# layout.
-#
-# To get a config file with the same key positions, but for your current
-# layout, use the i3-config-wizard
+# This config file uses keycodes (bindsym) and was written for a QWERTY layout.
 
 # ------------------------------------------------------------------------------
 # fonts
@@ -44,7 +40,7 @@ set $right l
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# return to previous workspace using Alt+Tab; not working
+# return to previous workspace using Alt+Tab; FIXME: not working
 bindsysm $mod+Tab workspace back_and_forth
 
 # start a terminal
@@ -58,13 +54,13 @@ bindsym $mod+Return exec qterminal   # supports font ligatures and true colors; 
 bindsym $mod+Shift+q kill
 
 # start a program launcher
-# - launch dmenu; display all executables in your path
+# - launch dmenu; displays all executables in your path, including $HOME/bin
 bindsym $mod+d exec dmenu_run
-# - launch synapse
-#bindsym $mod+d exec synapse
 # - launch i3-dmenu-desktop; only displays applications with a .desktop file.
 #   It is a wrapper around dmenu, so you need that installed.
 #bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='/usr/bin/dmenu -i -fn "-*-courier-medium-r-*-*-*-180-*-*-*-*-*-*"'
+# - launch synapse, an alternative to dmenu
+#bindsym $mod+d exec synapse
 
 # change focus
 bindsym $mod+$left focus left
@@ -128,7 +124,7 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Ctrl+$left workspace prev
 bindsym $mod+Ctrl+$right workspace next
 
-# switch to workspace
+# switch to named workspace
 bindsym $mod+1 workspace 1: Windows
 bindsym $mod+2 workspace 2: Web
 bindsym $mod+3 workspace 3: Dev
@@ -140,7 +136,7 @@ bindsym $mod+8 workspace 8: To-Do
 bindsym $mod+9 workspace 9: SQL
 bindsym $mod+0 workspace 10: Servers
 
-# move focused container to workspace
+# move focused container to named workspace
 bindsym $mod+Shift+1 move container to workspace 1: Windows
 bindsym $mod+Shift+2 move container to workspace 2: Web
 bindsym $mod+Shift+3 move container to workspace 3: Dev
@@ -201,11 +197,11 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# menu for system actions
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown, (m) monitor
+# menu for system actions, bind specifically to Win+l
+set $mode_system System (l) lock, (x) logout, (m) monitor, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym x exec --no-startup-id i3exit logout, mode "default"
     bindsym m exec --no-startup-id i3exit monitor, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
@@ -285,8 +281,15 @@ bar {
 # start these programs when i3 starts
 # ------------------------------------------------------------------------------
 
+# keyring
+exec --no-startup-id gnome-settings-daemon
+exec --no-startup-id gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
 # sync clipboard and cutbuffer
 exec --no-startup-id /usr/bin/autocutsel
+
+# network monitor applet (careful on remote desktops!)
+exec --no-startup-id /usr/bin/nm-applet
 
 # instant messaging
 exec --no-startup-id /usr/bin/pidgin
@@ -297,19 +300,12 @@ exec --no-startup-id /usr/bin/thunderbird
 # mount google drive
 exec --no-startup-id /usr/bin/google-drive-ocamlfuse /home/junderwo/GoogleDrive
 
-# network monitor applet (careful on remote desktops!)
-exec --no-startup-id /usr/bin/nm-applet
-
 # solaar, applet for logitech wireless mouse
 exec --no-startup-id /usr/bin/solaar
 
 # volume applet
 exec --no-startup-id /usr/bin/pasystray
 #exec --no-startup-id /usr/bin/volumeicon
-
-# keyring
-exec --no-startup-id gnome-settings-daemon
-exec --no-startup-id gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # VNC Config
 # exec /usr/bin/vnc4config

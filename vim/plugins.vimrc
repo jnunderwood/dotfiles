@@ -17,6 +17,7 @@ Plug 'vim-utils/vim-husk'
 Plug 'tpope/vim-sensible'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
+Plug 'wincent/terminus'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
