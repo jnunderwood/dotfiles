@@ -308,7 +308,7 @@ exec --no-startup-id /usr/bin/nm-applet
 exec --no-startup-id /usr/bin/pidgin
 
 # email / calendar
-exec --no-startup-id /usr/bin/thunderbird
+#exec --no-startup-id /usr/bin/thunderbird
 
 # mount google drive
 exec --no-startup-id /usr/bin/google-drive-ocamlfuse /home/junderwo/GoogleDrive
@@ -319,6 +319,9 @@ exec --no-startup-id /usr/bin/solaar
 # volume applet
 exec --no-startup-id /usr/bin/pasystray
 #exec --no-startup-id /usr/bin/volumeicon
+
+# mail notifications
+exec --no-startup-id /usr/bin/mailnag
 
 # VNC Config
 # exec /usr/bin/vnc4config
