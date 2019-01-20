@@ -72,20 +72,6 @@ function! SyncTree()
   endif
 endfunction
 
-" vim-indent-object
-let g:indentobject_meaningful_indentation = ["haml", "sass", "python", "yaml", "markdown"]
-
-" vim-indent-line
-let g:indentLine_color_term = 111
-let g:indentLine_color_gui = '#DADADA'
-let g:indentLine_char = 'c'
-let g:indentLine_char = '∙▹¦'
-"let g:indentLine_char = '∙'
-
-" vim-indent-guides
-"let g:indent_guides_auto_colors = 1
-"let g:indent_guides_guide_size = 1
-
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'python', ], 'passive_filetypes': ['html', 'css', 'slim'] }
@@ -106,3 +92,23 @@ let g:session_autoload = 'no'
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'python', ], 'passive_filetypes': ['html', 'css', 'slim'] }
+
+" vim-indent-object
+let g:indentobject_meaningful_indentation = ["haml", "sass", "python", "yaml", "markdown"]
+
+" vim-indent-line
+let g:indentLine_enabled = 1
+let g:indentLine_color_term = 238
+"let g:indentLine_color_gui = '#444444'
+"let g:indentLine_color_tty_light = 7 " default: 4
+"let g:indentLine_color_dark = 8 " default: 2
+"let g:indentLine_bgcolor_term = 234
+"let g:indentLine_bgcolor_gui = '#444444'"
+let g:indentLine_char = '▏'
+"let g:indentLine_char = '⎸'
+"let g:indentLine_char = '∙▹¦'
+"let g:indentLine_char = '∙'
+
+" vim-indent-guides
+"let g:indent_guides_auto_colors = 1
+"let g:indent_guides_guide_size = 1

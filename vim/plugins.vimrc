@@ -5,6 +5,7 @@ Plug 'blueshirts/darcula'
 "Plug 'isobit/vim-darcula-colors'
 
 " general
+Plug 'tpope/vim-sensible'
 Plug 'ervandew/supertab'
 Plug 'benekastah/neomake'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -14,9 +15,9 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-utils/vim-husk'
 "Plug 'tpope/vim-obsession'
-Plug 'tpope/vim-sensible'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
+Plug 'wincent/terminus'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 endif
