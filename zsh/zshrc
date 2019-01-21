@@ -58,13 +58,6 @@ export MANPAGER='/usr/bin/bat --style=plain'
 # todo.txt
 export TODOTXT_DEFAULT_ACTION=ls
 
-# programming languages
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
-if which ruby >/dev/null && which gem >/dev/null; then
-    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
-
 # gitlab-cli variables
 export GITLAB_API_ENDPOINT=https://webtools.unch.unc.edu/gitlab/api/v4
 export GITLAB_API_PRIVATE_TOKEN=w_TmjwcFYukeSx_RHzXz
@@ -74,7 +67,6 @@ export GITLAB_API_PRIVATE_TOKEN=w_TmjwcFYukeSx_RHzXz
 #export GITLAB_API_HTTPARTY_OPTIONS="{verify: false}"
 
 # common variables
-export PATH=$HOME/bin:$HOME/.local/bin/:$PATH
 export EDITOR='/usr/bin/nvim'  # '/usr/bin/vim'
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
@@ -153,9 +145,30 @@ source $HOME/dotfiles/zsh/my.zsh-theme
 #
 # end aliases, functions, and themes }}}
 
-# other programs' settings {{{
-# may be appended to the end of this file
+# PATH settings {{{
+
+# go programming language
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+
+# ruby programming language
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
+# rust programming language
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# personal PATH directories
+export PATH=$HOME/bin:$HOME/.local/bin/:$PATH
+
 #
+# end PATH settings }}}
+
+# other programs {{{
+#
+
+# settings for other programs which modify PATH may be appended to the end of this file
 
 # fzf - fuzzy finder
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
@@ -168,12 +181,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 #
-# }}}
+# end other programs }}}
 
 #
 # vim: set ft=zsh fdm=marker:

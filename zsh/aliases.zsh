@@ -42,7 +42,7 @@ alias  psf='/bin/ps --forest -eo "%P %U %C %a"'
 alias  psj='/bin/ps --forest U $USER -o "pid pri %cpu %mem vsz rss size stat bsdstart bsdtime command"'
 
 # aliases for other stuff
-alias       resource='export PATH=/bin:/usr/bin; source HOME/dotfiles/zsh/zshrc'
+alias       resource='export PATH=/bin:/usr/bin; source $HOME/dotfiles/zsh/zshrc'
 alias              m='$PAGER'
 alias             vi='$EDITOR'
 alias            bak='/bin/cp -p $1 $1.bak'
