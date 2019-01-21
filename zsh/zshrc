@@ -3,8 +3,8 @@
 # zgen {{{
 #
 
-if [ -f ~/.zgen-setup ]; then
-  source ~/.zgen-setup
+if [ -f $HOME/.zgen-setup ]; then
+  source $HOME/.zgen-setup
 fi
 
 #
@@ -48,7 +48,7 @@ export LESS="-eiMRX"  # LESS="-M"
 export LESSOPEN="|$HOME/bin/lesspipe.sh %s"
 #export LESSOPEN="|/usr/bin/lesspipe %s"
 
-# use bat as default pager; also see ~/.config/bat/config
+# use bat as default pager; also see $HOME/.config/bat/config
 export PAGER='/usr/bin/bat'
 export MANPAGER='/usr/bin/bat --style=plain'
 
@@ -158,7 +158,7 @@ source $HOME/dotfiles/zsh/my.zsh-theme
 #
 
 # fzf - fuzzy finder
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

@@ -188,6 +188,11 @@ function dusn() {
     /usr/bin/du -BM -s $@ | /usr/bin/sort -n
 }
 
+function ctop() {
+    /usr/bin/docker image pull quay.io/vektorlab/ctop:latest
+    /usr/bin/docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
+}
+
 # for urxvt terminal; maybe others as well?
 function fontsize() {
   # printf '\33]50;%s%d\007' "xft:Bitstream Vera Sans Mono:size=$1::antialias=true:hinting=true"
