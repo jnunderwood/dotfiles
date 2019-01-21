@@ -60,6 +60,7 @@ export TODOTXT_DEFAULT_ACTION=ls
 
 # programming languages
 export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
@@ -73,7 +74,7 @@ export GITLAB_API_PRIVATE_TOKEN=w_TmjwcFYukeSx_RHzXz
 #export GITLAB_API_HTTPARTY_OPTIONS="{verify: false}"
 
 # common variables
-export PATH=$HOME/bin:$GOPATH/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin/:$PATH
 export EDITOR='/usr/bin/nvim'  # '/usr/bin/vim'
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
