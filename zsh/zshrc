@@ -22,6 +22,11 @@ umask 002
 # allow for core dumps
 #ulimit -c unlimited
 
+# HiDPI display settings
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
 # locale settings
 # using "C" is useful for expected sorting of filenames
 # export LC_ALL="C.UTF-8"  # use this for foreign character support

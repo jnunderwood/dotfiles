@@ -46,6 +46,9 @@ fi
 # auto-ls () { /bin/ls -CF } #  --classify; }
 # chpwd_functions=( auto-ls $chpwd_functions )
 
+# mount google drive on login; FIXME: not working yet
+/usr/bin/google-drive-ocamlfuse $HOME/GoogleDrive
+
 #
 # end misc }}}
 
