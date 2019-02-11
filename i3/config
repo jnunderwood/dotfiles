@@ -249,34 +249,38 @@ client.background       #ffffff
 
 # ------------------------------------------------------------------------------
 # windows settings
-# - use 'xprop' to determine a window's class or name
-# - use 'xwininfo' to determine a window's position
+# - use 'xprop' to determine a window's class or name (i.e., title)
+# - use 'xwininfo' to determine a window's position and size
 # ------------------------------------------------------------------------------
 
 # window borders
-# for_window [class="Wfica"] border pixel 1
 for_window [class="Chromium-browser"] border pixel 1
-for_window [class="Code"] border pixel 1
+#for_window [class="Code"] border pixel 1
 for_window [class="URxvt"] border pixel 1
 for_window [class="qterminal"] border pixel 1
 
 # floating windows
 for_window [title="Buddy List"] floating enable move absolute position 0 px 0 px
 for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position 3344 px 206 px
-for_window [title="My Desktop "] floating enable move absolute position center
+for_window [class="Wfica"] floating enable
+for_window [class="Wfica_Seamless"] floating enable
+for_window [class="Wfica_YesNoConfirm"] floating enable
+for_window [title="My Desktop "] floating enable move absolute position center resize set 2990 1682
 
 # sticky windows
 for_window [class="Pidgin" title="^(?!Buddy)"] sticky enable
 
 # ------------------------------------------------------------------------------
 # workspace assignments
+# - use 'xprop' to determine a window's class or name (i.e., title)
 # ------------------------------------------------------------------------------
 
-# use 'xprop' to determine a window's class
-# assign [class="^Vncconfig$"] 10
 assign [class="Wfica"] 1: Windows
+assign [class="Wfica_Seamless"] 1: Windows
+assign [class="Wfica_YesNoConfirm"] 1: Windows
 assign [class="chromium-browser"] 2: Web
 assign [class="Thunderbird"] 2: Web
+# assign [class="^Vncconfig$"] 7: Web
 
 # ------------------------------------------------------------------------------
 # status bar
@@ -352,12 +356,15 @@ exec_always --no-startup-id feh --bg-scale $HOME/Pictures/Wallpapers/haiku.png
 # screensaver after 5 minutes
 exec_always --no-startup-id xautolock -time 5 -secure -locker "/usr/bin/i3lock --color=000000"
 
+# Note: DPI should now be read from Xft.dpi, set in $HOME/.Xresources
 # DPI for 27" UltraHD monitor, mirrored display on laptop
-# exec_always --no-startup-id xrandr --dpi 163
-exec_always --no-startup-id xrandr --dpi 163 --output eDP1 --mode 3840x2160 --scale 1x1 --output DP1 --same-as eDP1 --mode 3840x2160 --scale 1x1
+# exec_always --no-startup-id xrandr --dpi 163 --output eDP1 --mode 3840x2160 --scale 1x1 --output DP1 --same-as eDP1 --mode 3840x2160 --scale 1x1
+exec_always --no-startup-id xrandr --output eDP1 --mode 3840x2160 --scale 1x1 --output DP1 --same-as eDP1 --mode 3840x2160 --scale 1x1
 
+# Note: DPI should now be read from Xft.dpi, set in $HOME/.Xresources
 # DPI for 15.6" UltraHD laptop screen
 # exec_always --no-startup-id xrandr --dpi 282
+# exec_always --no-startup-id xrandr
 
 # ------------------------------------------------------------------------------
 

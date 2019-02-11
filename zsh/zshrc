@@ -22,6 +22,9 @@ umask 002
 # allow for core dumps
 #ulimit -c unlimited
 
+# allow for more file descriptors
+ulimit -n 2048
+
 # HiDPI display settings
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5
@@ -178,15 +181,15 @@ export PATH=$HOME/bin:$HOME/.local/bin/:$PATH
 # fzf - fuzzy finder
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# Add NVMto PATH for scripting. Make sure this is the last PATH variable change.
+# Add NVM to PATH for scripting
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# add SDK to PATH for scripting
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 

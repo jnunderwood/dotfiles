@@ -159,11 +159,31 @@ function voldown {
 #
 
 # alias for Grails; useful for going between Grails 2.x and 3.x
-function g() {
+function grails() {
     if [[ -a ./grailsw ]]; then
         ./grailsw $@
+    elif [[ -a ./app/grailsw ]]; then
+        cd app
+        ./grailsw $@
+        cd ..
     else
-        grails $@
+        $HOME/.sdkman/candidates/grails/current/bin/grails $@
+    fi
+}
+
+function weather() {
+    if [ "$1" == "-a" ]; then
+        /usr/bin/ansiweather
+    elif [ "$1" == "-1" ]; then
+        /usr/bin/curl -sf --compressed wttr.in/rdu?format=4
+    elif [ "$1" == "-h" ]; then
+        /usr/bin/curl -sf --compressed wttr.in/:help
+    else
+        if [ "$COLUMNS" -lt 125 ]; then
+            /usr/bin/curl -sf --compressed wttr.in/rdu?n$*
+        else
+            /usr/bin/curl -sf --compressed wttr.in/rdu?$*
+        fi
     fi
 }
 
@@ -286,7 +306,7 @@ function af {
 }
 
 function findsize {
-    /usr/bin/find . -size +$1$2 -printf "%5k$2: %h/%f\n" | /usr/bin/sort -n
+    /usr/bin/find . -size +$1$2 -printf "%5kk: %h/%f\n" | /usr/bin/sort -n
 }
 
 function aliasnames {
