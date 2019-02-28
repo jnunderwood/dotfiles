@@ -48,6 +48,7 @@ zgen oh-my-zsh plugins/zsh-navigation-tools
 zgen oh-my-zsh plugins/zsh_reload
 
 # bulk load plugins
+# note: load syntax-highlighting before history-substring-search
 zgen loadall <<EOPLUGINS
   andrewferrier/fzf-z
   chrissicool/zsh-256color
