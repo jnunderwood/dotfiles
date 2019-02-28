@@ -34,6 +34,9 @@
 | Alt+Shift+h                          |                                      |
 | Horizontal split current container   | Alt+Shift+q                          |
 |                                      | Kills the current window             |
+| Alt+a / Alt+c                        |                                      |
+| Select parent / child container      |                                      |
+|                                      |                                      |
 | Win+l                                |                                      |
 | Menu for screen lock, etc.           | Alt+Shift+e                          |
 |                                      | Exit i3, after confirmation          |

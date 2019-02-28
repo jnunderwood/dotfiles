@@ -189,7 +189,7 @@ function weather() {
 
 # ripgrep piped through a pager
 function rg() {
-    /usr/bin/rg -pS $@ | /usr/bin/bat --plain --theme Darkula
+    /usr/bin/rg --pretty --smart-case --sort-files $@ | /usr/bin/bat --plain --theme Darkula
 }
 
 function findit() {

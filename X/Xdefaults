@@ -56,21 +56,20 @@ URxvt*letterSpace:    -1
 
 URxvt.background:  #2B2B2B
 URxvt.foreground:  #a9b7c6
+! regular colors
 *color0:           #2B2B2B
 *color1:           #cc7832
 *color2:           #629755
 *color3:           #fec66c
-!*color4:           #5859b7  ! too dark
 *color4:           #4a6da8
 *color5:           #9876aa
 *color6:           #259185
 *color7:           #a9b7c6
-! the lighter/stronger variants
+! bright colors
 *color8:           #4d4d4d
 *color9:           #de7620
 *color10:          #59a547
 *color11:          #fec64c
-!*color12:          #4041cf  ! too dark
 *color12:          #8baee7
 *color13:          #9e64bc
 *color14:          #179f90

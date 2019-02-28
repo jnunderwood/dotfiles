@@ -16,13 +16,11 @@
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-# font pango:DejaVu Sans Mono 15
+# my favorite font
+set $font "pango:Fira Code Retina 12"
 
-# use this font instead
-font pango:Fira Code Retina 12
-# font pango:FuraCode Nerd Font,Retina 12
+# set the default font
+font $font
 
 # ------------------------------------------------------------------------------
 # key bindings
@@ -38,35 +36,25 @@ set $down  j
 set $left  h
 set $right l
 
-# Use Mouse+$mod to drag floating windows to their wanted position
+# use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# return to previous workspace using Alt+Tab
-bindsym $mod+Tab workspace back_and_forth
+# return to previous workspace using Alt+Tab; note: this interferes with Citrix/Windows app switching
+# bindsym $mod+Tab workspace back_and_forth
 
-# start a terminal
-# - standard i3 terminal script, which searches for a terminal program
+# start a terminal; standard i3 terminal script, which searches for a terminal program
 bindsym $mod+Return exec i3-sensible-terminal
-# - urxvt does not support font ligatures or true color; resize window also resizes content
-#   bindsym $mod+Return exec urxvt
-# - lxterminal supports true colors; vte dependency does not support font ligatures
-#   bindsym $mod+Return exec lxterminal
-# - termite supports true colors; vte dependency does not support font ligatures
-#   bindsym $mod+Return exec termite
-# - qterminal supports font ligatures and true colors; resize window does not resize content
-#   bindsym $mod+Return exec qterminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start a program launcher
-# - launch dmenu; displays all executables in your path, including $HOME/bin
-bindsym $mod+d exec dmenu_run
-# - launch i3-dmenu-desktop; only displays applications with a .desktop file.
-#   It is a wrapper around dmenu, so you need that installed.
-#   bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='/usr/bin/dmenu -i -fn "-*-courier-medium-r-*-*-*-180-*-*-*-*-*-*"'
 # - launch synapse, an alternative to dmenu
 #   bindsym $mod+d exec synapse
+# - launch i3-dmenu-desktop; only displays applications with a .desktop file.
+#   bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='/usr/bin/dmenu -i -fn $font
+# - launch dmenu; displays all executables in your path, including $HOME/bin
+bindsym $mod+d exec dmenu_run -fn $font
 
 # change focus
 bindsym $mod+$left  focus left
@@ -74,30 +62,14 @@ bindsym $mod+$down  focus down
 bindsym $mod+$up    focus up
 bindsym $mod+$right focus right
 
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Left focus left
-# bindsym $mod+Down focus down
-# bindsym $mod+Up focus up
-# bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+$left  move left
 bindsym $mod+Shift+$down  move down
 bindsym $mod+Shift+$up    move up
 bindsym $mod+Shift+$right move right
 
-# alternatively, you can use the cursor keys:
-# bindsym $mod+Shift+Left  move left
-# bindsym $mod+Shift+Down  move down
-# bindsym $mod+Shift+Up    move up
-# bindsym $mod+Shift+Right move right
-
-# split in horizontal orientation
-# bindsym $mod+h split h
-bindsym $mod+Shift+v split h
-
-# split in vertical orientation
-bindsym $mod+v split v
+# toggle split orientation between horizontal and vertical
+bindsym $mod+v split toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -117,7 +89,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-# bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -172,21 +144,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
-
-    # Pressing left  will shrink the window's width.
-    # Pressing right will grow the window's width.
-    # Pressing up    will shrink the window's height.
-    # Pressing down  will grow the window's height.
     bindsym $left       resize shrink width  10 px or 10 ppt
     bindsym $down       resize grow   height 10 px or 10 ppt
     bindsym $up         resize shrink height 10 px or 10 ppt
     bindsym $right      resize grow   width  10 px or 10 ppt
-
-    # same bindings, but for the arrow keys
-    # bindsym Left        resize shrink width 10 px or 10 ppt
-    # bindsym Down        resize grow height 10 px or 10 ppt
-    # bindsym Up          resize shrink height 10 px or 10 ppt
-    # bindsym Right       resize grow width 10 px or 10 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -255,20 +216,22 @@ client.background       #ffffff
 
 # window borders
 for_window [class="Chromium-browser"] border pixel 1
-#for_window [class="Code"] border pixel 1
-for_window [class="URxvt"] border pixel 1
+for_window [class="Code"] border pixel 1
 for_window [class="qterminal"] border pixel 1
-
-# floating windows
-for_window [title="Buddy List"] floating enable move absolute position 0 px 0 px
-for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position 3344 px 206 px
-for_window [class="Wfica"] floating enable
-for_window [class="Wfica_Seamless"] floating enable
-for_window [class="Wfica_YesNoConfirm"] floating enable
-for_window [title="My Desktop "] floating enable move absolute position center resize set 2990 1682
+for_window [class="URxvt"] border pixel 1
+for_window [class="Wfica"] border pixel 0
 
 # sticky windows
 for_window [class="Pidgin" title="^(?!Buddy)"] sticky enable
+
+# floating windows
+for_window [class="Wfica"] floating enable
+for_window [class="Wfica_Seamless"] floating enable
+for_window [class="Wfica_YesNoConfirm"] floating enable
+for_window [title="Buddy List"] floating enable move position 0 px 0 px
+for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move position 3344 px 206 px
+for_window [title="My Desktop "] floating enable move absolute position center resize set 2990 px 1682 px
+for_window [title="Outlook-My Apps "] floating enable move position 0 px -10 px resize set 3840 px 2124 px
 
 # ------------------------------------------------------------------------------
 # workspace assignments
@@ -289,7 +252,7 @@ assign [class="Thunderbird"] 2: Web
 # Start i3bar to display a workspace bar
 bar {
     # override main font
-    # font pango:Fira Code Retina 12
+    # font $font
 
     # hidden status bar
     # mode hide
@@ -315,7 +278,7 @@ bar {
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
-# mount google drive; FIXME: should be done on shell login
+# mount google drive; FIXME: should be done on login
 exec --no-startup-id /usr/bin/google-drive-ocamlfuse $HOME/GoogleDrive
 
 # mail notifications
@@ -356,12 +319,12 @@ exec_always --no-startup-id feh --bg-scale $HOME/Pictures/Wallpapers/haiku.png
 # screensaver after 5 minutes
 exec_always --no-startup-id xautolock -time 5 -secure -locker "/usr/bin/i3lock --color=000000"
 
-# Note: DPI should now be read from Xft.dpi, set in $HOME/.Xresources
+# note: DPI should now be read from Xft.dpi, set in $HOME/.Xresources
 # DPI for 27" UltraHD monitor, mirrored display on laptop
 # exec_always --no-startup-id xrandr --dpi 163 --output eDP1 --mode 3840x2160 --scale 1x1 --output DP1 --same-as eDP1 --mode 3840x2160 --scale 1x1
 exec_always --no-startup-id xrandr --output eDP1 --mode 3840x2160 --scale 1x1 --output DP1 --same-as eDP1 --mode 3840x2160 --scale 1x1
 
-# Note: DPI should now be read from Xft.dpi, set in $HOME/.Xresources
+# note: DPI should now be read from Xft.dpi, set in $HOME/.Xresources
 # DPI for 15.6" UltraHD laptop screen
 # exec_always --no-startup-id xrandr --dpi 282
 # exec_always --no-startup-id xrandr

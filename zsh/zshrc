@@ -116,7 +116,7 @@ setopt share_history
 # setopt inc_append_history_time
 setopt auto_cd
 
-cdpath=($HOME $HOME/repos/webapps $HOME/repos/junderwo)
+cdpath=($HOME $HOME/repos/webapps $HOME/repos/junderwo $HOME/dotfiles)
 
 # enable debugging (useful for declare/typeset builtins)
 # shopt extdebug > /dev/null || shopt -s extdebug
@@ -136,7 +136,7 @@ bindkey -v
 
 # remove a few aliases created by zsh plugins
 function unaliasPlugins() {
-    typeset -a commands=('g' 'ls' 'la' 'lr' 'lt' 'll' 'ldot' 'lS' 'lart' 'lrt')
+    typeset -a commands=('g' 'ls' 'la' 'lr' 'lt' 'll' 'ldot' 'lS' 'lart' 'lrt' ':q' 'zz')
     for command in $commands; do
         type=`whence -w $command | /usr/bin/cut -d' ' -f2`
         if [ $type = "alias" ]; then
