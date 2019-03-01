@@ -116,7 +116,7 @@ setopt share_history
 # setopt inc_append_history_time
 setopt auto_cd
 
-cdpath=($HOME $HOME/repos/webapps $HOME/repos/junderwo $HOME/dotfiles)
+cdpath=($HOME $HOME/repos/webapps $HOME/repos/$USER $HOME/dotfiles)
 
 # enable debugging (useful for declare/typeset builtins)
 # shopt extdebug > /dev/null || shopt -s extdebug
