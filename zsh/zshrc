@@ -170,7 +170,7 @@ fi
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # personal PATH directories
-export PATH=$HOME/bin:$HOME/.local/bin/:$PATH
+export PATH=/usr/local/bin:$HOME/bin:$HOME/.local/bin/:$PATH
 
 #
 # end PATH settings }}}

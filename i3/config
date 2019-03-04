@@ -274,8 +274,7 @@ bar {
 # ------------------------------------------------------------------------------
 
 # keyring
-exec --no-startup-id gnome-settings-daemon
-exec --no-startup-id gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/bin/gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # mount google drive; FIXME: should be done at login instead of here
 exec --no-startup-id /usr/bin/google-drive-ocamlfuse $HOME/GoogleDrive
@@ -316,10 +315,10 @@ exec --no-startup-id $HOME/bin/jetbrains-toolbox
 # exec_always --no-startup-id $HOME/dotfiles/i3/polybar.sh
 
 # background image
-exec_always --no-startup-id feh --bg-scale $HOME/Pictures/Wallpapers/haiku.png
+exec_always --no-startup-id /usr/bin/feh --bg-scale $HOME/Pictures/Wallpapers/haiku.png
 
 # screensaver after 5 minutes
-exec_always --no-startup-id xautolock -time 5 -secure -locker "/usr/bin/i3lock --color=000000"
+exec_always --no-startup-id /usr/bin/xautolock -time 5 -secure -locker "/usr/bin/i3lock --color=000000"
 
 # ------------------------------------------------------------------------------
 # display settings
@@ -328,21 +327,20 @@ exec_always --no-startup-id xautolock -time 5 -secure -locker "/usr/bin/i3lock -
 # - see http://screen-size.info/ for dimensions
 # - use the following to get display details:
 #   w -hs | awk '{print $3}' | sort -u | xargs -I% xrandr -display %
+# - optionally, use `arandr` GUI to adjust screen layout
 # ------------------------------------------------------------------------------
 
 # 27" UltraHD external display with 163 DPI,
 # mirrored display on 15.6" UltraHD laptop screen with 282 DPI
-exec_always --no-startup-id xrandr \
-    --output DP1 \
-    --output eDP1 --same-as DP1 --auto \
-    #--output eDP1 --mode 3840x2160 --dpi 282 --fbmm 345x194 --scale 1x1 \
-    #--output DP1 --same-as eDP1 --mode 3840x2160 --dpi 163 --fbmm 660x340 --scale 1x1
+exec_always --no-startup-id /usr/bin/xrandr \
+    --output eDP1 --primary      --mode 3840x2160 --dpi 282 --fbmm 345x194 --scale 1x1 pos 0x0 --rotate normal \
+    --output DP1  --same-as eDP1 --mode 3840x2160 --dpi 163 --fbmm 660x340 --scale 1x1 pos 0x0 --rotate normal
 
 # 15.6" UltraHD built-in laptop display with 282 DPI
-# exec_always --no-startup-id xrandr --mode 3840x2160 --dpi 282 --fbmm 345x194 --scale 1x1
+# exec_always --no-startup-id /usr/bin/xrandr --mode 3840x2160 --dpi 282 --fbmm 345x194 --scale 1x1
 
 # 12.5" FullHD remote display with 176 DPI
-# exec_always --no-startup-id xrandr --mode 1920x1080 --dpi 176 --fbmm 277x156 --scale 1x1
+# exec_always --no-startup-id /usr/bin/xrandr --mode 1920x1080 --dpi 176 --fbmm 277x156 --scale 1x1
 
 # ------------------------------------------------------------------------------
 
