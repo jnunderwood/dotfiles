@@ -7,7 +7,7 @@ let g:enable_bold_font = 1
 let g:enable_italic_font = 1
 
 " color settings
-if has("termguicolors") && $COLORTERM == "truecolors"
+if has('termguicolors') && $COLORTERM ==# 'truecolor'
   " set Vim-specific sequences for RGB colors
   " @see https://github.com/vim/vim/issues/993
   "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
