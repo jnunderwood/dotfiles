@@ -175,8 +175,7 @@ bindsym $mod+Shift+Ctrl+l mode "$mode_system"
 
 # ------------------------------------------------------------------------------
 # multimedia key bindings
-#
-# @see https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html
+# - see https://faq.i3wm.org/question/3747/enabling-multimedia-keys.1.html
 # ------------------------------------------------------------------------------
 
 # volume controls (using Pulse Audio)
@@ -278,7 +277,7 @@ bar {
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
-# mount google drive; FIXME: should be done on login
+# mount google drive; FIXME: should be done at login instead of here
 exec --no-startup-id /usr/bin/google-drive-ocamlfuse $HOME/GoogleDrive
 
 # mail notifications
@@ -296,12 +295,15 @@ exec --no-startup-id /usr/bin/pidgin
 # email / calendar
 # exec --no-startup-id /usr/bin/thunderbird
 
-# solaar, applet for logitech wireless mouse
+# solaar applet for logitech wireless mouse
 exec --no-startup-id /usr/bin/solaar
 
 # volume applet
 # exec --no-startup-id /usr/bin/volumeicon
 exec --no-startup-id /usr/bin/pasystray
+
+# JetBrains app launcher
+exec --no-startup-id $HOME/bin/jetbrains-toolbox
 
 # VNC Config
 # exec /usr/bin/vnc4config
@@ -319,15 +321,28 @@ exec_always --no-startup-id feh --bg-scale $HOME/Pictures/Wallpapers/haiku.png
 # screensaver after 5 minutes
 exec_always --no-startup-id xautolock -time 5 -secure -locker "/usr/bin/i3lock --color=000000"
 
-# note: DPI should now be read from Xft.dpi, set in $HOME/.Xresources
-# DPI for 27" UltraHD monitor, mirrored display on laptop
-# exec_always --no-startup-id xrandr --dpi 163 --output eDP1 --mode 3840x2160 --scale 1x1 --output DP1 --same-as eDP1 --mode 3840x2160 --scale 1x1
-exec_always --no-startup-id xrandr --output eDP1 --mode 3840x2160 --scale 1x1 --output DP1 --same-as eDP1 --mode 3840x2160 --scale 1x1
+# ------------------------------------------------------------------------------
+# display settings
+# - eDP1: built-in laptop display
+# - DP1: external display
+# - see http://screen-size.info/ for dimensions
+# - use the following to get display details:
+#   w -hs | awk '{print $3}' | sort -u | xargs -I% xrandr -display %
+# ------------------------------------------------------------------------------
 
-# note: DPI should now be read from Xft.dpi, set in $HOME/.Xresources
-# DPI for 15.6" UltraHD laptop screen
-# exec_always --no-startup-id xrandr --dpi 282
-# exec_always --no-startup-id xrandr
+# 27" UltraHD external display with 163 DPI,
+# mirrored display on 15.6" UltraHD laptop screen with 282 DPI
+exec_always --no-startup-id xrandr \
+    --output DP1 \
+    --output eDP1 --same-as DP1 --auto \
+    #--output eDP1 --mode 3840x2160 --dpi 282 --fbmm 345x194 --scale 1x1 \
+    #--output DP1 --same-as eDP1 --mode 3840x2160 --dpi 163 --fbmm 660x340 --scale 1x1
+
+# 15.6" UltraHD built-in laptop display with 282 DPI
+# exec_always --no-startup-id xrandr --mode 3840x2160 --dpi 282 --fbmm 345x194 --scale 1x1
+
+# 12.5" FullHD remote display with 176 DPI
+# exec_always --no-startup-id xrandr --mode 1920x1080 --dpi 176 --fbmm 277x156 --scale 1x1
 
 # ------------------------------------------------------------------------------
 
