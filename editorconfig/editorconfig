@@ -44,15 +44,15 @@ insert_final_newline = ignore
 [*.bat]
 indent_style = tab
 
-# Makefiles always use tabs for indentation
+# Makefiles use tabs for indentation
 [Makefile]
 indent_style = tab
 
 [Dockerfile]
-indent_size = 2
+indent_size = 4
 
 [Vagrantfile]
-indent_size = 2
+indent_size = 4
 
 # vim config files; FIXME: does not work!
 [*.vimrc]

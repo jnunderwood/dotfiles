@@ -2,12 +2,12 @@
 set undofile
 set undolevels=3000
 set undoreload=10000
-set undodir=~/tmp/nvim/undo//      " undo files
+set undodir=~/tmp/nvim/undo/      " undo files
 "set undodir=~/.config/nvim/undodir
 
 set backup    " keep a backup file
-set backupdir=~/tmp/nvim/backup//  " backup files
-set directory=~/tmp/nvim/swap//    " swap files
+set backupdir=~/tmp/nvim/backup/  " backup files
+set directory=~/tmp/nvim/swap/    " swap files
 
 if has('mouse')
   set mouse=a
