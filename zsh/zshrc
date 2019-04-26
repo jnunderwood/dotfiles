@@ -22,6 +22,14 @@ umask 002
 # allow for core dumps
 #ulimit -c unlimited
 
+# allow for more file descriptors
+ulimit -n 2048
+
+# HiDPI display settings
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
 # locale settings
 # using "C" is useful for expected sorting of filenames
 # export LC_ALL="C.UTF-8"  # use this for foreign character support
@@ -108,7 +116,7 @@ setopt share_history
 # setopt inc_append_history_time
 setopt auto_cd
 
-cdpath=($HOME $HOME/repos/webapps $HOME/repos/junderwo)
+cdpath=($HOME $HOME/repos/webapps $HOME/repos/$USER $HOME/dotfiles)
 
 # enable debugging (useful for declare/typeset builtins)
 # shopt extdebug > /dev/null || shopt -s extdebug
@@ -119,6 +127,8 @@ compinit
 
 # vi-mode
 bindkey -v
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 #
 # end other settings }}}
@@ -128,7 +138,7 @@ bindkey -v
 
 # remove a few aliases created by zsh plugins
 function unaliasPlugins() {
-    typeset -a commands=('g' 'ls' 'la' 'lr' 'lt' 'll' 'ldot' 'lS' 'lart' 'lrt')
+    typeset -a commands=('g' 'ls' 'la' 'lr' 'lt' 'll' 'ldot' 'lS' 'lart' 'lrt' ':q' 'zz')
     for command in $commands; do
         type=`whence -w $command | /usr/bin/cut -d' ' -f2`
         if [ $type = "alias" ]; then
@@ -160,7 +170,7 @@ fi
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # personal PATH directories
-export PATH=$HOME/bin:$HOME/.local/bin/:$PATH
+export PATH=/usr/local/bin:$HOME/bin:$HOME/.local/bin/:$PATH
 
 #
 # end PATH settings }}}
@@ -173,15 +183,15 @@ export PATH=$HOME/bin:$HOME/.local/bin/:$PATH
 # fzf - fuzzy finder
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# Add NVMto PATH for scripting. Make sure this is the last PATH variable change.
+# Add NVM to PATH for scripting
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# add SDK to PATH for scripting
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 

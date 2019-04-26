@@ -1,0 +1,51 @@
+! ------------------------------------------------------------------------------
+! COLORS
+! ------------------------------------------------------------------------------
+
+! To be portable, any colour scheme should roughly match the ANSI colour codes
+! http://en.wikipedia.org/wiki/ANSI_escape_code#Colors
+!
+! *color0:  black
+! *color1:  red
+! *color2:  green
+! *color3:  yellow
+! *color4:  blue
+! *color5:  magenta
+! *color6:  cyan
+! *color7:  white
+! *color8:  bright black
+! *color9:  bright red
+! *color10: bright green
+! *color11: bright yellow
+! *color12: bright blue
+! *color13: bright magenta
+! *color14: bright cyan
+! *color15: bright white
+
+! Darcula color theme
+!
+! @see IntelliJ: Settings->Editor->Console Colors
+! @see https://github.com/JetBrains/intellij-community/blob/master/platform/platform-impl/src/com/intellij/ide/ui/laf/darcula/darcula.properties
+! @see http://www.eclipsecolorthemes.org/?view=theme&id=14105
+! @see http://www.eclipsecolorthemes.org/?view=theme&id=31881
+! @see https://github.com/leofeyer/darcula-ftw
+
+! the regular variants
+*color0:           #2B2B2B
+*color1:           #FF6B68
+*color2:           #A8C023
+*color3:           #D6BF55
+*color4:           #5394EC
+*color5:           #AE8ABE
+*color6:           #299999
+*color7:           #BBBBBB
+
+! the brighter variants
+*color8:           #1F1F1F
+*color9:           #FF8785
+*color10:          #A8C023
+*color11:          #FFFF00
+*color12:          #7EAEF1
+*color13:          #FF99FF
+*color14:          #6CDADA
+*color15:          #FFFFFF

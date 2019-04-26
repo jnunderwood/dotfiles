@@ -1,0 +1,36 @@
+# Darcula-FTW scheme
+
+title Darcula-FTW
+
+# @see https://github.com/leofeyer/darcula-ftw
+
+# note that the default background color is flagged
+# to become transparent when an image is present.
+#
+#   slot    transparent bold
+#      |              | |
+#      V V--color--V  V V
+
+# regular colors
+color  0 169 183 198  0 0  # regular   foreground color
+color  1  43  43  43  1 0  # regular   background color
+color  2   0   0   0  0 0  # regular   color  0, black
+color  3 231  70  68  0 0  # regular   color  1, red
+color  4  55 156 265  0 0  # regular   color  2, green
+color  5 220 196 878  0 0  # regular   color  3, yellow
+color  6  83 148 236  0 0  # regular   color  4, blue
+color  7 174 138 190  0 0  # regular   color  5, magenta
+color  8  41 153 153  0 0  # regular   color  6, cyan
+color  9 238 238 238  0 0  # regular   color  7, white
+
+# bright colors
+#color 10 206 214 222  0 0  # bright  foreground color  #BBBBBB
+#color 11  43  43  43  1 0  # bright  background color  #2B2B2B
+#color 12   0   0   0  0 0  # bright  color  8, black   #000000
+#color 13 255 135 133  0 0  # bright  color  9, red     #FF8785
+#color 14 168 192  35  0 0  # bright  color 10, green   #A8C023
+#color 15 255 255   0  0 0  # bright  color 11, yellow  #FFFF00
+#color 16 126 174 241  0 0  # bright  color 12, blue    #7EAEF1
+#color 17 255 153 255  0 0  # bright  color 13, magenta #FF99FF
+#color 18 108 218 218  0 0  # bright  color 14, cyan    #6CDADA
+#color 19 255 255 255  0 0  # bright  color 15, white   #FFFFFF

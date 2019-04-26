@@ -1,0 +1,39 @@
+# Darcula-JetBrains scheme
+
+title Darcula-JetBrains
+
+# @see IntelliJ: Configure->Settings->Editor->Console Colors
+# @see https://github.com/JetBrains/intellij-community/blob/master/platform/platform-impl/src/com/intellij/ide/ui/laf/darcula/darcula.properties
+# @see http://www.eclipsecolorthemes.org/?view=theme&id=14105
+# @see http://www.eclipsecolorthemes.org/?view=theme&id=31881
+
+# note that the default background color is flagged
+# to become transparent when an image is present
+#
+#   slot    transparent bold
+#      |              | |
+#      V V--color--V  V V
+
+# regular colors
+color  0 187 187 187  0 0  # regular foreground color  #BBBBBB
+color  1  43  43  43  1 0  # regular background color  #2B2B2B
+color  2   0   0   0  0 0  # regular color  0, black   #000000
+color  3 255 107 104  0 0  # regular color  1, red     #FF6B68
+color  4 168 192  35  0 0  # regular color  2, green   #A8C023
+color  5 214 191  85  0 0  # regular color  3, yellow  #D6BFF5
+color  6  83 148 236  0 0  # regular color  4, blue    #5394EC
+color  7 174 138 190  0 0  # regular color  5, magenta #AE8ABE
+color  8  41 153 153  0 0  # regular color  6, cyan    #299999
+color  9 153 153 153  0 0  # regular color  7, white   #999999
+
+# bright colors
+color 10 206 214 222  0 0  # bright  foreground color  #BBBBBB
+color 11  43  43  43  1 0  # bright  background color  #2B2B2B
+color 12  85  85  85  0 0  # bright  color  8, black   #555555
+color 13 255 135 133  0 0  # bright  color  9, red     #FF8785
+color 14 168 192  35  0 0  # bright  color 10, green   #A8C023
+color 15 255 255   0  0 0  # bright  color 11, yellow  #FFFF00
+color 16 126 174 241  0 0  # bright  color 12, blue    #7EAEF1
+color 17 255 153 255  0 0  # bright  color 13, magenta #FF99FF
+color 18 108 218 218  0 0  # bright  color 14, cyan    #6CDADA
+color 19 255 255 255  0 0  # bright  color 15, white   #FFFFFF

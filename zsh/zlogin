@@ -1,7 +1,10 @@
 # motd {{{
 #
 
-/bin/cat /var/run/motd
+if [ -f /var/run/motd ]; then
+    /bin/cat /var/run/motd
+fi
+
 #/usr/bin/lsb_release -s -d
 #/usr/lib/update-notifier/apt-check --human-readable
 #/usr/lib/ubuntu-release-upgrader/check-new-release -q
@@ -45,6 +48,9 @@ fi
 
 # auto-ls () { /bin/ls -CF } #  --classify; }
 # chpwd_functions=( auto-ls $chpwd_functions )
+
+# mount google drive on login
+# /usr/bin/google-drive-ocamlfuse $HOME/GoogleDrive
 
 #
 # end misc }}}

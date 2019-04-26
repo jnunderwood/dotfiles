@@ -1,21 +1,6 @@
-! -----------------------------
-! XFT SETTINGS
-! @see ~/.Xresources
-! -----------------------------
-
-! Xft.dpi:       163  for 27-inch external UltraHD monitor
-! Xft.dpi:       282  for 15.6-inch latop UltraHD monitor
-Xft.dpi:       163
-Xft.autohint:  false
-Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintfull
-Xft.hinting:   true
-Xft.antialias: true
-Xft.rgba:      rgb
-
-! -----------------------------
+! ------------------------------------------------------------------------------
 ! URXVT OPTIONS
-! -----------------------------
+! ------------------------------------------------------------------------------
 
 URxvt*borderless:        false
 URxvt*internalBorder:    0
@@ -33,9 +18,9 @@ URxvt*shading:           20
 URxvt*tintColor:         #2B2B2B
 URxvt*cursorBlink:       true
 
-! -----------------------------
+! ------------------------------------------------------------------------------
 ! FONTS
-! -----------------------------
+! ------------------------------------------------------------------------------
 
 !URxvt*font: xft:Bitstream Vera Sans Mono:size=10
 URxvt.font:           xft:Fira Code Retina:regular:size=11
@@ -45,39 +30,16 @@ URxvt.boldItalicFont: xft:Fira Code Retina:bold:italic:size=11
 URxvt*letterSpace:    -1
 !URxvt*letterSpace: try 0, -1, or -2
 
-! -----------------------------
-! Mini-darcula color theme
-! -----------------------------
-
-!! To be portable, any colour scheme should roughly match the ANSI colour codes
-!! http://en.wikipedia.org/wiki/ANSI_escape_code#Colors
-!! which cycle through: black, red, green, yellow, blue, magenta, cyan, white
-!! and repeat for the "bright" versions.
+! ------------------------------------------------------------------------------
+! COLORS
+! ------------------------------------------------------------------------------
 
 URxvt.background:  #2B2B2B
 URxvt.foreground:  #a9b7c6
-! regular colors
-*color0:           #2B2B2B
-*color1:           #cc7832
-*color2:           #629755
-*color3:           #fec66c
-*color4:           #4a6da8
-*color5:           #9876aa
-*color6:           #259185
-*color7:           #a9b7c6
-! bright colors
-*color8:           #4d4d4d
-*color9:           #de7620
-*color10:          #59a547
-*color11:          #fec64c
-*color12:          #8baee7
-*color13:          #9e64bc
-*color14:          #179f90
-*color15:          #ced6de
 
-! -----------------------------
+! ------------------------------------------------------------------------------
 ! PERL EXTENSIONS
-! -----------------------------
+! ------------------------------------------------------------------------------
 
 URxvt.perl-lib:        /home/junderwo/dotfiles/urxvt/ext
 URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,font-size
@@ -111,9 +73,9 @@ URxvt.keysym.C-equal:  font-size:reset
 URxvt.keysym.C-slash:  font-size:show
 URxvt.font-size.step:  1
 
-! -----------------------------
+! ------------------------------------------------------------------------------
 ! Other settings
-! -----------------------------
+! ------------------------------------------------------------------------------
 
 ! URxvt*termName:                       string
 ! URxvt*geometry:                       geometry

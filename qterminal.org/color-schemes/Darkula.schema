@@ -1,0 +1,34 @@
+# Darkula scheme
+
+title Darkula
+
+# note that the default background color is flagged
+# to become transparent when an image is present.
+
+#   slot    transparent bold
+#      |              | |
+#      V V--color--V  V V
+
+# primary colors
+color  0 169 183 198  0 0  # regular   foreground color
+color  1  43  43  43  1 0  # regular   background color
+color  2  43  43  43  0 0  # regular   color  0, black
+color  3 204 120  50  0 0  # regular   color  1, red
+color  4  98 151  85  0 0  # regular   color  2, green
+color  5 254 198 108  0 0  # regular   color  3, yellow
+color  6  74 109 168  0 0  # regular   color  4, blue
+color  7 152 118 170  0 0  # regular   color  5, magenta
+color  8  37 145 133  0 0  # regular   color  6, cyan
+color  9 169 183 198  0 0  # regular   color  7, white
+
+# intensive variants
+color 10 206 214 222  0 0  # intensive foreground color
+color 11  43  43  43  1 0  # intensive background color
+color 12  77  77  77  0 0  # intensive color  8, black
+color 13 222 118  32  0 0  # intensive color  9, red
+color 14  89 165  71  0 0  # intensive color 10, green
+color 15 254 198  76  0 0  # intensive color 11, yellow
+color 16 139 174 231  0 0  # intensive color 12, blue
+color 17 158 100 188  0 0  # intensive color 13, magenta
+color 18  23 159 144  0 0  # intensive color 14, cyan
+color 19 206 214 222  0 0  # intensive color 15, white
