@@ -27,6 +27,7 @@ font $font
 # ------------------------------------------------------------------------------
 
 # modifier key; Mod1=Alt, Mod4=Win
+#set $mod Mod1
 set $mod Mod4
 
 # use these keys for focus, movement, and resize directions when
@@ -109,7 +110,7 @@ bindsym $mod+3 workspace  3: Dev
 bindsym $mod+4 workspace  4: Dev
 bindsym $mod+5 workspace  5: Dev
 bindsym $mod+6 workspace  6: Dev
-bindsym $mod+7 workspace  7: Dev
+bindsym $mod+7 workspace  7: Linode
 bindsym $mod+8 workspace  8: To-Do
 bindsym $mod+9 workspace  9: SQL
 bindsym $mod+0 workspace 10: Servers
@@ -121,7 +122,7 @@ bindsym $mod+Shift+3 move container to workspace  3: Dev
 bindsym $mod+Shift+4 move container to workspace  4: Dev
 bindsym $mod+Shift+5 move container to workspace  5: Dev
 bindsym $mod+Shift+6 move container to workspace  6: Dev
-bindsym $mod+Shift+7 move container to workspace  7: Dev
+bindsym $mod+Shift+7 move container to workspace  7: Linode
 bindsym $mod+Shift+8 move container to workspace  8: To-Do
 bindsym $mod+Shift+9 move container to workspace  9: SQL
 bindsym $mod+Shift+0 move container to workspace 10: Servers
@@ -156,14 +157,14 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # custom menu for system actions, bound specifically to Win+l
-set $mode_system System (l) lock, (o) logout, (m) monitor, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) Lock, (o) Logout, (m) Monitor, (s) Suspend, (h) Hibernate, (Shift+r) Reboot, (Shift+s) Shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym o exec --no-startup-id i3exit logout, mode "default"
     bindsym m exec --no-startup-id i3exit monitor, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+r exec --no-startup-id i3exit reboot, mode "default"
     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
     # back to normal: Enter or Escape
@@ -215,34 +216,34 @@ client.background       #ffffff
 
 # window borders
 for_window [class="Chromium-browser"] border pixel 1
-for_window [class="Code"] border pixel 1
-for_window [class="qterminal"] border pixel 1
-for_window [class="URxvt"] border pixel 1
-for_window [class="Wfica"] border pixel 0
+for_window [class="Code"]             border pixel 1
+for_window [class="qterminal"]        border pixel 1
+for_window [class="URxvt"]            border pixel 1
+for_window [class="Wfica"]            border pixel 0
 
 # sticky windows
 for_window [class="Pidgin" title="^(?!Buddy)"] sticky enable
 
 # floating windows
-for_window [class="Wfica"] floating enable
-for_window [class="Wfica_Seamless"] floating enable
-for_window [class="Wfica_YesNoConfirm"] floating enable
-for_window [title="Buddy List"] floating enable move position 0 px 0 px
-for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move position 3344 px 206 px
-for_window [title="My Desktop "] floating enable move absolute position center resize set 2990 px 1682 px
-for_window [title="Outlook-My Apps "] floating enable move position 0 px -10 px resize set 3840 px 2124 px
+for_window [class="Wfica"]                     floating enable
+for_window [class="Wfica_Seamless"]            floating enable
+for_window [class="Wfica_YesNoConfirm"]        floating enable
+for_window [title="Buddy List"]                floating enable move          position    0 px    0 px
+for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position 3340 px  210 px resize set  500 px 1905 px
+for_window [title="Outlook-My Apps "]          floating enable move          position    0 px    0 px resize set 3840 px 2124 px
+for_window [title="My Desktop "]               floating enable move absolute position  center         resize set 2990 px 1682 px
 
 # ------------------------------------------------------------------------------
 # workspace assignments
 # - use 'xprop' to determine a window's class or name (i.e., title)
 # ------------------------------------------------------------------------------
 
-assign [class="Wfica"] 1: Windows
-assign [class="Wfica_Seamless"] 1: Windows
-assign [class="Wfica_YesNoConfirm"] 1: Windows
-assign [class="chromium-browser"] 2: Web
-assign [class="Thunderbird"] 2: Web
-# assign [class="^Vncconfig$"] 7: Web
+assign [class="Wfica"]               1: Windows
+assign [class="Wfica_Seamless"]      1: Windows
+assign [class="Wfica_YesNoConfirm"]  1: Windows
+assign [class="chromium-browser"]    2: Web
+assign [class="Thunderbird"]         2: Web
+assign [class="workbench-WbStarter"] 9: SQL
 
 # ------------------------------------------------------------------------------
 # status bar
@@ -276,9 +277,6 @@ bar {
 # keyring
 exec --no-startup-id /usr/bin/gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
-# mount google drive; FIXME: should be done at login instead of here
-# exec --no-startup-id /usr/bin/google-drive-ocamlfuse $HOME/GoogleDrive
-
 # mail notifications
 exec --no-startup-id /usr/bin/mailnag
 
@@ -297,15 +295,14 @@ exec --no-startup-id /usr/bin/pidgin
 # solaar applet for logitech wireless mouse
 exec --no-startup-id /usr/bin/solaar
 
-# volume applet
-# exec --no-startup-id /usr/bin/volumeicon
+# pulse audio applet
 exec --no-startup-id /usr/bin/pasystray
+
+# slimbook battery optimizer
+#exec --no-startup-id /usr/bin/slimbookbattery
 
 # JetBrains app launcher
 exec --no-startup-id $HOME/bin/jetbrains-toolbox --minimize
-
-# VNC Config
-# exec /usr/bin/vnc4config
 
 # ------------------------------------------------------------------------------
 # start these programs when i3 starts or restarts
@@ -323,6 +320,16 @@ exec_always --no-startup-id /usr/bin/xautolock -time 5 -secure -locker "/usr/bin
 # ------------------------------------------------------------------------------
 # display settings
 # - IMPORTANT: don't forget to update DPI in ~/.Xresources.d/fonts
+# - use the following to get display details:
+#   w -hs | awk '{print $3}' | sort -u | xargs -I% xrandr -display %
+# ------------------------------------------------------------------------------
+
+# DP1 external display, mirrored display on eDP1 built-in laptop display
+exec_always --no-startup-id /usr/bin/xrandr --output DP1 --output eDP1 --same-as DP1 --auto
+
+# ------------------------------------------------------------------------------
+# old display settings
+# - IMPORTANT: don't forget to update DPI in ~/.Xresources.d/fonts
 # - see http://screen-size.info/ for dimensions
 # - use `arandr` GUI to visually adjust screen layout (optional)
 # - use the following to get display details:
@@ -334,16 +341,12 @@ exec_always --no-startup-id /usr/bin/xautolock -time 5 -secure -locker "/usr/bin
 #exec_always --no-startup-id /usr/bin/xrandr \
 #    --output DP1  --primary     --mode 3840x2160 --dpi 163 --fbmm 660x340 --scale 1x1 pos 0x0 --rotate normal \
 #    --output eDP1 --same-as DP1 --mode 3840x2160 --dpi 282 --fbmm 345x194 --scale 1x1 pos 0x0 --rotate normal
-#exec_always --no-startup-id /usr/bin/xrandr \
-#    --output eDP1 --primary      --mode 3840x2160 --dpi 282 --fbmm 345x194 --scale 1x1 pos 0x0 --rotate normal \
-#    --output DP1  --same-as eDP1 --mode 3840x2160 --dpi 163 --fbmm 660x340 --scale 1x1 pos 0x0 --rotate normal
-exec_always --no-startup-id xrandr --output DP1 --output eDP1 --same-as DP1 --auto
 
 # 15.6" UltraHD built-in laptop display with 282 DPI
-# exec_always --no-startup-id /usr/bin/xrandr --mode 3840x2160 --dpi 282 --fbmm 345x194 --scale 1x1 pos 0x0 --rotate normal
+#exec_always --no-startup-id /usr/bin/xrandr --mode 3840x2160 --dpi 282 --fbmm 345x194 --scale 1x1 pos 0x0 --rotate normal
 
 # 12.5" FullHD (remote Chromebook) display with 176 DPI
-# exec_always --no-startup-id /usr/bin/xrandr --mode 1920x1080 --dpi 176 --fbmm 277x156 --scale 1x1 pos 0x0 --rotate normal
+#exec_always --no-startup-id /usr/bin/xrandr --mode 1920x1080 --dpi 176 --fbmm 277x156 --scale 1x1 pos 0x0 --rotate normal
 
 # ------------------------------------------------------------------------------
 
