@@ -5,7 +5,8 @@
 
 ! Xft.dpi:       163  for 27-inch external UltraHD monitor
 ! Xft.dpi:       282  for 15.6-inch latop UltraHD monitor
-Xft.dpi:       163
+! Xft.dpi:       176  for 12.5-inch Chromebook monitor
+Xft.dpi:       176
 Xft.autohint:  false
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull

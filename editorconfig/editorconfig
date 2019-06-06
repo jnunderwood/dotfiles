@@ -1,9 +1,6 @@
 # http://editorconfig.org
-root = true
-
 [*]
 indent_style = space
-indent_size = 4
 end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
@@ -13,6 +10,7 @@ insert_final_newline = true
 trim_trailing_whitespace = false
 
 [*.md]
+indent_size = 4
 trim_trailing_whitespace = false
 
 [*.css]
@@ -35,25 +33,25 @@ indent_size = 4
 indent_size = 4
 max_line_length = 80
 
-# Minified JavaScript files shouldn't be changed
-[**.min.js]
-indent_style = ignore
-insert_final_newline = ignore
-
-# Batch files use tabs for indentation
-[*.bat]
-indent_style = tab
-
-# Makefiles use tabs for indentation
-[Makefile]
-indent_style = tab
-
 [Dockerfile]
 indent_size = 4
 
 [Vagrantfile]
 indent_size = 4
 
-# vim config files; FIXME: does not work!
-[*.vimrc]
+# Makefiles use tabs for indentation
+[Makefile]
+indent_style = tab
+
+# Batch files use tabs for indentation
+[*.bat]
+indent_style = tab
+
+# certain CSS and JavaScript files shouldn't be changed
+[**.css.map,**.min.css,**.js.map,**.min.js]
+indent_style = ignore
+insert_final_newline = ignore
+
+# vim config files
+[**.vimrc]
 trim_trailing_whitespace = false
