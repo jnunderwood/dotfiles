@@ -222,7 +222,8 @@ for_window [class="URxvt"]            border pixel 1
 for_window [class="Wfica"]            border pixel 0
 
 # sticky windows
-for_window [class="Pidgin" title="^(?!Buddy)"] sticky enable
+#for_window [class="Pidgin" title="^(?!Buddy)"] sticky enable
+for_window [class="Pidgin"] sticky enable
 
 # floating windows
 for_window [class="Wfica"]                     floating enable
