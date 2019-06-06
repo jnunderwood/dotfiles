@@ -44,6 +44,7 @@ alias  psj='/bin/ps --forest U $USER -o "pid pri %cpu %mem vsz rss size stat bsd
 # aliases for other stuff
 alias       resource='export PATH=/bin:/usr/bin; source $HOME/dotfiles/zsh/zshrc'
 alias              m='$PAGER'
+alias             mf='$PAGER --style=full'
 alias             vi='$EDITOR'
 alias         grails='grails-or-grailsw'
 alias            bak='/bin/cp -p $1 $1.bak'
