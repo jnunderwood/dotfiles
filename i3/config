@@ -44,6 +44,7 @@ floating_modifier $mod
 # bindsym $mod+Tab workspace back_and_forth
 
 # start a terminal; standard i3 terminal script, which searches for a terminal program
+# set terminal options with: sudo update-alternatives --config x-terminal-emulator
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
@@ -275,8 +276,14 @@ bar {
 # start these programs when i3 starts
 # ------------------------------------------------------------------------------
 
+# Composite manager
+exec --no-startup-id compton -f --config /etc/xdg/compton.conf
+
+# Hide the mouse pointer if unused for a duration
+exec --no-startup-id /usr/bin/unclutter -b
+
 # keyring
-exec --no-startup-id /usr/bin/gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+#exec --no-startup-id /usr/bin/gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # mail notifications
 exec --no-startup-id /usr/bin/mailnag
