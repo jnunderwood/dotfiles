@@ -112,8 +112,8 @@ bindsym $mod+4 workspace  4: Dev
 bindsym $mod+5 workspace  5: Dev
 bindsym $mod+6 workspace  6: Dev
 bindsym $mod+7 workspace  7: Linode
-bindsym $mod+8 workspace  8: To-Do
-bindsym $mod+9 workspace  9: SQL
+bindsym $mod+8 workspace  8: SQL
+bindsym $mod+9 workspace  9: To-Do
 bindsym $mod+0 workspace 10: Servers
 
 # move focused container to named workspace
@@ -124,8 +124,8 @@ bindsym $mod+Shift+4 move container to workspace  4: Dev
 bindsym $mod+Shift+5 move container to workspace  5: Dev
 bindsym $mod+Shift+6 move container to workspace  6: Dev
 bindsym $mod+Shift+7 move container to workspace  7: Linode
-bindsym $mod+Shift+8 move container to workspace  8: To-Do
-bindsym $mod+Shift+9 move container to workspace  9: SQL
+bindsym $mod+Shift+8 move container to workspace  8: SQL
+bindsym $mod+Shift+9 move container to workspace  9: To-Do
 bindsym $mod+Shift+0 move container to workspace 10: Servers
 
 # Enable/disable shared memory logging
@@ -245,7 +245,7 @@ assign [class="Wfica_Seamless"]      1: Windows
 assign [class="Wfica_YesNoConfirm"]  1: Windows
 assign [class="chromium-browser"]    2: Web
 assign [class="Thunderbird"]         2: Web
-assign [class="workbench-WbStarter"] 9: SQL
+assign [class="workbench-WbStarter"] 8: SQL
 
 # ------------------------------------------------------------------------------
 # status bar
@@ -328,21 +328,19 @@ exec_always --no-startup-id /usr/bin/xautolock -time 5 -secure -locker "/usr/bin
 # ------------------------------------------------------------------------------
 # display settings
 # - IMPORTANT: don't forget to update DPI in ~/.Xresources.d/fonts
-# - use the following to get display details:
-#   w -hs | awk '{print $3}' | sort -u | xargs -I% xrandr -display %
-# ------------------------------------------------------------------------------
-
-# DP1 external display, mirrored display on eDP1 built-in laptop display
-exec_always --no-startup-id /usr/bin/xrandr --output DP1 --output eDP1 --same-as DP1 --auto
-
-# ------------------------------------------------------------------------------
-# old display settings
-# - IMPORTANT: don't forget to update DPI in ~/.Xresources.d/fonts
-# - see http://screen-size.info/ for dimensions
+# - see http://screen-size.info/ or https://www.sven.de/dpi/ for dpi
 # - use `arandr` GUI to visually adjust screen layout (optional)
 # - use the following to get display details:
 #   w -hs | awk '{print $3}' | sort -u | xargs -I% xrandr -display %
 # ------------------------------------------------------------------------------
+
+# mirrored displays
+# eDP1: 15.6" UltraHD built-in laptop display (QFHD)
+# DP1:  37.5" Ultra-Wide external display (UW-QHD+)
+exec_always --no-startup-id /usr/bin/xrandr \
+    --output HDMI2 --off --output HDMI1 --off --output VIRTUAL1 --off \
+    --output eDP1 --mode 3840x2160 --pos 0x0 --rotate normal --scale 1.00x0.74 --primary \
+    --output DP1  --mode 3840x1600 --pos 0x0 --rotate normal --scale 1.00x1.00
 
 # DP1:  27" UltraHD external display with 163 DPI, mirrored display on
 # eDP1: 15.6" UltraHD built-in laptop display with 282 DPI

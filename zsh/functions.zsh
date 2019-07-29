@@ -161,15 +161,15 @@ function voldown {
 # function for Grails; useful for going between Grails 2.x and 3.x
 function grails-or-grailsw() {
     if [[ -a ./grailsw ]]; then
-        echo "executing ./grailsw"
+        echo "executing: ./grailsw"
         ./grailsw $@
     elif [[ -a ./app/grailsw ]]; then
-        echo "executing ./app/grailsw"
+        echo "executing: cd app; ./grailsw"
         cd app
         ./grailsw $@
         cd ..
     else
-        echo "executing" `where grails | grep -v alias`
+        echo "executing:" `where grails | grep -v alias`
         command grails $@
     fi
 }
@@ -177,15 +177,15 @@ function grails-or-grailsw() {
 # function for Gradle
 function gradle-or-gradlew() {
     if [[ -a ./gradlew ]]; then
-        echo "executing ./gradlew"
+        echo "executing: ./gradlew"
         ./gradlew $@
     elif [[ -a ./app/gradlew ]]; then
-        echo "executing ./app/gradlew"
+        echo "executing: cd app; ./gradlew"
         cd app
         ./gradlew $@
         cd ..
     else
-        echo "executing" `where gradle | grep -v alias`
+        echo "executing:" `where gradle | grep -v alias`
         command gradle $@
     fi
 }
