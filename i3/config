@@ -231,8 +231,8 @@ for_window [class="Wfica"]                     floating enable
 for_window [class="Wfica_Seamless"]            floating enable
 for_window [class="Wfica_YesNoConfirm"]        floating enable
 for_window [title="Buddy List"]                floating enable move          position    0 px    0 px resize set  490 px 1510 px
-for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position 3344 px  253 px resize set  492 px 1295 px
-for_window [title="Outlook-My Apps "]          floating enable move          position    0 px    0 px resize set 3840 px 1554 px
+for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position 3343 px  161 px resize set  494 px 1406 px
+for_window [title="Outlook-My Apps "]          floating enable move absolute position    0 px    0 px resize set 3840 px 1554 px
 for_window [title="My Desktop "]               floating enable move absolute position  center         resize set 3840 px 1554 px
 
 # ------------------------------------------------------------------------------
