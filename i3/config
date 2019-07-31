@@ -146,10 +146,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
-    bindsym $left       resize shrink width  10 px or 10 ppt
-    bindsym $down       resize grow   height 10 px or 10 ppt
-    bindsym $up         resize shrink height 10 px or 10 ppt
-    bindsym $right      resize grow   width  10 px or 10 ppt
+    bindsym $left       resize shrink width   5 px or  5 ppt
+    bindsym $down       resize grow   height  5 px or  5 ppt
+    bindsym $up         resize shrink height  5 px or  5 ppt
+    bindsym $right      resize grow   width   5 px or  5 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -215,6 +215,9 @@ client.background       #ffffff
 # - use 'xwininfo' to determine a window's position and size
 # ------------------------------------------------------------------------------
 
+# constrain floating window sizes
+floating_maximum_size 3840 x 1575
+
 # window borders
 for_window [class="Chromium-browser"] border pixel 1
 for_window [class="Code"]             border pixel 1
@@ -230,10 +233,10 @@ for_window [class="Pidgin"] sticky enable
 for_window [class="Wfica"]                     floating enable
 for_window [class="Wfica_Seamless"]            floating enable
 for_window [class="Wfica_YesNoConfirm"]        floating enable
-for_window [title="Buddy List"]                floating enable move          position    0 px    0 px resize set  490 px 1510 px
-for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position 3343 px  161 px resize set  494 px 1406 px
-for_window [title="Outlook-My Apps "]          floating enable move absolute position    0 px    0 px resize set 3840 px 1554 px
-for_window [title="My Desktop "]               floating enable move absolute position  center         resize set 3840 px 1554 px
+for_window [title="Buddy List"]                floating enable move          position    0    0 resize set  488 1538
+for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position 3350   29 resize set  488 1538
+for_window [title="Outlook-My Apps "]          floating enable move absolute position    0  -10 resize set 3840 1575
+for_window [title="My Desktop "]               floating enable move absolute position  center   resize set 2990 1575
 
 # ------------------------------------------------------------------------------
 # workspace assignments
@@ -338,9 +341,9 @@ exec_always --no-startup-id /usr/bin/xautolock -time 5 -secure -locker "/usr/bin
 # eDP1: 15.6" UltraHD built-in laptop display (QFHD)
 # DP1:  37.5" Ultra-Wide external display (UW-QHD+)
 exec_always --no-startup-id /usr/bin/xrandr \
-    --output HDMI2 --off --output HDMI1 --off --output VIRTUAL1 --off \
-    --output eDP1 --mode 3840x2160 --pos 0x0 --rotate normal --scale 1.00x0.74 --primary \
-    --output DP1  --mode 3840x1600 --pos 0x0 --rotate normal --scale 1.00x1.00
+    --output eDP1 --mode 3840x2160 --pos 0x0 --rotate normal --scale 1.00x0.74 \
+    --output DP1  --mode 3840x1600 --pos 0x0 --rotate normal --scale 1.00x1.00 --primary
+#   --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
 
 # DP1:  27" UltraHD external display with 163 DPI, mirrored display on
 # eDP1: 15.6" UltraHD built-in laptop display with 282 DPI
