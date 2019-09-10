@@ -216,7 +216,7 @@ client.background       #ffffff
 # ------------------------------------------------------------------------------
 
 # constrain floating window sizes
-floating_maximum_size 3840 x 1575
+floating_maximum_size 3840 x 1570
 
 # window borders
 for_window [class="Chromium-browser"] border pixel 1
@@ -233,10 +233,11 @@ for_window [class="Pidgin"] sticky enable
 for_window [class="Wfica"]                     floating enable
 for_window [class="Wfica_Seamless"]            floating enable
 for_window [class="Wfica_YesNoConfirm"]        floating enable
-for_window [title="Buddy List"]                floating enable move          position    0    0 resize set  488 1538
-for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position 3350   29 resize set  488 1538
-for_window [title="Outlook-My Apps "]          floating enable move absolute position    0  -10 resize set 3840 1575
-for_window [title="My Desktop "]               floating enable move absolute position  center   resize set 2990 1575
+for_window [class="Pidgin"]                    floating enable move          position     0    0 resize set  500 1540
+#for_window [title="Buddy List"]                floating enable move          position     0    0 resize set  500 1540
+#for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position  3300   31 resize set  500 1540
+for_window [title="Outlook-My Apps "]          floating enable move absolute position     0  -20 resize set 3840 1570
+for_window [title="My Desktop "]               floating enable move absolute position   center   resize set 2990 1570
 
 # ------------------------------------------------------------------------------
 # workspace assignments

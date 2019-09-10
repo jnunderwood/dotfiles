@@ -32,9 +32,9 @@ function ldapuser {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(sAMAccountName=$@))"
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(sAMAccountName=$@))" | /usr/bin/sort -f
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(sAMAccountName=$@))"
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(sAMAccountName=$@))" | /usr/bin/sort -f
     else
         $HOME/bin/ldapfind
     fi
@@ -45,9 +45,9 @@ function ldapemp {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(employeeNumber=$@))"
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(employeeNumber=$@))" | /usr/bin/sort -f
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(employeeNumber=$@))"
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(employeeNumber=$@))" | /usr/bin/sort -f
     else
         $HOME/bin/ldapfind
     fi
@@ -58,9 +58,9 @@ function ldapmail {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(mail=$@))"
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(mail=$@))" | /usr/bin/sort -f
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(mail=$@))"
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(mail=$@))" | /usr/bin/sort -f
     else
         $HOME/bin/ldapfind
     fi
@@ -71,9 +71,11 @@ function ldapname {
     if [ $# -gt 2 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))"
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" | /usr/bin/sort -f
     elif [ $# -eq 2 ]; then
-        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))"
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" | /usr/bin/sort -f
+    elif [ $# -eq 1 ]; then
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(&(sn=$1)))"
     else
         $HOME/bin/ldapfind
     fi
