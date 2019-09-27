@@ -1,4 +1,4 @@
---style=plain
---theme=Darkula
---italic-text=always
---pager=less
+--style="plain"
+--theme="Monokai Extended"
+--italic-text="always"
+--pager="less"

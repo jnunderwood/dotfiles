@@ -66,7 +66,7 @@ alias     colleagues='/usr/bin/docker exec -dt colleagues.unch.unc.edu "/bin/gre
 alias           motd='/usr/bin/sudo update-motd'  # '/bin/cat /var/run/motd'
 alias         status='/usr/bin/inxi -Fix'
 #alias        weather='/usr/bin/curl wttr.in/rdu'
-alias        battery='/usr/bin/upower --show-info /org/freedesktop/UPower/devices/battery_BAT0'
+alias        battery='/usr/bin/upower --show-info /org/freedesktop/UPower/devices/battery_BAT1'
 alias         volume='/usr/bin/amixer sset Master $1'
 alias           gksu='/usr/bin/pkexec /usr/bin/env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY'
 alias          jinfo='/usr/bin/sudo /usr/bin/jinfo `ps aux | grep catalina | grep "^tomcat7" | cut -d" " -f 3`'

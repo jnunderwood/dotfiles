@@ -80,6 +80,7 @@ export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
 # fzf + rg
+export FZF_DEFAULT_OPTS='--height=70% --preview="/usr/bin/bat {}" --preview-window=right:60%:wrap'
 export FZF_DEFAULT_COMMAND='/usr/bin/rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 

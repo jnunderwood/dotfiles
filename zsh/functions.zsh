@@ -210,7 +210,7 @@ function weather() {
 
 # ripgrep piped through a pager
 function rg() {
-    /usr/bin/rg --pretty --smart-case --sort-files $@ | /usr/bin/bat --plain --theme Darkula
+    /usr/bin/rg --pretty --smart-case --sort-files $@ | /usr/bin/bat --plain --theme 'Monokai Extended'
 }
 
 function findit() {
@@ -240,20 +240,49 @@ function healthcheck() {
 
 # for urxvt terminal; maybe others as well?
 function fontsize() {
-  # printf '\33]50;%s%d\007' "xft:Bitstream Vera Sans Mono:size=$1::antialias=true:hinting=true"
-  if [ $1 ]; then
-    printf '\33]50;%s%d\007' "xft:Fira Code:size=$1::antialias=true:hinting=true"
-  else
-    echo "Specify font size, e.g., $ fontsize 11"
-  fi
+    # printf '\33]50;%s%d\007' "xft:Bitstream Vera Sans Mono:size=$1::antialias=true:hinting=true"
+    if [ $1 ]; then
+        printf '\33]50;%s%d\007' "xft:Fira Code:size=$1::antialias=true:hinting=true"
+    else
+        echo "Specify font size, e.g., $ fontsize 11"
+    fi
+}
+
+# using ripgrep combined with preview
+# find-in-file - usage: fif <searchTerm>
+function fif() {
+    if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+    /usr/bin/rg --files-with-matches --no-messages "$1" | $HOME/.fzf/bin/fzf --preview "highlight -O ansi -l {} 2> /dev/null | /usr/bin/rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || /usr/bin/rg --ignore-case --pretty --context 10 '$1' {}"
+}
+
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+fe() {
+    local files
+    IFS=$'\n' files=($(fzf-tmux --query="$1" --multi --select-1 --exit-0))
+    [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+}
+
+# Modified version where you can press
+#   - CTRL-O to open with `open` command,
+#   - CTRL-E or Enter key to open with the $EDITOR
+fo() {
+    local out file key
+    IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
+    key=$(head -1 <<< "$out")
+    file=$(head -2 <<< "$out" | tail -1)
+    if [ -n "$file" ]; then
+        [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
+    fi
 }
 
 function tm() {
-  [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
-  if [ $1 ]; then
-     tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
-  fi
-  session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
+    [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
+    if [ $1 ]; then
+         tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
+    fi
+    session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | $HOME/.fzf/bin/fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
 
 function man () {

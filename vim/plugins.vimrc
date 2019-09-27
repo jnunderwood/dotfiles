@@ -36,17 +36,11 @@ Plug 'tpope/vim-unimpaired'
 Plug 'justinmk/vim-sneak'
 Plug 'vim-scripts/camelcasemotion'
 
-" eye candy
-"Plug 'myusuf3/numbers.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'lilydjwg/colorizer', { 'on': 'ColorToggle' }
-Plug 'wavded/vim-stylus'
-Plug 'cohlin/vim-colorschemes'
-Plug 'guns/xterm-color-table.vim'
-
 " programming languages in general
 Plug 'w0rp/ale' " asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
+
+" java
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " javascript
 Plug 'guileen/vim-node-dict'
@@ -138,5 +132,16 @@ Plug 'Yggdroot/indentLine'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Mizuchi/vim-ranger'
+
+" eye candy
+"Plug 'myusuf3/numbers.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'lilydjwg/colorizer', { 'on': 'ColorToggle' }
+Plug 'wavded/vim-stylus'
+Plug 'cohlin/vim-colorschemes'
+Plug 'guns/xterm-color-table.vim'
+" call devicons last
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()

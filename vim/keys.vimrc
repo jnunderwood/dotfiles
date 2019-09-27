@@ -228,5 +228,8 @@ nmap <leader>f :let @/="\\<<C-R><C-W>\\>"<CR>:set hls<CR>:silent Ggrep -w "<C-R>
 " same in visual mode
 :vmap <leader>f y:let @/=escape(@", '\\[]$^*.')<CR>:set hls<CR>:silent Ggrep -F "<C-R>=escape(@", '\\"#')<CR>"<CR>:ccl<CR>:cw<CR><CR>
 
+" file preview with fzf, rg, bat, and devicons
+nnoremap <silent> <leader>e :call Fzf_dev()<CR>
+
 " fix colors
 nnoremap <leader>c :set notermguicolors<CR>
