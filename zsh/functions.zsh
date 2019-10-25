@@ -5,20 +5,23 @@
 # Notes:
 # + aliases do not take parameters; use functions instead
 # + filename sorting dependent on LC_ALL env variable
+# + for long listings, use 'k' zsh plugin: https://github.com/supercrabtree/k
 
 function  ls { /bin/ls --color=always -CF $@ }
 function   l { ls $@ }
 function  lf { ls --group-directories-first $@ }
-function  ll { ls -hl $@ | $PAGER --style=plain }
-function  la { ll -A $@ | $PAGER --style=plain }
-function lla { ll -a $@ | $PAGER --style=plain }
-function lld { ll -d $@ .* | $PAGER --style=plain }
-function  lt { ll -rt $@ | $PAGER --style=plain }
-function lta { ll -rtA $@ | $PAGER --style=plain }
-function ltc { ll -rtcA $@ | $PAGER --style=plain }
-function ltu { ll -rtuA $@ | $PAGER --style=plain }
-function lls { ll -rS $@ | $PAGER --style=plain }
-function lss { ll -rS $@ | $PAGER --style=plain }
+function  ll { k --group-directories-first --human $@ | $PAGER --style=plain }
+function  lh { ll --help }
+function llh { ll --help }
+function  la { ll --almost-all $@ | $PAGER --style=plain }
+function lla { ll --all $@ | $PAGER --style=plain }
+function lld { ll --directory $@ .* | $PAGER --style=plain }
+function  lt { ll --reverse -t $@ | $PAGER --style=plain }
+function lta { ll --almost-all --reverse -t $@ | $PAGER --style=plain }
+function ltc { ll --almost-all --reverse -ct $@ | $PAGER --style=plain }
+function ltu { ll --almost-all --reverse -tu $@ | $PAGER --style=plain }
+function lls { ll --reverse -S $@ | $PAGER --style=plain }
+function lss { ll --reverse -S $@ | $PAGER --style=plain }
 #function chpwd() { ls }
 
 #
@@ -32,9 +35,9 @@ function ldapuser {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(sAMAccountName=$@))" | /usr/bin/sort -f
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(sAMAccountName=$@))" # | /usr/bin/sort -f
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(sAMAccountName=$@))" | /usr/bin/sort -f
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(sAMAccountName=$@))" # | /usr/bin/sort -f
     else
         $HOME/bin/ldapfind
     fi
@@ -45,9 +48,9 @@ function ldapemp {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(employeeNumber=$@))" | /usr/bin/sort -f
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(employeeNumber=$@))" # | /usr/bin/sort -f
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(employeeNumber=$@))" | /usr/bin/sort -f
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(employeeNumber=$@))" # | /usr/bin/sort -f
     else
         $HOME/bin/ldapfind
     fi
@@ -58,9 +61,9 @@ function ldapmail {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(mail=$@))" | /usr/bin/sort -f
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(mail=$@))" # | /usr/bin/sort -f
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(mail=$@))" | /usr/bin/sort -f
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(mail=$@))" # | /usr/bin/sort -f
     else
         $HOME/bin/ldapfind
     fi
@@ -71,9 +74,9 @@ function ldapname {
     if [ $# -gt 2 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" | /usr/bin/sort -f
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" # | /usr/bin/sort -f
     elif [ $# -eq 2 ]; then
-        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" | /usr/bin/sort -f
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" # | /usr/bin/sort -f
     elif [ $# -eq 1 ]; then
         $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(&(sn=$1)))"
     else
@@ -275,6 +278,11 @@ fo() {
     if [ -n "$file" ]; then
         [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
     fi
+}
+
+# fh - repeat history
+fh() {
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -r 's/ *[0-9]*\*? *//' | sed -r 's/\\/\\\\/g')
 }
 
 function tm() {

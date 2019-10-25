@@ -219,11 +219,11 @@ client.background       #ffffff
 floating_maximum_size 3840 x 1570
 
 # window borders
-for_window [class="Chromium-browser"] border pixel 1
-for_window [class="Code"]             border pixel 1
-for_window [class="qterminal"]        border pixel 1
-for_window [class="URxvt"]            border pixel 1
-for_window [class="Wfica"]            border pixel 0
+for_window [class="Chromium-browser"] border pixel 2
+for_window [class="Code"]             border pixel 2
+for_window [class="qterminal"]        border pixel 2
+for_window [class="URxvt"]            border pixel 2
+for_window [class="Wfica"]            border pixel 1
 
 # sticky windows
 #for_window [class="Pidgin" title="^(?!Buddy)"] sticky enable
@@ -236,7 +236,7 @@ for_window [class="Wfica_YesNoConfirm"]        floating enable
 for_window [class="Pidgin"]                    floating enable move          position     0    0 resize set  500 1540
 #for_window [title="Buddy List"]                floating enable move          position     0    0 resize set  500 1540
 #for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position  3300   31 resize set  500 1540
-for_window [title="Outlook-My Apps "]          floating enable move absolute position     0  -20 resize set 3840 1570
+for_window [title="Outlook-My Apps "]          floating enable move absolute position     1  -32 resize set 3838 1568
 for_window [title="My Desktop "]               floating enable move absolute position   center   resize set 2990 1570
 
 # ------------------------------------------------------------------------------
@@ -250,6 +250,13 @@ assign [class="Wfica_YesNoConfirm"]  1: Windows
 assign [class="chromium-browser"]    2: Web
 assign [class="Thunderbird"]         2: Web
 assign [class="workbench-WbStarter"] 8: SQL
+
+# ------------------------------------------------------------------------------
+# miscellaneous settings
+# ------------------------------------------------------------------------------
+
+# do not wrap containers when switching container focus
+focus_wrapping no
 
 # ------------------------------------------------------------------------------
 # status bar

@@ -49,8 +49,10 @@ zgen oh-my-zsh plugins/zsh_reload
 
 # bulk load plugins
 # note: load syntax-highlighting before history-substring-search
+# note: load fz after z (above)
 zgen loadall <<EOPLUGINS
   andrewferrier/fzf-z
+  changyuheng/fz
   chrissicool/zsh-256color
   # djui/alias-tips
   # jimhester/per-directory-history

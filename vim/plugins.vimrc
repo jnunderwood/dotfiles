@@ -125,7 +125,7 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'majutsushi/tagbar'
 Plug 'jiangmiao/auto-pairs'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-endwise'
+"Plug 'tpope/vim-endwise' " causes problems when using pumvisible
 Plug 'tpope/vim-eunuch'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'Yggdroot/indentLine'

@@ -92,10 +92,10 @@ let delimitMate_expand_cr = 1
 " use <c-space> for trigger completion
 inoremap <silent><expr> <c-space> coc#refresh()
 " use <tab> and <s-tab> to navigate the completion list:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr>         <Tab>     pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr>         <S-Tab>   pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " use <cr> to confirm completion
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr>         <CR>      pumvisible() ? "\<C-y>" : "\<CR>"
 " close the preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
