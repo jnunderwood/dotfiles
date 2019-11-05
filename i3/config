@@ -65,10 +65,10 @@ bindsym $mod+$up    focus up
 bindsym $mod+$right focus right
 
 # move focused window
-bindsym $mod+Shift+$left  move left
-bindsym $mod+Shift+$down  move down
-bindsym $mod+Shift+$up    move up
-bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+$left  move left  1px
+bindsym $mod+Shift+$down  move down  1px
+bindsym $mod+Shift+$up    move up    1px
+bindsym $mod+Shift+$right move right 1px
 
 # toggle split orientation between horizontal and vertical
 bindsym $mod+v split toggle
@@ -146,10 +146,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
-    bindsym $left       resize shrink width   5 px or  5 ppt
-    bindsym $down       resize grow   height  5 px or  5 ppt
-    bindsym $up         resize shrink height  5 px or  5 ppt
-    bindsym $right      resize grow   width   5 px or  5 ppt
+    bindsym $left       resize shrink width   1 px or  1 ppt
+    bindsym $down       resize grow   height  1 px or  1 ppt
+    bindsym $up         resize shrink height  1 px or  1 ppt
+    bindsym $right      resize grow   width   1 px or  1 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -233,10 +233,10 @@ for_window [class="Pidgin"] sticky enable
 for_window [class="Wfica"]                     floating enable
 for_window [class="Wfica_Seamless"]            floating enable
 for_window [class="Wfica_YesNoConfirm"]        floating enable
-for_window [class="Pidgin"]                    floating enable move          position     0    0 resize set  500 1540
-#for_window [title="Buddy List"]                floating enable move          position     0    0 resize set  500 1540
-#for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position  3300   31 resize set  500 1540
-for_window [title="Outlook-My Apps "]          floating enable move absolute position     1  -32 resize set 3838 1568
+#for_window [class="Pidgin"]                    floating enable move          position     0    0 resize set  500 1540
+for_window [title="Buddy List"]                floating enable move          position     0    0 resize set  500 1540
+for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position  3300   31 resize set  500 1540
+for_window [title="Outlook-My Apps "]          floating enable move absolute position     1  -32 resize set 3836 1568
 for_window [title="My Desktop "]               floating enable move absolute position   center   resize set 2990 1570
 
 # ------------------------------------------------------------------------------
@@ -287,9 +287,6 @@ bar {
 # start these programs when i3 starts
 # ------------------------------------------------------------------------------
 
-# Composite manager
-exec --no-startup-id compton -f --config /etc/xdg/compton.conf
-
 # Hide the mouse pointer if unused for a duration
 exec --no-startup-id /usr/bin/unclutter -b
 
@@ -326,6 +323,10 @@ exec --no-startup-id $HOME/bin/jetbrains-toolbox --minimize
 # ------------------------------------------------------------------------------
 # start these programs when i3 starts or restarts
 # ------------------------------------------------------------------------------
+
+# Composite manager
+#exec --no-startup-id compton -f --config /etc/xdg/compton.conf
+exec_always --no-startup-id compton -b --config $HOME/.compton.conf
 
 # polybar
 # exec_always --no-startup-id $HOME/dotfiles/i3/polybar.sh

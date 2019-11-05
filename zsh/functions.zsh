@@ -241,6 +241,15 @@ function healthcheck() {
     /usr/bin/docker inspect --format='{{json .State.Health}}' $1.unch.unc.edu | /usr/bin/jq
 }
 
+function json () {
+    if [ -t 0 ]; then
+        /usr/bin/python -m json.tool <<< "$*" | /usr/bin/pygmentize -l json
+    else
+        /usr/bin/python -m json.tool | /usr/bin/pygmentize -l json
+    fi
+}
+
+
 # for urxvt terminal; maybe others as well?
 function fontsize() {
     # printf '\33]50;%s%d\007' "xft:Bitstream Vera Sans Mono:size=$1::antialias=true:hinting=true"
