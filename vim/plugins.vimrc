@@ -25,7 +25,8 @@ endif
 " editing
 Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree'
-Plug 'tpope/vim-commentary'
+"Plug 'tpope/vim-commentary'
+Plug 'tomtom/tcomment_vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'nathanaelkane/vim-indent-guides' " `,ig` to toggle
 "Plug 'Raimondi/delimitMate'  " causes errors: <SNR>50_TriggerAbb()

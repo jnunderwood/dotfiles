@@ -216,6 +216,10 @@ nmap <leader>t :TagbarToggle<cr>
 nmap <leader># :call NERDComment(0, "invert")<cr>
 vmap <leader># :call NERDComment(0, "invert")<cr>
 
+" comment on CTRL-/ (there is a slight delay)
+nmap <C-_> :TComment<CR>
+vmap <C-_> :TComment<CR>gv
+
 " fugitive
 "nmap <leader>gs :Gstatus<CR>
 "nmap <leader>gc :Gcommit -v<CR>
