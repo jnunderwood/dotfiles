@@ -204,3 +204,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 #
 # vim: set ft=zsh fdm=marker:
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

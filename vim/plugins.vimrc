@@ -35,10 +35,11 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'justinmk/vim-sneak'
-Plug 'vim-scripts/camelcasemotion'
+"Plug 'vim-scripts/camelcasemotion'
 
 " programming languages in general
 Plug 'w0rp/ale' " asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
+Plug 'AndrewRadev/splitjoin.vim'
 
 " java
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -144,5 +145,6 @@ Plug 'cohlin/vim-colorschemes'
 Plug 'guns/xterm-color-table.vim'
 " call devicons last
 Plug 'ryanoasis/vim-devicons'
+Plug 'psliwka/vim-smoothie'
 
 call plug#end()

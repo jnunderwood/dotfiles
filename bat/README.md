@@ -8,17 +8,19 @@ You can add SublimeText syntax files, like Groovy.
 After adding a syntax file, run:
 
 ```shell
-$ bat cache --init
+$ bat cache --build
 $ bat --list-languages
 ```
 
 ## Themes
 
+@see http://tmtheme-editor.herokuapp.com/
+
 You can add SublimeText theme files, like Darkula.
-After adding syntax or theme files, run:
+After adding theme files, run:
 
 ```shell
-$ bat cache --init
+$ bat cache --build
 $ bat --list-themes
 ```
 
@@ -28,4 +30,3 @@ you can use the following command:
 ```shell
 $ bat --list-themes | fzf --preview="bat --theme={} --color=always /path/to/file"
 ```
-

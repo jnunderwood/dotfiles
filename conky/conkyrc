@@ -1,61 +1,71 @@
-out_to_x no
-own_window no
-out_to_console yes
-background no
-max_text_width 0
+conky.config = {
+    -- conkyrc - conky config file
+    -- for use with i3wm, see $HOME/bin/conky-i3bar
 
-# Update interval in seconds
-update_interval 5.0
+    out_to_x = false,
+    own_window = false,
+    out_to_console = true,
+    background = false,
+    max_text_width = 0,
 
-# This is the number of times Conky will update before quitting.
-# Set to zero to run forever.
-total_run_times 0
+    -- Update interval in seconds
+    update_interval = 5.0,
 
-# Shortens units to a single character (kiB->k, GiB->G, etc.). Default is off.
-short_units yes
+    -- This is the number of times Conky will update before quitting.
+    -- Set to zero to run forever.
+    total_run_times = 0,
 
-# How strict should if_up be when testing an interface for being up?
-# The value is one of up, link or address, to check for the interface
-# being solely up, being up and having link or being up, having link
-# and an assigned IP address.
-if_up_strictness address
+    -- Shortens units to a single character (kiB->k, GiB->G, etc.). Default is off.
+    short_units = true,
 
-# Add spaces to keep things from moving about?  This only affects certain objects.
-# use_spacer should have an argument of left, right, or none
-use_spacer left
+    -- How strict should if_up be when testing an interface for being up?
+    -- The value is one of up, link or address, to check for the interface
+    -- being solely up, being up and having link or being up, having link
+    -- and an assigned IP address.
+    if_up_strictness = 'address',
 
-# Force UTF8? note that UTF8 support required XFT
-override_utf8_locale no
+    -- Add spaces to keep things from moving about?  This only affects certain objects.
+    -- use_spacer should have an argument of left, right, or none
+    use_spacer = 'right',
 
-# number of cpu samples to average
-# set to 1 to disable averaging
-cpu_avg_samples 2
+    -- Force UTF8? note that UTF8 support required XFT
+    override_utf8_locale = false,
 
-# Stuff after 'TEXT' will be formatted on screen
-TEXT
+    -- number of cpu samples to average
+    -- set to 1 to disable averaging
+    cpu_avg_samples = 2,
+};
+
+conky.text = [[
 
 # JSON for i3bar
 [
   {
-    "full_text" : "${nodename} (${addr eno1})" , "color" : "\#00ff00"
+    # "full_text" : "${nodename}" , "color" : "\#00ff00"
+    "full_text" : "${nodename} (${addr enx9cebe81e1d86})" , "color" : "\#00ff00"
   },
   {
+    # "full_text" : "Disk ${fs_free /home} (${fs_free_perc}%) Free" , "color" : ${if_match ${fs_free_perc} < 25}"\#ff0000"${else}"\#ffffff"${endif}
     "full_text" : "Disk ${fs_free /home} (${fs_free_perc}%) Free" , "color" : "\#ffffff"
   },
   {
-    "full_text" : "Swap ${swap} (${swapperc}%) Used" , "color" : ${if_match ${swapperc}<90}"\#ffffff"${else}"\#ff0000"${endif}
+    "full_text" : "Swap ${swap} (${swapperc}%) Used" , "color" : ${if_match ${swapperc} < 90}"\#ffffff"${else}"\#ff0000"${endif}
   },
   {
-    "full_text" : "RAM ${mem} (${memperc}%) Used" , "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif}
+    "full_text" : "RAM ${mem} (${memperc}%) Used" , "color" : ${if_match ${memperc} < 90}"\#ffffff"${else}"\#ff0000"${endif}
   },
   {
-    "full_text" : "Load Avg ${loadavg 1}" , "color" : ${if_match ${loadavg 1}<5}"\#ffffff"${else}"\#ff0000"${endif}
+    "full_text" : "Load Avg ${loadavg 1}" , "color" : ${if_match ${loadavg 1} < 5}"\#ffffff"${else}"\#ff0000"${endif}
   },
   {
-    "full_text" : "CPU ${cpu 0}%" , "color" : ${if_match ${cpu 0}<90}"\#ffffff"${else}"\#ff0000"${endif}
+    "full_text" : "CPU ${cpu 0}%" , "color" : ${if_match ${cpu 0} < 90}"\#ffffff"${else}"\#ff0000"${endif}
+  },
+  {
+    "full_text" : "Battery ${battery_percent BAT1}%" , "color" : ${if_match "${battery_percent BAT1}" < "15"}"\#ffffff"${else}"\#ff0000"${endif}
   },
   {
     "full_text" : "${time %A %F %r}", "color" : "\#ffffff"
   }
 ],
 
+]];

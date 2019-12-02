@@ -223,7 +223,7 @@ for_window [class="Chromium-browser"] border pixel 2
 for_window [class="Code"]             border pixel 2
 for_window [class="qterminal"]        border pixel 2
 for_window [class="URxvt"]            border pixel 2
-for_window [class="Wfica"]            border pixel 1
+for_window [class="Wfica"]            border pixel 2
 
 # sticky windows
 #for_window [class="Pidgin" title="^(?!Buddy)"] sticky enable
@@ -235,8 +235,8 @@ for_window [class="Wfica_Seamless"]            floating enable
 for_window [class="Wfica_YesNoConfirm"]        floating enable
 #for_window [class="Pidgin"]                    floating enable move          position     0    0 resize set  500 1540
 for_window [title="Buddy List"]                floating enable move          position     0    0 resize set  500 1540
-for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position  3300   31 resize set  500 1540
-for_window [title="Outlook-My Apps "]          floating enable move absolute position     1  -32 resize set 3836 1568
+for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position     0    0 resize set  500 1540
+for_window [title="Outlook-MyApps "]           floating enable move absolute position     1  -43 resize set 3836 1566
 for_window [title="My Desktop "]               floating enable move absolute position   center   resize set 2990 1570
 
 # ------------------------------------------------------------------------------
@@ -262,7 +262,7 @@ focus_wrapping no
 # status bar
 # ------------------------------------------------------------------------------
 
-# Start i3bar to display a workspace bar
+# Start a panel at the bottom of the screen
 bar {
     # override main font
     # font $font
@@ -325,11 +325,13 @@ exec --no-startup-id $HOME/bin/jetbrains-toolbox --minimize
 # ------------------------------------------------------------------------------
 
 # Composite manager
-#exec --no-startup-id compton -f --config /etc/xdg/compton.conf
-exec_always --no-startup-id compton -b --config $HOME/.compton.conf
+exec_always --no-startup-id /usr/bin/compton -b --config $HOME/.compton.conf
 
-# polybar
+# polybar panel
 # exec_always --no-startup-id $HOME/dotfiles/i3/polybar.sh
+
+# tint2 panel
+# exec_always --no-startup-id /usr/bin/tint2
 
 # background image
 exec_always --no-startup-id /usr/bin/feh --bg-scale $HOME/Pictures/Wallpapers/haiku.png
@@ -354,17 +356,11 @@ exec_always --no-startup-id /usr/bin/xrandr \
     --output DP1  --mode 3840x1600 --pos 0x0 --rotate normal --scale 1.00x1.00 --primary
 #   --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
 
-# DP1:  27" UltraHD external display with 163 DPI, mirrored display on
-# eDP1: 15.6" UltraHD built-in laptop display with 282 DPI
-#exec_always --no-startup-id /usr/bin/xrandr \
-#    --output DP1  --primary     --mode 3840x2160 --dpi 163 --fbmm 660x340 --scale 1x1 pos 0x0 --rotate normal \
-#    --output eDP1 --same-as DP1 --mode 3840x2160 --dpi 282 --fbmm 345x194 --scale 1x1 pos 0x0 --rotate normal
+# 15.6" UltraHD built-in laptop display
+#exec_always --no-startup-id /usr/bin/xrandr --mode 3840x2160 --fbmm 345x194 --scale 1x1 pos 0x0 --rotate normal
 
-# 15.6" UltraHD built-in laptop display with 282 DPI
-#exec_always --no-startup-id /usr/bin/xrandr --mode 3840x2160 --dpi 282 --fbmm 345x194 --scale 1x1 pos 0x0 --rotate normal
-
-# 12.5" FullHD (remote Chromebook) display with 176 DPI
-#exec_always --no-startup-id /usr/bin/xrandr --mode 1920x1080 --dpi 176 --fbmm 277x156 --scale 1x1 pos 0x0 --rotate normal
+# 12.5" FullHD (remote Chromebook) display
+#exec_always --no-startup-id /usr/bin/xrandr --mode 1920x1080 --fbmm 277x156 --scale 1x1 pos 0x0 --rotate normal
 
 # ------------------------------------------------------------------------------
 
