@@ -10,7 +10,7 @@
 function  ls { /bin/ls --color=always -CF $@ }
 function   l { ls $@ }
 function  lf { ls --group-directories-first $@ }
-function  ll { k --group-directories-first --human $@ | $PAGER --style=plain }
+function  ll { k --human $@ | $PAGER --style=plain }
 function  lh { ll --help }
 function llh { ll --help }
 function  la { ll --almost-all $@ | $PAGER --style=plain }
