@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 " colorschemes
 Plug 'blueshirts/darcula'
 "Plug 'isobit/vim-darcula-colors'
+Plug 'tomasiser/vim-code-dark'
 
 " general
 Plug 'tpope/vim-sensible'

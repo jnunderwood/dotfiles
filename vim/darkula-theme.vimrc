@@ -20,35 +20,35 @@ else
   set t_Co=256
 endif
 
-" a nice colorscheme
-colorscheme codedark
+" my favorite colorscheme
+colorscheme darcula
 
 " for vim color names and mappings, see colors.vimrc
 
 " override some colors
-"hi LineNr ctermfg=60 ctermbg=234 guifg=#5f5f87 guibg=#1c1c1c
-"hi CursorLine ctermbg=234 guibg=#1c1c1c
-"hi NonText ctermfg=238 guifg=#444444 guibg=#2b2b2b
+hi LineNr ctermfg=60 ctermbg=234 guifg=#5f5f87 guibg=#1c1c1c
+hi CursorLine ctermbg=234 guibg=#1c1c1c
+hi NonText ctermfg=238 guifg=#444444 guibg=#2b2b2b
 
 " override some font styles
-"hi Boolean cterm=bold
-"hi Character cterm=italic
-"hi Comment cterm=italic gui=italic
-"hi Conditional cterm=bold
-"hi Constant cterm=bold
-"hi Define cterm=bold
-"hi DiffAdd cterm=bold
-"hi DiffText cterm=bold
-"hi Function cterm=bold
-"hi Keyword cterm=bold
-"hi PreProc cterm=bold
-"hi Special cterm=bold
-"hi StorageClass cterm=bold
-"hi Todo cterm=bold,italic
-"hi Type cterm=bold
-"hi jsFunction cterm=bold
-"hi javaScriptFunction cterm=bold
-"hi markdownHeadingDelimiter cterm=bold
+hi Boolean cterm=bold
+hi Character cterm=italic
+hi Comment cterm=italic gui=italic
+hi Conditional cterm=bold
+hi Constant cterm=bold
+hi Define cterm=bold
+hi DiffAdd cterm=bold
+hi DiffText cterm=bold
+hi Function cterm=bold
+hi Keyword cterm=bold
+hi PreProc cterm=bold
+hi Special cterm=bold
+hi StorageClass cterm=bold
+hi Todo cterm=bold,italic
+hi Type cterm=bold
+hi jsFunction cterm=bold
+hi javaScriptFunction cterm=bold
+hi markdownHeadingDelimiter cterm=bold
 
 " make background transparent
 "hi Normal ctermbg=NONE
@@ -62,7 +62,7 @@ colorscheme codedark
 "2match WhiteSpaceBol /^ \+/
 
 " vim-sneak settings
-"hi SneakPluginTarget ctermfg=black ctermbg=234 guibg=#181818
+hi SneakPluginTarget ctermfg=black ctermbg=234 guibg=#181818
 
 " performance improvement settings
 " @see http://stackoverflow.com/questions/4775605/vim-syntax-highlight-improve-performance
