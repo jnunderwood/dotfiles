@@ -238,6 +238,7 @@ for_window [title="Buddy List"]                floating enable move          pos
 for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position     0 px   0 px resize set  500 px 1570 px
 for_window [title="Outlook-MyApps "]           floating enable move absolute position     0 px   0 px resize set 3840 px 1570 px
 for_window [title="My Desktop "]               floating enable move absolute position     center      resize set 2990 px 1570 px
+for_window [title="MyDesktop Linux "]          floating enable move absolute position     0 px   0 px resize set 3840 px 1570 px
 
 # ------------------------------------------------------------------------------
 # workspace assignments
