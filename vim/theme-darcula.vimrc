@@ -22,6 +22,7 @@ endif
 
 " my favorite colorscheme
 colorscheme darcula
+"colorscheme py-darcula
 
 " for vim color names and mappings, see colors.vimrc
 

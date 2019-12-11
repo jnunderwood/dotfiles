@@ -4,6 +4,12 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'blueshirts/darcula'
 "Plug 'isobit/vim-darcula-colors'
 Plug 'tomasiser/vim-code-dark'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'chriskempson/base16-vim'
+Plug 'roryrjb/base16-adwaita-scheme'
+Plug 'NLKNguyen/papercolor-theme'
+"Plug 'doums/darcula'
+Plug 'cohlin/vim-colorschemes'
 
 " general
 Plug 'tpope/vim-sensible'

@@ -136,6 +136,17 @@ bindkey -M vicmd 'j' history-substring-search-down
 #
 # end other settings }}}
 
+# Base16 Shell {{{
+#
+
+#BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+#
+# }}}
+
 # aliases, functions, and themes {{{
 #
 
@@ -159,6 +170,8 @@ source $HOME/dotfiles/zsh/my.zsh-theme
 # end aliases, functions, and themes }}}
 
 # PATH settings {{{
+
+export CPATH=/usr/include/glib-2.0:/usr/lib/x86_64-linux-gnu/glib-2.0/include:/usr/include/libsecret-1
 
 # go programming language
 export GOPATH=$HOME/go
@@ -203,6 +216,3 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 #
 # vim: set ft=zsh fdm=marker:
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

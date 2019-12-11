@@ -2,9 +2,11 @@
 
 syntax enable
 
+"set background=dark
+
 " allow themes to use bold and italic fonts
-let g:enable_bold_font = 1
-let g:enable_italic_font = 1
+"let g:enable_bold_font = 1
+"let g:enable_italic_font = 1
 
 " color settings
 if has('termguicolors') && $COLORTERM ==# 'truecolor'
@@ -20,8 +22,20 @@ else
   set t_Co=256
 endif
 
+" for base16
+"if filereadable(expand("~/.vimrc_background"))
+"  let base16colorspace=256
+"  source ~/.vimrc_background
+"endif
+
 " a nice colorscheme
-colorscheme codedark
+" colorscheme PaperColor
+" colorscheme codedark
+" colorscheme base16-ashes
+" colorscheme base16-material-darker
+" colorscheme hybrid_material
+" colorscheme darcula
+colorscheme py-darcula
 
 " for vim color names and mappings, see colors.vimrc
 

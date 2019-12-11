@@ -5,4 +5,4 @@ source $HOME/.config/nvim/line.vimrc
 source $HOME/.config/nvim/keys.vimrc
 source $HOME/.config/nvim/general.vimrc
 source $HOME/.config/nvim/colors.vimrc
-source $HOME/.config/nvim/theme.vimrc
+source $HOME/.config/nvim/theme-darcula.vimrc
