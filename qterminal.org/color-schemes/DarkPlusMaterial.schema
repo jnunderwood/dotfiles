@@ -1,0 +1,64 @@
+# Dark Plus Material schema
+
+title DarkPlusMaterial
+
+# note that the default background color is flagged
+# to become transparent when an image is present.
+
+#   slot    transparent bold
+#      |              | |
+#      V V--color--V  V V
+
+# black      #000000 (dark) #101010 (dark) #424242 (bright)
+# red        #ff5722 (dark) #f44336 (bright)
+# green      #4caf50 (dark) #8bc34a (bright)
+# yellow     #ffc107 (dark) #ffeb3b (bright)
+# blue       #3f51b5 (dark) #03a9f4 (bright)
+# magenta    #673ab7 (dark) #9c27b0 (bright)
+# cyan       #607d8b (dark) #00bcd4 (bright)
+# white      #9e9e9e (dark) #bdbdbd (dark) #eeeeee (bright) #ffffff (bright)
+
+# color  0 #bdbdbd
+# color  1 #101010
+# color  2 #101010
+# color  3 #ff5722
+# color  4 #4caf50
+# color  5 #ffc107
+# color  6 #3f51b5
+# color  7 #673ab7
+# color  8 #607d8b
+# color  9 #bdbdbd
+# color 10 #eeeeee
+# color 11 #424242
+# color 12 #424242
+# color 13 #f44336
+# color 14 #8bc34a
+# color 15 #ffeb3b
+# color 16 #03a9f4
+# color 17 #9c27b0
+# color 18 #00bcd4
+# color 19 #eeeeee
+
+# primary colors
+color  0 189 189 189  0 0  # regular   foreground color
+color  1  16  16  16  1 0  # regular   background color
+color  2  16  16  16  0 0  # regular   color  0, black
+color  3 255  87  34  0 0  # regular   color  1, red
+color  4  76 175  80  0 0  # regular   color  2, green
+color  5 255 193   7  0 0  # regular   color  3, yellow
+color  6  63  81 181  0 0  # regular   color  4, blue
+color  7 103  58 183  0 0  # regular   color  5, magenta
+color  8  96 125 139  0 0  # regular   color  6, cyan
+color  9 189 189 189  0 0  # regular   color  7, white
+
+# intensive variants
+color 10 238 238 238  0 0  # intensive foreground color
+color 11  66  66  66  1 0  # intensive background color
+color 12  66  66  66  0 0  # intensive color  8, black
+color 13 244  67  54  0 0  # intensive color  9, red
+color 14 139 195  74  0 0  # intensive color 10, green
+color 15 255 235  59  0 0  # intensive color 11, yellow
+color 16   3 169 244  0 0  # intensive color 12, blue
+color 17 156  39 176  0 0  # intensive color 13, magenta
+color 18   0 188 212  0 0  # intensive color 14, cyan
+color 19 238 238 238  0 0  # intensive color 15, white
