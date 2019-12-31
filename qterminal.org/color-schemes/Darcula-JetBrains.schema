@@ -26,7 +26,7 @@ color  9 153 153 153  0 0  # regular color  7, white,   #999999 - ANSI Gray
 
 # bright colors
 color 10 187 187 187  0 1  # bright  color foreground,  #BBBBBB - Console Standard output
-color 11  43  43  43  1 1  # bright  color background,  #2B2B2B - Console Background
+color 11  43  43  43  1 0  # bright  color background,  #2B2B2B - Console Background
 color 12  85  85  85  0 1  # bright  color  8, black,   #555555 - ANSI Dark Gray
 color 13 255 135 133  0 1  # bright  color  9, red,     #FF8785 - ANSI Bright Red
 color 14 168 192  35  0 1  # bright  color 10, green,   #A8C023 - ANSI Bright Green

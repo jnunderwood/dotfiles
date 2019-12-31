@@ -82,7 +82,7 @@ URxvt.foreground:  #a9b7c6
 ! PERL EXTENSIONS
 ! -----------------------------
 
-URxvt.perl-lib:        /home/junderwo/dotfiles/urxvt/ext
+URxvt.perl-lib:        /home/UNCH/junderwo/dotfiles/urxvt/ext
 URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,font-size
 
 ! clipboard

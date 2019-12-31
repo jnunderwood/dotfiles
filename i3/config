@@ -226,14 +226,12 @@ for_window [class="URxvt"]            border pixel 2
 for_window [class="Wfica"]            border pixel 2
 
 # sticky windows
-#for_window [class="Pidgin" title="^(?!Buddy)"] sticky enable
 for_window [class="Pidgin"] sticky enable
 
 # floating windows
 for_window [class="Wfica"]                     floating enable
 for_window [class="Wfica_Seamless"]            floating enable
 for_window [class="Wfica_YesNoConfirm"]        floating enable
-#for_window [class="Pidgin"]                    floating enable move          position     0 px   0 px resize set  500 px 1540 px
 for_window [title="Buddy List"]                floating enable move          position     0 px   0 px resize set  500 px 1570 px
 for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position     0 px   0 px resize set  500 px 1570 px
 for_window [title="Outlook-MyApps "]           floating enable move absolute position     0 px   0 px resize set 3840 px 1570 px
@@ -245,10 +243,10 @@ for_window [title="MyDesktop Linux "]          floating enable move absolute pos
 # - use 'xprop' to determine a window's class or name (i.e., title)
 # ------------------------------------------------------------------------------
 
+assign [title="MyDesktop Linux "]    4: Dev
 assign [class="Wfica"]               1: Windows
 assign [class="Wfica_Seamless"]      1: Windows
 assign [class="Wfica_YesNoConfirm"]  1: Windows
-assign [title="MyDesktop Linux "]    4: Dev
 assign [class="chromium-browser"]    2: Web
 assign [class="Thunderbird"]         2: Web
 assign [class="workbench-WbStarter"] 8: SQL

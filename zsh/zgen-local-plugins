@@ -1,17 +1,10 @@
 #!/bin/zsh
-#
-# Only including a shebang to trigger Sublime Text to use shell syntax highlighting
-#
-# Copyright 2006-2017 Joseph Block <jpb@unixorn.net>
-#
+
 # The Zsh Starter Kit allows you to replace the curated plugins list it
 # ships with with a custom one by creating a file named .zgen-local-plugins.
 #
 # This is to make it easier to customize without having to maintain a separate
 # fork of the starter kit.
-#
-# This example file duplicates the list of plugins that shipped with the
-# kit as of 2017-05-07.
 
 ZGEN_LOADED=()
 ZGEN_COMPLETIONS=()
@@ -43,24 +36,23 @@ zgen oh-my-zsh plugins/rsync
 zgen oh-my-zsh plugins/sudo
 zgen oh-my-zsh plugins/vagrant
 zgen oh-my-zsh plugins/wd
-zgen oh-my-zsh plugins/z
+# zgen oh-my-zsh plugins/z
 zgen oh-my-zsh plugins/zsh-navigation-tools
 zgen oh-my-zsh plugins/zsh_reload
 
 # bulk load plugins
-# note: load syntax-highlighting before history-substring-search
-# note: load fz after z (above)
+# notes:
+# - load syntax-highlighting before history-substring-search
+# - load fz after z
 zgen loadall <<EOPLUGINS
-  andrewferrier/fzf-z
+  rupa/z
   changyuheng/fz
   chrissicool/zsh-256color
-  # djui/alias-tips
-  # jimhester/per-directory-history
+  gradle/gradle-completion
   nobeans/zsh-sdkman
   rimraf/k
   RobSis/zsh-completion-generator
   skx/sysadmin-util
-  # srijanshetty/docker-zsh
   unixorn/autoupdate-zgen
   unixorn/git-extra-commands
   unixorn/jpb.zshplugin
@@ -70,9 +62,6 @@ zgen loadall <<EOPLUGINS
   zsh-users/zsh-history-substring-search
 EOPLUGINS
 # ^ can't indent this EOPLUGINS
-
-# plugins to be loaded after zsh-history-substring-search
-# zgen load sharat87/zsh-vim-mode
 
 # Save it all to init script
 zgen save
