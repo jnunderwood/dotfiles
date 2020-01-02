@@ -226,24 +226,24 @@ for_window [class="URxvt"]            border pixel 2
 for_window [class="Wfica"]            border pixel 2
 
 # sticky windows
-#for_window [class="Pidgin" title="^(?!Buddy)"] sticky enable
 for_window [class="Pidgin"] sticky enable
 
 # floating windows
 for_window [class="Wfica"]                     floating enable
 for_window [class="Wfica_Seamless"]            floating enable
 for_window [class="Wfica_YesNoConfirm"]        floating enable
-#for_window [class="Pidgin"]                    floating enable move          position     0    0 resize set  500 1540
-for_window [title="Buddy List"]                floating enable move          position     0    0 resize set  500 1540
-for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position     0    0 resize set  500 1540
-for_window [title="Outlook-MyApps "]           floating enable move absolute position     1  -43 resize set 3836 1566
-for_window [title="My Desktop "]               floating enable move absolute position   center   resize set 2990 1570
+for_window [title="Buddy List"]                floating enable move          position     0 px   0 px resize set  500 px 1570 px
+for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position     0 px   0 px resize set  500 px 1570 px
+for_window [title="Outlook-MyApps "]           floating enable move absolute position     0 px   0 px resize set 3840 px 1570 px
+for_window [title="My Desktop "]               floating enable move absolute position     center      resize set 2990 px 1570 px
+for_window [title="MyDesktop Linux "]          floating enable move absolute position     0 px   0 px resize set 3840 px 1570 px
 
 # ------------------------------------------------------------------------------
 # workspace assignments
 # - use 'xprop' to determine a window's class or name (i.e., title)
 # ------------------------------------------------------------------------------
 
+assign [title="MyDesktop Linux "]    4: Dev
 assign [class="Wfica"]               1: Windows
 assign [class="Wfica_Seamless"]      1: Windows
 assign [class="Wfica_YesNoConfirm"]  1: Windows
@@ -287,7 +287,17 @@ bar {
 # start these programs when i3 starts
 # ------------------------------------------------------------------------------
 
-# Hide the mouse pointer if unused for a duration
+# notify gnome that i3 has started
+exec --no-startup-id dbus-send \
+    --session \
+    --print-reply=literal \
+    --dest=org.gnome.SessionManager \
+    "/org/gnome/SessionManager" \
+    org.gnome.SessionManager.RegisterClient \
+    "string:i3" \
+    "string:$DESKTOP_AUTOSTART_ID"
+
+# hide the mouse pointer if unused for a duration
 exec --no-startup-id /usr/bin/unclutter -b
 
 # keyring

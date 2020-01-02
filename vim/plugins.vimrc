@@ -3,6 +3,13 @@ call plug#begin('~/.config/nvim/plugged')
 " colorschemes
 Plug 'blueshirts/darcula'
 "Plug 'isobit/vim-darcula-colors'
+Plug 'tomasiser/vim-code-dark'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'chriskempson/base16-vim'
+Plug 'roryrjb/base16-adwaita-scheme'
+Plug 'NLKNguyen/papercolor-theme'
+"Plug 'doums/darcula'
+Plug 'cohlin/vim-colorschemes'
 
 " general
 Plug 'tpope/vim-sensible'
@@ -35,7 +42,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'justinmk/vim-sneak'
-"Plug 'vim-scripts/camelcasemotion'
+Plug 'vim-scripts/camelcasemotion'
 
 " programming languages in general
 Plug 'w0rp/ale' " asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
@@ -143,8 +150,8 @@ Plug 'lilydjwg/colorizer', { 'on': 'ColorToggle' }
 Plug 'wavded/vim-stylus'
 Plug 'cohlin/vim-colorschemes'
 Plug 'guns/xterm-color-table.vim'
+Plug 'psliwka/vim-smoothie'
 " call devicons last
 Plug 'ryanoasis/vim-devicons'
-Plug 'psliwka/vim-smoothie'
 
 call plug#end()

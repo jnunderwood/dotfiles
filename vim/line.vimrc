@@ -17,6 +17,8 @@ let g:airline#extensions#tmuxline#enabled=0
 "let g:airline_theme='molokai'
 "let g:airline_theme='base16_pop'
 let g:airline_theme='darcula'
+"let g:airline_theme='codedark'
+"let g:airline_theme='base16_ashes'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif

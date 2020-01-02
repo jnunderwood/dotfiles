@@ -1,5 +1,18 @@
 # .zshrc
 
+# completion {{{
+
+fpath=($HOME/.zsh/complete $fpath) # set before calling compinit
+# @see https://gist.github.com/ctechols/ca1035271ad134841284
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit
+else
+	compinit -C
+fi
+
+# }}}
+
 # zgen {{{
 #
 
@@ -124,10 +137,6 @@ cdpath=($HOME $HOME/repos/webapps $HOME/repos/$USER $HOME/dotfiles)
 # enable debugging (useful for declare/typeset builtins)
 # shopt extdebug > /dev/null || shopt -s extdebug
 
-fpath=($HOME/.zsh/complete $fpath)
-autoload -U compinit
-compinit
-
 # vi-mode
 bindkey -v
 bindkey -M vicmd 'k' history-substring-search-up
@@ -135,6 +144,17 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 #
 # end other settings }}}
+
+# Base16 Shell {{{
+#
+
+#BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+#
+# }}}
 
 # aliases, functions, and themes {{{
 #
@@ -148,6 +168,8 @@ function unaliasPlugins() {
             unalias $command
         fi
     done
+    # realias 'zz'
+    alias zz='_fzz'
 }
 unaliasPlugins
 
@@ -159,6 +181,8 @@ source $HOME/dotfiles/zsh/my.zsh-theme
 # end aliases, functions, and themes }}}
 
 # PATH settings {{{
+
+export CPATH=/usr/include/glib-2.0:/usr/lib/x86_64-linux-gnu/glib-2.0/include:/usr/include/libsecret-1
 
 # go programming language
 export GOPATH=$HOME/go
@@ -186,15 +210,16 @@ export PATH=/usr/local/bin:$HOME/bin:$HOME/.local/bin/:$PATH
 # fzf - fuzzy finder
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
-# Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/.rvm/bin"
+# rvm
+#export PATH="$PATH:$HOME/.rvm/bin" # Load RVM *onto the PATH*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# Add NVM to PATH for scripting
+# nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# add SDK to PATH for scripting
+# sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
@@ -203,6 +228,3 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 #
 # vim: set ft=zsh fdm=marker:
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

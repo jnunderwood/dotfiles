@@ -29,7 +29,6 @@ function start_agent {
 }
 
 # Source SSH settings, if applicable
-
 if [ -f "${SSH_ENV}" ]; then
     . "${SSH_ENV}" > /dev/null
     #ps ${SSH_AGENT_PID} doesn't work under cygwin
@@ -46,11 +45,14 @@ fi
 # misc {{{
 #
 
-# auto-ls () { /bin/ls -CF } #  --classify; }
+# auto-ls() { /bin/ls -CF }
 # chpwd_functions=( auto-ls $chpwd_functions )
 
 # mount google drive on login
-# /usr/bin/google-drive-ocamlfuse $HOME/GoogleDrive
+# /usr/bin/google-drive-ocamlfuse $HOME/mnt/gdrive
+
+# Load RVM into a shell session *as a function*
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 #
 # end misc }}}

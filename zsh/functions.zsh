@@ -7,7 +7,7 @@
 # + filename sorting dependent on LC_ALL env variable
 # + for long listings, use 'k' zsh plugin: https://github.com/supercrabtree/k
 
-function  ls { /bin/ls --color=always -CF $@ }
+function  ls { /bin/ls --color=always --classify -C $@ }
 function   l { ls $@ }
 function  lf { ls --group-directories-first $@ }
 function  ll { k --human $@ | $PAGER --style=plain }
@@ -174,7 +174,7 @@ function grails-or-grailsw() {
         ./grailsw $@
         cd ..
     else
-        echo "executing:" `where grails | grep -v alias`
+        echo "executing:" `where grails | /bin/grep -v alias`
         command grails $@
     fi
 }
@@ -190,7 +190,7 @@ function gradle-or-gradlew() {
         ./gradlew $@
         cd ..
     else
-        echo "executing:" `where gradle | grep -v alias`
+        echo "executing:" `where gradle | /bin/grep -v alias`
         command gradle $@
     fi
 }
