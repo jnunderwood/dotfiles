@@ -213,7 +213,7 @@ function weather() {
 
 # ripgrep piped through a pager
 function rg() {
-    /usr/bin/rg --pretty --smart-case --sort-files $@ | /usr/bin/bat --plain --theme 'Monokai Extended'
+    /usr/bin/rg --pretty --smart-case --sort-files $@ | /usr/bin/bat --plain --theme 'Darkula'
 }
 
 function findit() {
@@ -237,8 +237,12 @@ function ctop() {
     /usr/bin/docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
 }
 
-function healthcheck() {
+function docker-health() {
     /usr/bin/docker inspect --format='{{json .State.Health}}' $1.unch.unc.edu | /usr/bin/jq
+}
+
+function docker-logins() {
+    /usr/bin/docker exec -it $1.unch.unc.edu /bin/sh -c "/bin/grep Username /home/app/logs/* | /usr/bin/wc -l"
 }
 
 function json () {
