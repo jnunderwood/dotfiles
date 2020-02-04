@@ -50,8 +50,9 @@ set fileformats=unix,dos,mac
 set fileformat=unix
 
 " Always utf8
+set encoding=utf-8
 set fileencoding=utf-8
-set termencoding=utf-8
+" set termencoding=utf-8
 
 " visualize whitespace; @see also "theme.vimrc"
 set list

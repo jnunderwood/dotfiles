@@ -256,7 +256,7 @@ assign [class="workbench-WbStarter"] 8: SQL
 # ------------------------------------------------------------------------------
 
 # do not wrap containers when switching container focus
-focus_wrapping no
+#focus_wrapping no
 
 # ------------------------------------------------------------------------------
 # status bar
@@ -361,9 +361,9 @@ exec_always --no-startup-id /usr/bin/xautolock -time 5 -secure -locker "/usr/bin
 # mirrored displays
 # eDP1: 15.6" UltraHD built-in laptop display (QFHD)
 # DP1:  37.5" Ultra-Wide external display (UW-QHD+)
-exec_always --no-startup-id /usr/bin/xrandr \
-    --output eDP1 --mode 3840x2160 --pos 0x0 --rotate normal --scale 1.00x0.74 \
-    --output DP1  --mode 3840x1600 --pos 0x0 --rotate normal --scale 1.00x1.00 --primary
+#exec_always --no-startup-id /usr/bin/xrandr \
+#    --output eDP1 --mode 3840x2160 --pos 0x0 --rotate normal --scale 1.00x0.74 \
+#    --output DP1  --mode 3840x1600 --pos 0x0 --rotate normal --scale 1.00x1.00 --primary
 #   --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
 
 # 15.6" UltraHD built-in laptop display
