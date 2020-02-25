@@ -119,9 +119,9 @@ function which2 {
 function pathto () {
     DIRLIST=`echo $PATH|tr : ' '`
     for e in "$@"; do
-            for d in $DIRLIST; do
-                    test -f "$d/$e" -a -x "$d/$e" && echo "$d/$e"
-            done
+        for d in $DIRLIST; do
+            test -f "$d/$e" -a -x "$d/$e" && echo "$d/$e"
+        done
     done
 }
 
@@ -163,7 +163,7 @@ function voldown {
 # miscellaneous functions {{{
 #
 
-# function for Grails; useful for going between Grails 2.x and 3.x
+# function for Grails; useful for going between Grails 2 and 3+
 function grails-or-grailsw() {
     if [[ -a ./grailsw ]]; then
         echo "executing: ./grailsw"

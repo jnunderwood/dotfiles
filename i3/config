@@ -17,7 +17,7 @@
 # is used in the bar {} block below.
 
 # my favorite font
-set $font "pango:Fira Code Retina 12"
+set $font "pango:JetBrainsMono Nerd Font 12"
 
 # set the default font
 font $font
@@ -27,8 +27,7 @@ font $font
 # ------------------------------------------------------------------------------
 
 # modifier key; Mod1=Alt, Mod4=Win
-#set $mod Mod1
-set $mod Mod4
+set $mod Mod1
 
 # use these keys for focus, movement, and resize directions when
 # reaching for the arrows is not convenient - vi key bindings!
@@ -101,32 +100,32 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # switch to previous and next workspaces
-bindsym $mod+Ctrl+$left  workspace prev
-bindsym $mod+Ctrl+$right workspace next
+bindsym $mod+Ctrl++$left  workspace prev
+bindsym $mod+Ctrl++$right workspace next
 
 # switch to named workspace
-bindsym $mod+1 workspace  1: Windows
-bindsym $mod+2 workspace  2: Web
-bindsym $mod+3 workspace  3: Dev
-bindsym $mod+4 workspace  4: Dev
-bindsym $mod+5 workspace  5: Dev
-bindsym $mod+6 workspace  6: Dev
-bindsym $mod+7 workspace  7: Linode
-bindsym $mod+8 workspace  8: SQL
-bindsym $mod+9 workspace  9: To-Do
-bindsym $mod+0 workspace 10: Servers
+bindsym $mod+1 workspace  1: Web
+bindsym $mod+2 workspace  2: Dev
+bindsym $mod+3 workspace  3: Shell
+bindsym $mod+4 workspace  4: Shell
+bindsym $mod+5 workspace  5: Shell
+bindsym $mod+6 workspace  6: Shell
+bindsym $mod+7 workspace  7: Shell
+bindsym $mod+8 workspace  8: Linode
+bindsym $mod+9 workspace  9: SQL
+bindsym $mod+0 workspace 10: To-Do
 
 # move focused container to named workspace
-bindsym $mod+Shift+1 move container to workspace  1: Windows
-bindsym $mod+Shift+2 move container to workspace  2: Web
-bindsym $mod+Shift+3 move container to workspace  3: Dev
-bindsym $mod+Shift+4 move container to workspace  4: Dev
-bindsym $mod+Shift+5 move container to workspace  5: Dev
-bindsym $mod+Shift+6 move container to workspace  6: Dev
-bindsym $mod+Shift+7 move container to workspace  7: Linode
-bindsym $mod+Shift+8 move container to workspace  8: SQL
-bindsym $mod+Shift+9 move container to workspace  9: To-Do
-bindsym $mod+Shift+0 move container to workspace 10: Servers
+bindsym $mod+Shift+1 move container to workspace  1: Web
+bindsym $mod+Shift+2 move container to workspace  2: Dev
+bindsym $mod+Shift+3 move container to workspace  3: Shell
+bindsym $mod+Shift+4 move container to workspace  4: Shell
+bindsym $mod+Shift+5 move container to workspace  5: Shell
+bindsym $mod+Shift+6 move container to workspace  6: Shell
+bindsym $mod+Shift+7 move container to workspace  7: Shell
+bindsym $mod+Shift+8 move container to workspace  8: Linode
+bindsym $mod+Shift+9 move container to workspace  9: SQL
+bindsym $mod+Shift+0 move container to workspace 10: To-Do
 
 # Enable/disable shared memory logging
 bindsym $mod+g shmlog toggle
@@ -158,22 +157,22 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # custom menu for system actions, bound specifically to Win+l
-set $mode_system System (l) Lock, (o) Logout, (m) Monitor, (s) Suspend, (h) Hibernate, (Shift+r) Reboot, (Shift+s) Shutdown
-mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym o exec --no-startup-id i3exit logout, mode "default"
-    bindsym m exec --no-startup-id i3exit monitor, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-    bindsym Shift+r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym Mod4+x mode "$mode_system"
-bindsym $mod+Shift+Ctrl+x mode "$mode_system"
+#set $mode_system System (l) Lock, (o) Logout, (m) Monitor, (s) Suspend, (h) Hibernate, (Shift+r) Reboot, (Shift+s) Shutdown
+#mode "$mode_system" {
+#    bindsym l exec --no-startup-id i3exit lock, mode "default"
+#    bindsym o exec --no-startup-id i3exit logout, mode "default"
+#    bindsym m exec --no-startup-id i3exit monitor, mode "default"
+#    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+#    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+#    bindsym Shift+r exec --no-startup-id i3exit reboot, mode "default"
+#    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+#
+#    # back to normal: Enter or Escape
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
+#bindsym Mod4+x mode "$mode_system"
+#bindsym $mod+Shift+Ctrl+x mode "$mode_system"
 
 # ------------------------------------------------------------------------------
 # multimedia key bindings
@@ -216,40 +215,43 @@ client.background       #ffffff
 # ------------------------------------------------------------------------------
 
 # constrain floating window sizes
-floating_maximum_size 3840 x 1570
-
-# window borders
-for_window [class="Chromium-browser"] border pixel 2
-for_window [class="Code"]             border pixel 2
-for_window [class="qterminal"]        border pixel 2
-for_window [class="URxvt"]            border pixel 2
-for_window [class="Wfica"]            border pixel 2
-
-# sticky windows
-for_window [class="Pidgin"] sticky enable
+floating_maximum_size 3840 x 1582
 
 # floating windows
 for_window [class="Wfica"]                     floating enable
 for_window [class="Wfica_Seamless"]            floating enable
 for_window [class="Wfica_YesNoConfirm"]        floating enable
-for_window [title="Buddy List"]                floating enable move          position     0 px   0 px resize set  500 px 1570 px
-for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position     0 px   0 px resize set  500 px 1570 px
-for_window [title="Outlook-MyApps "]           floating enable move absolute position     0 px   0 px resize set 3840 px 1570 px
-for_window [title="My Desktop "]               floating enable move absolute position     center      resize set 2990 px 1570 px
-for_window [title="MyDesktop Linux "]          floating enable move absolute position     0 px   0 px resize set 3840 px 1570 px
+for_window [title="Buddy List"]                floating enable move          position     0 px   0 px resize set  500 px 1582 px
+for_window [class="Pidgin" title="^(?!Buddy)"] floating enable move absolute position     0 px   0 px resize set  500 px 1582 px
+for_window [title="Outlook-MyApps "]           floating enable move absolute position     0 px   0 px resize set 3840 px 1582 px
+for_window [title="My Desktop "]               floating enable move absolute position     center      resize set 2990 px 1582 px
+for_window [title="MyDesktop Linux "]          floating enable move absolute position     0 px   0 px resize set 3840 px 1582 px
+
+# sticky windows
+for_window [class="Pidgin"] sticky enable
+
+# window borders
+for_window [class="Chromium-browser"] border pixel 2
+for_window [class="Code"]             border pixel 2
+for_window [class="jetbrains-ide"]    border pixel 2
+for_window [class="qterminal"]        border pixel 2
+for_window [class="URxvt"]            border pixel 2
+for_window [class="Wfica"]            border pixel 2
 
 # ------------------------------------------------------------------------------
 # workspace assignments
 # - use 'xprop' to determine a window's class or name (i.e., title)
 # ------------------------------------------------------------------------------
 
-assign [title="MyDesktop Linux "]    4: Dev
-assign [class="Wfica"]               1: Windows
-assign [class="Wfica_Seamless"]      1: Windows
-assign [class="Wfica_YesNoConfirm"]  1: Windows
-assign [class="chromium-browser"]    2: Web
-assign [class="Thunderbird"]         2: Web
-assign [class="workbench-WbStarter"] 8: SQL
+#assign [class="Wfica"]               1: Windows
+#assign [class="Wfica_Seamless"]      1: Windows
+#assign [class="Wfica_YesNoConfirm"]  1: Windows
+assign [class="Thunderbird"]          1: Web
+assign [title="OneTab - Chromium"]    1: Web
+assign [class="chromium-browser"]     2: Dev
+assign [class="jetbrains-ide"]        2: Dev
+assign [class="workbench-WbStarter"]  9: SQL
+assign [class="code"]                10: To-Do
 
 # ------------------------------------------------------------------------------
 # miscellaneous settings
@@ -287,55 +289,48 @@ bar {
 # start these programs when i3 starts
 # ------------------------------------------------------------------------------
 
-# notify gnome that i3 has started
-exec --no-startup-id dbus-send \
-    --session \
-    --print-reply=literal \
-    --dest=org.gnome.SessionManager \
-    "/org/gnome/SessionManager" \
-    org.gnome.SessionManager.RegisterClient \
-    "string:i3" \
-    "string:$DESKTOP_AUTOSTART_ID"
+# sync clipboard and cutbuffer
+exec --no-startup-id /usr/bin/autocutsel
 
 # hide the mouse pointer if unused for a duration
-exec --no-startup-id /usr/bin/unclutter -b
+exec --no-startup-id /usr/bin/unclutter
+
+# sync clipboard with Xephyr
+#exec --no-startup-id $HOME/bin/xclipsync
 
 # keyring
 #exec --no-startup-id /usr/bin/gnome-keyring-daemon /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 # mail notifications
-exec --no-startup-id /usr/bin/mailnag
-
-# sync clipboard and cutbuffer
-exec --no-startup-id /usr/bin/autocutsel
+#exec --no-startup-id /usr/bin/mailnag
 
 # network monitor applet (careful on remote desktops!)
-exec --no-startup-id /usr/bin/nm-applet
+#exec --no-startup-id /usr/bin/nm-applet
 
 # instant messaging
-exec --no-startup-id /usr/bin/pidgin
+#exec --no-startup-id /usr/bin/pidgin
 
 # email / calendar
 # exec --no-startup-id /usr/bin/thunderbird
 
 # solaar applet for logitech wireless mouse
-exec --no-startup-id /usr/bin/solaar
+#exec --no-startup-id /usr/bin/solaar
 
 # pulse audio applet
-exec --no-startup-id /usr/bin/pasystray
+#exec --no-startup-id /usr/bin/pasystray
 
 # slimbook battery optimizer
 #exec --no-startup-id /usr/bin/slimbookbattery
 
 # JetBrains app launcher
-exec --no-startup-id $HOME/bin/jetbrains-toolbox --minimize
+#exec --no-startup-id $HOME/bin/jetbrains-toolbox --minimize
 
 # ------------------------------------------------------------------------------
 # start these programs when i3 starts or restarts
 # ------------------------------------------------------------------------------
 
 # Composite manager
-exec_always --no-startup-id /usr/bin/compton -b --config $HOME/.compton.conf
+#exec_always --no-startup-id /usr/bin/compton -b --config $HOME/.compton.conf
 
 # polybar panel
 # exec_always --no-startup-id $HOME/dotfiles/i3/polybar.sh
@@ -347,7 +342,7 @@ exec_always --no-startup-id /usr/bin/compton -b --config $HOME/.compton.conf
 exec_always --no-startup-id /usr/bin/feh --bg-scale $HOME/Pictures/Wallpapers/haiku.png
 
 # screensaver after 5 minutes
-exec_always --no-startup-id /usr/bin/xautolock -time 5 -secure -locker "/usr/bin/i3lock --color=000000"
+#exec_always --no-startup-id /usr/bin/xautolock -time 5 -secure -locker "/usr/bin/i3lock --color=000000"
 
 # ------------------------------------------------------------------------------
 # display settings
@@ -365,6 +360,9 @@ exec_always --no-startup-id /usr/bin/xautolock -time 5 -secure -locker "/usr/bin
 #    --output eDP1 --mode 3840x2160 --pos 0x0 --rotate normal --scale 1.00x0.74 \
 #    --output DP1  --mode 3840x1600 --pos 0x0 --rotate normal --scale 1.00x1.00 --primary
 #   --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
+
+# 37.5" Ultra-Wide external display
+exec_always --no-startup-id /usr/bin/xrandr --mode 3840x1600 --fbmm 880x367 --scale 1x1 pos 0x0 --rotate normal
 
 # 15.6" UltraHD built-in laptop display
 #exec_always --no-startup-id /usr/bin/xrandr --mode 3840x2160 --fbmm 345x194 --scale 1x1 pos 0x0 --rotate normal

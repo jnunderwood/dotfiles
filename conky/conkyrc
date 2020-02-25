@@ -42,11 +42,11 @@ conky.text = [[
 [
   {
     # "full_text" : "${nodename}" , "color" : "\#00ff00"
-    "full_text" : "${nodename} (${addr enx9cebe81e1d86})" , "color" : "\#00ff00"
+    "full_text" : "${nodename} (${addr ens160})" , "color" : "\#00ff00"
   },
   {
-    # "full_text" : "Disk ${fs_free /home} (${fs_free_perc}%) Free" , "color" : ${if_match ${fs_free_perc} < 25}"\#ff0000"${else}"\#ffffff"${endif}
-    "full_text" : "Disk ${fs_free /home} (${fs_free_perc}%) Free" , "color" : "\#ffffff"
+    # "full_text" : "Disk ${fs_free /}(${fs_free_perc}%) Free" , "color" : ${if_match ${fs_free_perc} < 25}"\#ff0000"${else}"\#ffffff"${endif}
+    "full_text" : "Disk ${fs_free /}(${fs_free_perc}%) Free" , "color" : "\#ffffff"
   },
   {
     "full_text" : "Swap ${swap} (${swapperc}%) Used" , "color" : ${if_match ${swapperc} < 90}"\#ffffff"${else}"\#ff0000"${endif}
@@ -60,9 +60,9 @@ conky.text = [[
   {
     "full_text" : "CPU ${cpu 0}%" , "color" : ${if_match ${cpu 0} < 90}"\#ffffff"${else}"\#ff0000"${endif}
   },
-  {
-    "full_text" : "Battery ${battery_percent BAT1}%" , "color" : ${if_match "${battery_percent BAT1}" < "15"}"\#ffffff"${else}"\#ff0000"${endif}
-  },
+#  {
+#    "full_text" : "Battery ${battery_percent BAT1}%" , "color" : ${if_match "${battery_percent BAT1}" < "15"}"\#ffffff"${else}"\#ff0000"${endif}
+#  },
   {
     "full_text" : "${time %A %F %r}", "color" : "\#ffffff"
   }

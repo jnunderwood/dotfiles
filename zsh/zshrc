@@ -1,5 +1,16 @@
 # .zshrc
 
+# powerline10k {{{
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# }}}
+
 # completion {{{
 
 # set fpath before calling compinit
@@ -178,7 +189,11 @@ unaliasPlugins
 
 source $HOME/dotfiles/zsh/aliases.zsh
 source $HOME/dotfiles/zsh/functions.zsh
-source $HOME/dotfiles/zsh/my.zsh-theme
+#source $HOME/dotfiles/zsh/my.zsh-theme
+
+# pure prompt
+#autoload -U promptinit; promptinit
+#prompt pure
 
 #
 # end aliases, functions, and themes }}}
@@ -200,7 +215,7 @@ fi
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # personal PATH directories
-export PATH=/usr/local/bin:$HOME/bin:$HOME/.local/bin/:$PATH
+export PATH=/usr/local/bin:$HOME/bin:$HOME/.local/bin:/snap/bin:$PATH
 
 #
 # end PATH settings }}}
@@ -212,6 +227,9 @@ export PATH=/usr/local/bin:$HOME/bin:$HOME/.local/bin/:$PATH
 
 # fzf - fuzzy finder
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
 # rvm
 #export PATH="$PATH:$HOME/.rvm/bin" # Load RVM *onto the PATH*
@@ -232,4 +250,3 @@ export SDKMAN_DIR="$HOME/.sdkman"
 #
 # vim: set ft=zsh fdm=marker:
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
