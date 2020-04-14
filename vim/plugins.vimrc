@@ -6,7 +6,7 @@ Plug 'blueshirts/darcula'
 Plug 'tomasiser/vim-code-dark'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'chriskempson/base16-vim'
-Plug 'roryrjb/base16-adwaita-scheme'
+"Plug 'roryrjb/base16-adwaita-scheme'
 Plug 'NLKNguyen/papercolor-theme'
 "Plug 'doums/darcula'
 Plug 'cohlin/vim-colorschemes'
@@ -48,8 +48,11 @@ Plug 'vim-scripts/camelcasemotion'
 Plug 'w0rp/ale' " asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration
 Plug 'AndrewRadev/splitjoin.vim'
 
+" go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 " java
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " javascript
 Plug 'guileen/vim-node-dict'
@@ -76,7 +79,7 @@ Plug 'othree/yajs.vim'
 " CSS / HTML
 "Plug 'ap/vim-css-color', { 'for': ['css', 'html']  }
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'scss','sass']  }
-Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html']  }
+"Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html']  }
 Plug 'cakebaker/scss-syntax.vim', { 'for': ['scss', 'sass']  }
 Plug 'groenewege/vim-less', { 'for': ['less']  }
 Plug 'mattn/emmet-vim'
@@ -90,8 +93,8 @@ Plug 'sukima/xmledit'
 " markdown and tables
 Plug 'dhruvasagar/vim-table-mode'
 "Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-" Plug 'tpope/vim-markdown'
+"Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-markdown'
 
 " docker
 Plug 'ekalinin/Dockerfile.vim', { 'for': ['docker', 'Dockerfile']  }
@@ -120,7 +123,7 @@ Plug 'rkitover/vimpager'
 " logs
 Plug 'thinca/vim-logcat', { 'for': ['logcat'] }
 Plug 'dzeban/vim-log-syntax', { 'for': ['log'] }
-Plug 'chr4/nginx.vim', { 'for': ['nginx'] }
+"Plug 'chr4/nginx.vim', { 'for': ['nginx'] }
 
 " miscellaneous
 Plug 'vim-scripts/grails-vim'
@@ -150,6 +153,7 @@ Plug 'lilydjwg/colorizer', { 'on': 'ColorToggle' }
 Plug 'wavded/vim-stylus'
 Plug 'cohlin/vim-colorschemes'
 Plug 'guns/xterm-color-table.vim'
+"Plug 'chrisbra/csv.vim'
 Plug 'psliwka/vim-smoothie'
 " call devicons last
 Plug 'ryanoasis/vim-devicons'

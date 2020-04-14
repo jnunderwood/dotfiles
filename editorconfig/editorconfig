@@ -3,15 +3,8 @@
 indent_style = space
 end_of_line = lf
 charset = utf-8
-trim_trailing_whitespace = true
+trim_trailing_whitespace = false
 insert_final_newline = true
-
-[*.txt]
-trim_trailing_whitespace = false
-
-[*.md]
-indent_size = 4
-trim_trailing_whitespace = false
 
 [*.css]
 indent_size = 4
@@ -25,6 +18,7 @@ insert_final_newline = ignore
 
 [*.yml]
 indent_size = 4
+trim_trailing_whitespace = false
 
 [*.html]
 indent_size = 4
@@ -46,6 +40,13 @@ indent_style = tab
 # Batch files use tabs for indentation
 [*.bat]
 indent_style = tab
+
+[*.txt]
+trim_trailing_whitespace = false
+
+[*.md]
+indent_size = 4
+trim_trailing_whitespace = false
 
 # certain CSS and JavaScript files shouldn't be changed
 [**.css.map,**.min.css,**.js.map,**.min.js]

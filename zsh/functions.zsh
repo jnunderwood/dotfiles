@@ -119,9 +119,9 @@ function which2 {
 function pathto () {
     DIRLIST=`echo $PATH|tr : ' '`
     for e in "$@"; do
-            for d in $DIRLIST; do
-                    test -f "$d/$e" -a -x "$d/$e" && echo "$d/$e"
-            done
+        for d in $DIRLIST; do
+            test -f "$d/$e" -a -x "$d/$e" && echo "$d/$e"
+        done
     done
 }
 
@@ -163,7 +163,7 @@ function voldown {
 # miscellaneous functions {{{
 #
 
-# function for Grails; useful for going between Grails 2.x and 3.x
+# function for Grails; useful for going between Grails 2 and 3+
 function grails-or-grailsw() {
     if [[ -a ./grailsw ]]; then
         echo "executing: ./grailsw"
@@ -195,6 +195,17 @@ function gradle-or-gradlew() {
     fi
 }
 
+function lg() {
+    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+    /usr/bin/lazygit "$@"
+
+    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+        cd "$(/bin/cat $LAZYGIT_NEW_DIR_FILE)"
+        rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+    fi
+}
+
 function weather() {
     if [ "$1" == "-a" ]; then
         /usr/bin/ansiweather
@@ -213,7 +224,7 @@ function weather() {
 
 # ripgrep piped through a pager
 function rg() {
-    /usr/bin/rg --pretty --smart-case --sort-files $@ | /usr/bin/bat --plain --theme 'Monokai Extended'
+    /usr/bin/rg --pretty --smart-case --sort-files $@ | /usr/bin/bat --plain --theme 'Darkula'
 }
 
 function findit() {
@@ -237,8 +248,12 @@ function ctop() {
     /usr/bin/docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
 }
 
-function healthcheck() {
+function docker-health() {
     /usr/bin/docker inspect --format='{{json .State.Health}}' $1.unch.unc.edu | /usr/bin/jq
+}
+
+function docker-logins() {
+    /usr/bin/docker exec -it $1.unch.unc.edu /bin/sh -c "/bin/grep Username /home/app/logs/* | /usr/bin/wc -l"
 }
 
 function json () {

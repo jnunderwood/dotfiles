@@ -152,16 +152,39 @@ function! SyncTree()
   endif
 endfunction
 
+function DetectGoHtmlTmpl()
+    if expand('%:e') == "html" && search("{{") != 0
+        set filetype=gohtmltmpl
+    endif
+    if expand('%:e') == "json" && search("{{") != 0
+        set filetype=gohtmltmpl
+    endif
+endfunction
+
+augroup filetypedetect
+    au! BufRead,BufNewFile * call DetectGoHtmlTmpl()
+augroup END
+
 let g:syntastic_enable_signs = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'python', ], 'passive_filetypes': ['html', 'css', 'slim'] }
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': ['ruby', 'python'], 'passive_filetypes': ['html', 'css', 'slim'] }
+
+" vim-json
+let g:vim_json_syntax_conceal = 0 " don't hide things
 
 " vim-markdown
-let g:markdown_fenced_languages = ['coffee', 'css', 'erb=ruby', 'javascript', 'js=javascript', 'json=javascript', 'java', 'groovy', 'ruby', 'sass', 'xml', 'html', 'shell']
-let g:vim_markdown_conceal = 0
+let g:markdown_fenced_languages = ['coffee', 'css', 'erb=ruby', 'javascript', 'js=javascript', 'json=javascript', 'java', 'groovy', 'python', 'ruby', 'sass', 'xml', 'html', 'bash=sh']
+let g:vim_markdown_conceal = 0 " don't hide things
+let g:markdown_minlines = 100
 
 " markdown-compatible table mode
 let g:table_mode_corner = '|'
+
+" csv files
+"let g:csv_delim_test = ',;|'
+"let g:csv_strict_columns = 1
+"let g:csv_start = 1
+"let g:csv_end = 100
 
 " sessions
 let g:session_directory = '~/tmp/nvim/sessions'

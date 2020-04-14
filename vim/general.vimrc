@@ -2,12 +2,12 @@
 set undofile
 set undolevels=3000
 set undoreload=10000
-set undodir=~/tmp/nvim/undo/      " undo files
+set undodir=~/tmp/nvim/undo/ " undo files
 "set undodir=~/.config/nvim/undodir
 
-set backup    " keep a backup file
-set backupdir=~/tmp/nvim/backup/  " backup files
-set directory=~/tmp/nvim/swap/    " swap files
+set backup " keep a backup file
+set backupdir=~/tmp/nvim/backup/ " backup files
+set directory=~/tmp/nvim/swap/ " swap files
 
 if has('mouse')
   set mouse=a
@@ -50,8 +50,9 @@ set fileformats=unix,dos,mac
 set fileformat=unix
 
 " Always utf8
+set encoding=utf-8
 set fileencoding=utf-8
-set termencoding=utf-8
+" set termencoding=utf-8
 
 " visualize whitespace; @see also "theme.vimrc"
 set list
@@ -65,23 +66,25 @@ set clipboard=unnamedplus
 set completeopt=longest,menuone,preview
 
 " miscellaneous
-set hidden  " buffer becomes hidden when abandoned
-set magic  " for regular expressions
+set hidden " buffer becomes hidden when abandoned
+set magic " for regular expressions
 set incsearch
 set hlsearch
 set number
-set ruler       " show the cursor position all the time
+set ruler " show the cursor position all the time
 set wildmenu
 set cursorline
-set showcmd     " display incomplete commands
+set showcmd " display incomplete commands
 set nowrap
 set ignorecase
 "set foldcolumn=4
 set nostartofline
 set norelativenumber
 set number
+set concealcursor=""
+set conceallevel=0
 set modeline
-set formatoptions+=j  " delete comment character when joining commented lines
+set formatoptions+=j " delete comment character when joining commented lines
 
 " shell
 if executable('/usr/bin/zsh')
@@ -120,7 +123,7 @@ set diffopt+=iwhite
 function! DiffW()
   let opt = "-a --binary "
   if &diffopt =~ "icase"  | let opt = opt . "-i " | endif
-  if &diffopt =~ "iwhite" | let opt = opt . "-w " | endif  " vim uses -b by default
+  if &diffopt =~ "iwhite" | let opt = opt . "-w " | endif " vim uses -b by default
   silent execute "!diff " . opt . v:fname_in . " " . v:fname_new . " > " . v:fname_out
 endfunction
 set diffexpr=DiffW()
@@ -139,7 +142,7 @@ function! InsertTabWrapper()
 endfunction
 
 " python
-let g:python_host_prog = '/usr/bin/python'   " Python 2
+let g:python_host_prog = '/usr/bin/python' " Python 2
 let g:python3_host_prog = '/usr/bin/python3' " Python 3
 
 " ripgrep (@see https://gist.github.com/danmikita)
