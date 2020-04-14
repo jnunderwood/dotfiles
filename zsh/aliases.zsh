@@ -57,6 +57,7 @@ alias        battery='/usr/bin/upower --show-info /org/freedesktop/UPower/device
 alias         volume='/usr/bin/amixer sset Master $1'
 alias           gksu='/usr/bin/pkexec /usr/bin/env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY'
 alias          jinfo='/usr/bin/sudo /usr/bin/jinfo `/bin/ps aux | grep catalina | grep "^tomcat7" | /usr/bin/cut -d" " -f 3`'
+alias  trash-restore='/usr/bin/restore-trash'
 alias          whcih='which' # common misspelling
 alias        xlogout='/usr/bin/gnome-session-quit --logout --force --no-prompt'
 alias        suspend='/usr/bin/sudo /usr/sbin/pm-suspend'

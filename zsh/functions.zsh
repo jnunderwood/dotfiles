@@ -195,6 +195,17 @@ function gradle-or-gradlew() {
     fi
 }
 
+function lg() {
+    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+    /usr/bin/lazygit "$@"
+
+    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+        cd "$(/bin/cat $LAZYGIT_NEW_DIR_FILE)"
+        rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+    fi
+}
+
 function weather() {
     if [ "$1" == "-a" ]; then
         /usr/bin/ansiweather

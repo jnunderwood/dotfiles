@@ -79,13 +79,14 @@ export LC_TIME="en_DK.UTF-8"
 # settings for 'less'
 #export PAGER='$HOME/bin/less.sh'  # start vim with less.vim
 #export PAGER='/usr/bin/less'
-export LESS="-eiMRX"  # LESS="-M"
+export LESS="-eiMRX"
 export LESSOPEN="|$HOME/bin/lesspipe.sh %s"
 #export LESSOPEN="|/usr/bin/lesspipe %s"
 
 # use bat as default pager; also see $HOME/.config/bat/config
 export PAGER='/usr/bin/bat'
 export MANPAGER='/usr/bin/bat'
+export BAT_PAGER='/usr/bin/less -eiMRX'
 
 # terminal
 #export TERM=rxvt-unicode-256color
@@ -250,3 +251,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 #
 # vim: set ft=zsh fdm=marker:
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
