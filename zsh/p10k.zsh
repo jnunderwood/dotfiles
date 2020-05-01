@@ -851,7 +851,7 @@ function box_name {
   typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_TEMPLATE="%n@$(box_name)"
   # Default context format (no privileges, no SSH): user@hostname.
   #typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE='%n@%m'
-  typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%n@$(box_name)"
+  typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="$(box_name)"
 
   # Don't show context unless running with privileges or in SSH.
   # Tip: Remove the next line to always show context.
@@ -860,7 +860,8 @@ function box_name {
   # Custom icon.
   # typeset -g POWERLEVEL9K_CONTEXT_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%fwith '
+  #typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%fwith '
+  typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%fon '
 
   ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
   # Python virtual environment color.

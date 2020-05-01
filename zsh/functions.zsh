@@ -5,23 +5,30 @@
 # Notes:
 # + aliases do not take parameters; use functions instead
 # + filename sorting dependent on LC_ALL env variable
-# + for long listings, use 'k' zsh plugin: https://github.com/supercrabtree/k
+# + for long listings, use:
+#   - 'k' zsh plugin: https://github.com/supercrabtree/k/
+#   - 'exa': https://the.exa.website/
 
-function  ls { /bin/ls --color=always --classify -C $@ }
+# function  ls { /bin/ls --color=always --classify -C $@ }
+#function  ll { k --human --group-directories-first $@ | $PAGER --style=plain }
+#function  lt { ll --reverse -t modified $@ | $PAGER --style=plain }
+#function ltc { ll --reverse -c --sort modified $@ }
+#function lls { ll --reverse -S $@ }
+function  ls { $HOME/bin/exa --classify --color=always $@ }
 function   l { ls $@ }
 function  lf { ls --group-directories-first $@ }
-function  ll { k --human $@ | $PAGER --style=plain }
+function  ll { ls --long --group-directories-first --git $@ | $PAGER --style=plain }
 function  lh { ll --help }
 function llh { ll --help }
-function  la { ll --almost-all $@ | $PAGER --style=plain }
+function  la { ll --all $@ | $PAGER --style=plain }
 function lla { ll --all $@ | $PAGER --style=plain }
 function lld { ll --directory $@ .* | $PAGER --style=plain }
-function  lt { ll --reverse -t $@ | $PAGER --style=plain }
-function lta { ll --almost-all --reverse -t $@ | $PAGER --style=plain }
-function ltc { ll --almost-all --reverse -ct $@ | $PAGER --style=plain }
-function ltu { ll --almost-all --reverse -tu $@ | $PAGER --style=plain }
-function lls { ll --reverse -S $@ | $PAGER --style=plain }
-function lss { ll --reverse -S $@ | $PAGER --style=plain }
+function  lt { ls --long --git --sort modified $@ | $PAGER --style=plain }
+function lta { ls --all --long --git --sort modified $@ }
+function ltu { ll -u --sort created $@ }
+function lls { ll --sort size $@ }
+function lss { ll --sort size $@ }
+function ltree { ll --tree --level=3 $@ | $PAGER --style=plain }
 #function chpwd() { ls }
 
 #
@@ -196,7 +203,7 @@ function gradle-or-gradlew() {
 }
 
 function lg() {
-    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+    export LAZYGIT_NEW_DIR_FILE=$HOME/.lazygit/newdir
 
     /usr/bin/lazygit "$@"
 

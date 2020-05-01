@@ -112,10 +112,10 @@ augroup omnifuncs
   autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 augroup end
 
-" tern
+" deoplete/tern
 if exists('g:plugs["tern_for_vim"]')
-  let g:deoplete#omni#functions = {}
-  let g:deoplete#omni#functions.javascript = [
+  let g:deoplete#custom#var = {}
+  let g:deoplete#custom#var.javascript = [
     \ 'tern#Complete',
     \ 'jspc#omni'
   \]
@@ -123,8 +123,8 @@ endif
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources = {}
-let g:deoplete#sources['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
+let g:deoplete#custom#option = {}
+let g:deoplete#custom#option['javascript.jsx'] = ['file', 'ultisnips', 'ternjs']
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 let g:tern_request_timeout = 1
