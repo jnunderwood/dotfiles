@@ -15,7 +15,7 @@ Plug 'cohlin/vim-colorschemes'
 Plug 'tpope/vim-sensible'
 Plug 'ervandew/supertab'
 Plug 'benekastah/neomake'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'haya14busa/incsearch.vim'
