@@ -14,7 +14,7 @@
 #function  lt { ll --reverse -t modified $@ | $PAGER --style=plain }
 #function ltc { ll --reverse -c --sort modified $@ }
 #function lls { ll --reverse -S $@ }
-function  ls { $HOME/bin/exa --classify --color=always $@ }
+function  ls { $HOME/.cargo/bin/exa --classify --color=always $@ }
 function   l { ls $@ }
 function  lf { ls --group-directories-first $@ }
 function  ll { ls --long --group-directories-first --git $@ | $PAGER --style=plain }
@@ -231,7 +231,7 @@ function weather() {
 
 # ripgrep piped through a pager
 function rg() {
-    /usr/bin/rg --pretty --smart-case --sort-files $@ | /usr/bin/bat --plain --theme 'Darkula'
+    /usr/bin/rg --pretty --smart-case --sort-files $@ | /usr/bin/bat
 }
 
 function findit() {

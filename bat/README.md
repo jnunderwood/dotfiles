@@ -5,7 +5,7 @@ https://github.com/sharkdp/bat
 ## Syntaxes
 
 You can add SublimeText syntax files, like Groovy.
-After adding a syntax file, run:
+After upgrading bat or adding a syntax file, run:
 
 ```shell
 $ bat cache --build
@@ -17,7 +17,7 @@ $ bat --list-languages
 @see http://tmtheme-editor.herokuapp.com/
 
 You can add SublimeText theme files, like Darkula.
-After adding theme files, run:
+After upgrading bat or adding theme files, run:
 
 ```shell
 $ bat cache --build

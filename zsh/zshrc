@@ -80,8 +80,8 @@ export LC_TIME="en_DK.UTF-8"
 #export PAGER='$HOME/bin/less.sh'  # start vim with less.vim
 #export PAGER='/usr/bin/less'
 export LESS="-eiMRX"
-export LESSOPEN="|$HOME/bin/lesspipe.sh %s"
-#export LESSOPEN="|/usr/bin/lesspipe %s"
+#export LESSOPEN="|$HOME/bin/lesspipe.sh %s"
+export LESSOPEN="|/usr/bin/lessfile %s"
 
 # use bat as default pager; also see $HOME/.config/bat/config
 export PAGER='/usr/bin/bat'
@@ -157,6 +157,9 @@ bindkey -v
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
+# lesspipe
+eval "$(lessfile)"
+
 #
 # end other settings }}}
 
@@ -216,7 +219,7 @@ fi
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # personal PATH directories
-export PATH=/usr/local/bin:$HOME/bin:$HOME/.local/bin:/snap/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/snap/bin:$PATH
 
 #
 # end PATH settings }}}
@@ -233,7 +236,6 @@ export PATH=/usr/local/bin:$HOME/bin:$HOME/.local/bin:/snap/bin:$PATH
 [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
 # rvm
-#export PATH="$PATH:$HOME/.rvm/bin" # Load RVM *onto the PATH*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # nvm

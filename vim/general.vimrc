@@ -85,6 +85,7 @@ set concealcursor=""
 set conceallevel=0
 set modeline
 set formatoptions+=j " delete comment character when joining commented lines
+set paste
 
 " shell
 if executable('/usr/bin/zsh')
