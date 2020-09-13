@@ -14,7 +14,7 @@
 #function  lt { ll --reverse -t modified $@ | $PAGER --style=plain }
 #function ltc { ll --reverse -c --sort modified $@ }
 #function lls { ll --reverse -S $@ }
-function  ls { $HOME/.cargo/bin/exa --classify --color=always $@ }
+function  ls { $HOME/.cargo/bin/exa --classify --color=always --icons $@ }
 function   l { ls $@ }
 function  lf { ls --group-directories-first $@ }
 function  ll { ls --long --group-directories-first --git $@ | $PAGER --style=plain }
@@ -214,17 +214,17 @@ function lg() {
 }
 
 function weather() {
-    if [ "$1" == "-a" ]; then
+    if [[ "$1" == "-a" ]]; then
         /usr/bin/ansiweather
-    elif [ "$1" == "-1" ]; then
+    elif [[ "$1" == "-1" ]]; then
         /usr/bin/curl -sf --compressed wttr.in/rdu?format=4
-    elif [ "$1" == "-h" ]; then
+    elif [[ "$1" == "-h" ]]; then
         /usr/bin/curl -sf --compressed wttr.in/:help
     else
-        if [ "$COLUMNS" -lt 125 ]; then
-            /usr/bin/curl -sf --compressed wttr.in/rdu?n$*
+        if [[ "$COLUMNS" -lt 125 ]]; then
+            /usr/bin/curl -sf --compressed wttr.in/rdu?n
         else
-            /usr/bin/curl -sf --compressed wttr.in/rdu?$*
+            /usr/bin/curl -sf --compressed wttr.in/rdu
         fi
     fi
 }
@@ -256,18 +256,56 @@ function ctop() {
 }
 
 function docker-health() {
-    /usr/bin/docker inspect --format='{{json .State.Health}}' $1.unch.unc.edu | /usr/bin/jq
+    # /usr/bin/docker inspect --format='{{json .State.Health}}' $1.unch.unc.edu | /usr/bin/jq
+    if [ "$#" -eq 0 ]; then
+        server="webapps-un1-p01.unch.unc.edu"
+        app="`/usr/bin/basename $PWD`.unch.unc.edu"
+    elif [ "$#" -eq 1 ]; then
+        server="webapps-un1-p01.unch.unc.edu"
+        app="${1}.unch.unc.edu"
+    else
+        if [[ "$2" == "dev" ]]; then
+            server="webappsdev1.unch.unc.edu"
+            app="${1}dev.unch.unc.edu"
+        else
+            server="webapps-un1-p01.unch.unc.edu"
+            app="${1}.unch.unc.edu"
+        fi
+    fi
+    echo "/usr/bin/ssh $server /usr/bin/docker inspect --format='{{json .State.Health}}' $app | /usr/bin/jq"
+    /usr/bin/ssh $server "/usr/bin/docker inspect --format='{{json .State.Health}}' $app" | /usr/bin/jq
 }
 
 function docker-logins() {
     /usr/bin/docker exec -it $1.unch.unc.edu /bin/sh -c "/bin/grep Username /home/app/logs/* | /usr/bin/wc -l"
 }
 
-function json () {
-    if [ -t 0 ]; then
-        /usr/bin/python -m json.tool <<< "$*" | /usr/bin/pygmentize -l json
+# usage: docker-logs [appname [dev]]
+function docker-logs() {
+    if [ "$#" -eq 0 ]; then
+        server="webapps-un1-p01.unch.unc.edu"
+        app="`/usr/bin/basename $PWD`.unch.unc.edu"
+    elif [ "$#" -eq 1 ]; then
+        server="webapps-un1-p01.unch.unc.edu"
+        app="${1}.unch.unc.edu"
     else
-        /usr/bin/python -m json.tool | /usr/bin/pygmentize -l json
+        if [[ "$2" == "dev" ]]; then
+            server="webappsdev1.unch.unc.edu"
+            app="${1}dev.unch.unc.edu"
+        else
+            server="webapps-un1-p01.unch.unc.edu"
+            app="${1}.unch.unc.edu"
+        fi
+    fi
+    echo "/usr/bin/ssh $server docker logs --tail 200 --follow $app"
+    /usr/bin/ssh $server docker logs --tail 200 --follow $app
+}
+
+function json() {
+    if [ -t 0 ]; then
+        /usr/bin/python -m json.tool <<< "$*" | pygmentize -l json
+    else
+        /usr/bin/python -m json.tool | pygmentize -l json
     fi
 }
 
