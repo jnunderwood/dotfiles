@@ -14,7 +14,7 @@
 #function  lt { ll --reverse -t modified $@ | $PAGER --style=plain }
 #function ltc { ll --reverse -c --sort modified $@ }
 #function lls { ll --reverse -S $@ }
-function  ls { $HOME/.cargo/bin/exa --classify --color=always --icons $@ }
+function  ls { $HOME/.cargo/bin/exa --classify --color=always --icons --sort type $@ }
 function   l { ls $@ }
 function  lf { ls --group-directories-first $@ }
 function  ll { ls --long --group-directories-first --git $@ | $PAGER --style=plain }

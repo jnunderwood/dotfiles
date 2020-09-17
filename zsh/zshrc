@@ -1,13 +1,13 @@
 # .zshrc
 
-# powerline10k {{{
+# Powerlevel10k {{{
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 
 # }}}
 
@@ -179,7 +179,7 @@ eval "$(lessfile)"
 
 # remove a few aliases created by zsh plugins
 function unaliasPlugins() {
-    typeset -a commands=('g' 'ls' 'la' 'lr' 'lt' 'll' 'ldot' 'lS' 'lart' 'lrt' ':q' 'zz')
+    typeset -a commands=('g' 'l' 'ls' 'la' 'lr' 'lt' 'll' 'ldot' 'lS' 'lart' 'lrt' ':q' 'zz')
     for command in $commands; do
         type=`whence -w $command | /usr/bin/cut -d' ' -f2`
         if [ $type = "alias" ]; then
@@ -187,7 +187,7 @@ function unaliasPlugins() {
         fi
     done
     # realias 'zz'
-    alias zz='_fzz'
+    #alias zz='_fzz'
 }
 unaliasPlugins
 
@@ -232,9 +232,6 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/snap/bin:$PATH
 # fzf - fuzzy finder
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
-
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
@@ -247,11 +244,19 @@ export NVM_DIR="$HOME/.nvm"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
+
+# zoxide "cd" replacement
+eval "$(zoxide init zsh)"
+
+# starship prompt
+eval "$(starship init zsh)"
+
 #
 # end other programs }}}
+
 
 #
 # vim: set ft=zsh fdm=marker:
 
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

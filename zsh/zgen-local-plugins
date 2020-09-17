@@ -44,14 +44,17 @@ zgen oh-my-zsh plugins/zsh_reload
 # notes:
 # - load syntax-highlighting before history-substring-search
 # - load fz after z
+# no longer used...
+# - marlonrichert/zsh-autocomplete
+# - changyuheng/fz
+# - rupa/z
+# - rimraf/k
+# - romkatv/powerlevel10k powerlevel10k
 zgen loadall <<EOPLUGINS
-  rupa/z
-  changyuheng/fz
   chrissicool/zsh-256color
   gradle/gradle-completion
+  mafredri/zsh-async
   nobeans/zsh-sdkman
-  romkatv/powerlevel10k powerlevel10k
-  rimraf/k
   RobSis/zsh-completion-generator
   skx/sysadmin-util
   unixorn/autoupdate-zgen
@@ -61,7 +64,6 @@ zgen loadall <<EOPLUGINS
   zsh-users/zsh-completions src
   zsh-users/zsh-syntax-highlighting
   zsh-users/zsh-history-substring-search
-  mafredri/zsh-async
 EOPLUGINS
 # ^ can't indent this EOPLUGINS
 
