@@ -50,7 +50,20 @@ function ldapuser {
     fi
 }
 
-function ldapemp {
+function ldapperson {
+    # FIXME: loop through multiple options
+    if [ $# -gt 1 ]; then
+        opt=$1
+        shift
+        $HOME/bin/ldapfind $opt "(imrPID=$@)" # | /usr/bin/sort -f
+    elif [ $# -eq 1 ]; then
+        $HOME/bin/ldapfind "(imrPID=$@)" # | /usr/bin/sort -f
+    else
+        $HOME/bin/ldapfind
+    fi
+}
+
+function ldapeid {
     # FIXME: loop through multiple options
     if [ $# -gt 1 ]; then
         opt=$1
@@ -99,7 +112,7 @@ function ldapname {
 
 function wd  { /usr/bin/dirname `/usr/bin/which $@`; }
 function llw { /bin/ls -Fl `/usr/bin/which $@`; }
-function mw  { /usr/bin/bat `/usr/bin/which $@`; }
+function mw  { bat `/usr/bin/which $@`; }
 function cdw { cd `wd $@`; }
 function viw { $EDITOR `/usr/bin/which $@`; }
 
@@ -231,7 +244,7 @@ function weather() {
 
 # ripgrep piped through a pager
 function rg() {
-    /usr/bin/rg --pretty --smart-case --sort-files $@ | /usr/bin/bat
+    /usr/bin/rg --pretty --smart-case --sort-files $@ | bat
 }
 
 function findit() {

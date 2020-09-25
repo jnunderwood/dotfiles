@@ -68,7 +68,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 # LC_COLLATE=C   C-language conventions are used for sorting
 # LC_MESSAGES=C  never translates program output
 # LC_TIME=en_DK  produces yyyy-mm-dd hh:mm date/time output
-#unset LC_ALL
+unset LC_ALL
 export LANGUAGE="en_US:en"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
@@ -84,8 +84,8 @@ export LESS="-eiMRX"
 export LESSOPEN="|/usr/bin/lessfile %s"
 
 # use bat as default pager; also see $HOME/.config/bat/config
-export PAGER='/usr/bin/bat'
-export MANPAGER='/usr/bin/bat'
+export PAGER='bat'
+export MANPAGER='bat'
 export BAT_PAGER='/usr/bin/less -eiMRX'
 
 # terminal
@@ -179,7 +179,7 @@ eval "$(lessfile)"
 
 # remove a few aliases created by zsh plugins
 function unaliasPlugins() {
-    typeset -a commands=('g' 'l' 'ls' 'la' 'lr' 'lt' 'll' 'ldot' 'lS' 'lart' 'lrt' ':q' 'zz')
+    typeset -a commands=('g' 'l' 'ls' 'la' 'lr' 'lt' 'll' 'ldot' 'lS' 'lart' 'lrt' ':q' 'z' 'zz')
     for command in $commands; do
         type=`whence -w $command | /usr/bin/cut -d' ' -f2`
         if [ $type = "alias" ]; then
