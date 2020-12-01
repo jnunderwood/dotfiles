@@ -1,0 +1,64 @@
+format = """
+$username\
+$hostname\
+$shlvl\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$env_var\
+$crystal\
+$custom\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$character"""
+
+[java]
+symbol = " "
+
+[custom.grails]
+description = "The version of Grails used in this project"
+command = "/usr/bin/rg grailsVersion gradle.properties | /usr/bin/cut -d'=' -f2"
+files = ["grailsw", "gradle.properties"]
+symbol = " "
+style = "bold green"
+
+[time]
+disabled = false
+

@@ -268,6 +268,32 @@ function ctop() {
     /usr/bin/docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
 }
 
+function deploy() {
+    if [[ -f "hosts.ini" ]]; then
+        hosts="hosts.ini"
+    elif [[ -f "hosts" ]]; then
+        hosts="hosts"
+    elif [[ -f "ansible/hosts.ini" ]]; then
+        hosts="ansible/hosts.ini"
+    elif [[ -f "ansible/hosts" ]]; then
+        hosts="ansible/hosts"
+    else
+        echo "missing hosts file"
+        exit(1)
+    fi
+
+    if [[ -f "playbook.yml" ]]; then
+        playbook="playbook.yml"
+    elif [[ -f "ansible/playbook.yml" ]]; then
+        playbook="ansible/playbook.yml"
+    else
+        echo "missing playbook file"
+        exit(1)
+    fi
+
+    ansible-playbook --inventory $hosts $playbook
+}
+
 function docker-health() {
     # /usr/bin/docker inspect --format='{{json .State.Health}}' $1.unch.unc.edu | /usr/bin/jq
     if [ "$#" -eq 0 ]; then
@@ -330,6 +356,21 @@ function fontsize() {
         printf '\33]50;%s%d\007' "xft:Fira Code:size=$1::antialias=true:hinting=true"
     else
         echo "Specify font size, e.g., $ fontsize 11"
+    fi
+}
+
+# run a command with sudo
+function please() {
+    if [ "$1" ]; then
+        /usr/bin/sudo $@
+    else
+        # /usr/bin/sudo "$BASH" -c "$(history -p !!)"
+        cmd=$(fc -ln -1)
+        cmd="/usr/bin/sudo ${cmd#*    }"
+        echo "$cmd"
+        # history -s "$cmd"
+        print -S "$cmd"
+        eval "$cmd"
     fi
 }
 
@@ -409,6 +450,11 @@ function dashedtitle {
 
 function update {
     /usr/bin/sudo --validate
+    /bin/echo ""
+    /bin/echo "# Updating motd"
+    /bin/echo "update-motd"
+    /usr/bin/sudo /usr/sbin/update-motd
+
     /bin/echo ""
     /bin/echo "# Updating Packages (no output expected)"
     /bin/echo "apt update -qq --fix-missing"
