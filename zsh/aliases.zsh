@@ -5,8 +5,8 @@
 # aliases for save file operations
 #alias cp='echo "cp is diabled, use /bin/cp -ip"'
 #alias mv='echo "mv is diabled, use /bin/mv -i"'
-#alias rm='echo "rm is diabled, use /usr/bin/trash or /bin/rm -i"'
-alias rm='/usr/bin/trash'
+#alias rm='echo "rm is diabled, use trash or /bin/rm -i"'
+alias rm='trash-put'
 
 # aliases for colorful greps
 alias  grep='/bin/grep  --color=auto'
@@ -59,7 +59,6 @@ alias        battery='/usr/bin/upower --show-info /org/freedesktop/UPower/device
 alias         volume='/usr/bin/amixer sset Master $1'
 alias           gksu='/usr/bin/pkexec /usr/bin/env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY'
 alias          jinfo='/usr/bin/sudo /usr/bin/jinfo `/bin/ps aux | grep catalina | grep "^tomcat7" | /usr/bin/cut -d" " -f 3`'
-alias  trash-restore='/usr/bin/restore-trash'
 alias          whcih='which' # common misspelling
 alias        xlogout='/usr/bin/gnome-session-quit --logout --force --no-prompt'
 alias        suspend='/usr/bin/sudo /usr/sbin/pm-suspend'
