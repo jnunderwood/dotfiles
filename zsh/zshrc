@@ -37,7 +37,7 @@ fi
 #
 # end zgen }}}
 
-# environment variables {{{
+# u-settings {{{
 #
 
 # paranoid file permissions
@@ -51,6 +51,12 @@ umask 002
 
 # allow for more file descriptors
 ulimit -n 2048
+
+#
+# end u-settings }}}
+
+# environment variables {{{
+#
 
 # HiDPI display settings
 export GDK_SCALE=2
@@ -68,13 +74,14 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 # LC_COLLATE=C   C-language conventions are used for sorting
 # LC_MESSAGES=C  never translates program output
 # LC_TIME=en_DK  produces yyyy-mm-dd hh:mm date/time output
-unset LC_ALL
-export LANGUAGE="en_US:en"
-export LANG="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
-export LC_COLLATE="C"
-export LC_MESSAGES="C"
-export LC_TIME="en_DK.UTF-8"
+#unset LC_ALL
+#export LANGUAGE="en_US:en"
+#export LANG="en_US.UTF-8"
+#export LC_CTYPE="en_US.UTF-8"
+#export LC_COLLATE="C"
+#export LC_MESSAGES="C"
+#export LC_TIME="en_DK.UTF-8"
+export LC_ALL="C"
 
 # settings for 'less'
 #export PAGER='$HOME/bin/less.sh'  # start vim with less.vim
@@ -82,6 +89,9 @@ export LC_TIME="en_DK.UTF-8"
 export LESS="-eiMRX"
 #export LESSOPEN="|$HOME/bin/lesspipe.sh %s"
 export LESSOPEN="|/usr/bin/lessfile %s"
+
+# java programming language
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 # use bat as default pager; also see $HOME/.config/bat/config
 export PAGER='bat'
@@ -101,6 +111,8 @@ export GITLAB_API_PRIVATE_TOKEN=w_TmjwcFYukeSx_RHzXz
 # using YAML hash syntax. For example, this is how you would disable SSL
 # verification (useful if using a self-signed cert).
 #export GITLAB_API_HTTPARTY_OPTIONS="{verify: false}"
+
+export CPATH=/usr/include/glib-2.0:/usr/lib/x86_64-linux-gnu/glib-2.0/include:/usr/include/libsecret-1
 
 # common variables
 export EDITOR='/usr/bin/nvim'  # '/usr/bin/vim'
@@ -167,9 +179,9 @@ eval "$(lessfile)"
 #
 
 #BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+#[ -n "$PS1" ] && \
+#    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#        eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 #
 # }}}
@@ -204,11 +216,9 @@ source $HOME/dotfiles/zsh/functions.zsh
 
 # PATH settings {{{
 
-export CPATH=/usr/include/glib-2.0:/usr/lib/x86_64-linux-gnu/glib-2.0/include:/usr/include/libsecret-1
-
 # go programming language
 export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$PATH
+export PATH="$GOPATH/bin:$PATH"
 
 # ruby programming language
 if which ruby >/dev/null && which gem >/dev/null; then
@@ -219,7 +229,7 @@ fi
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # personal PATH directories
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:/snap/bin:$PATH
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/snap/bin:$PATH"
 
 #
 # end PATH settings }}}
@@ -256,9 +266,5 @@ eval "$(starship init zsh)"
 #
 # end other programs }}}
 
-
 #
 # vim: set ft=zsh fdm=marker:
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
