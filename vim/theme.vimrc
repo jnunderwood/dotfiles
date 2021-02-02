@@ -1,6 +1,10 @@
 " my theme settings
 
+" turn on syntax highlighting
 syntax enable
+
+" background should be dark
+set background=dark
 
 " allow themes to use bold and italic fonts
 let g:enable_bold_font = 1
@@ -21,35 +25,39 @@ else
 endif
 
 " my favorite colorscheme
-colorscheme darcula
+colorscheme solarized
+"colorscheme darcula
 "colorscheme py-darcula
 
 " for vim color names and mappings, see colors.vimrc
 
-" override some colors
-hi LineNr ctermfg=60 ctermbg=234 guifg=#5f5f87 guibg=#1c1c1c
-hi CursorLine ctermbg=234 guibg=#1c1c1c
-hi NonText ctermfg=238 guifg=#444444 guibg=#2b2b2b
+" configuration for solarized
+let g:solarized_termcolors = 256
 
-" override some font styles
-hi Boolean cterm=bold
-hi Character cterm=italic
-hi Comment cterm=italic gui=italic
-hi Conditional cterm=bold
-hi Constant cterm=bold
-hi Define cterm=bold
-hi DiffAdd cterm=bold
-hi DiffText cterm=bold
-hi Function cterm=bold
-hi Keyword cterm=bold
-hi PreProc cterm=bold
-hi Special cterm=bold
-hi StorageClass cterm=bold
-hi Todo cterm=bold,italic
-hi Type cterm=bold
-hi jsFunction cterm=bold
-hi javaScriptFunction cterm=bold
-hi markdownHeadingDelimiter cterm=bold
+" override some colors for darcula
+"hi LineNr ctermfg=60 ctermbg=234 guifg=#5f5f87 guibg=#1c1c1c
+"hi CursorLine ctermbg=234 guibg=#1c1c1c
+"hi NonText ctermfg=238 guifg=#444444 guibg=#2b2b2b
+
+" override some font styles for darcula
+"hi Boolean cterm=bold
+"hi Character cterm=italic
+"hi Comment cterm=italic gui=italic
+"hi Conditional cterm=bold
+"hi Constant cterm=bold
+"hi Define cterm=bold
+"hi DiffAdd cterm=bold
+"hi DiffText cterm=bold
+"hi Function cterm=bold
+"hi Keyword cterm=bold
+"hi PreProc cterm=bold
+"hi Special cterm=bold
+"hi StorageClass cterm=bold
+"hi Todo cterm=bold,italic
+"hi Type cterm=bold
+"hi jsFunction cterm=bold
+"hi javaScriptFunction cterm=bold
+"hi markdownHeadingDelimiter cterm=bold
 
 " make background transparent
 "hi Normal ctermbg=NONE
@@ -62,8 +70,8 @@ hi markdownHeadingDelimiter cterm=bold
 "match WhiteSpaceMol / /
 "2match WhiteSpaceBol /^ \+/
 
-" vim-sneak settings
-hi SneakPluginTarget ctermfg=black ctermbg=234 guibg=#181818
+" vim-sneak settings for darcula
+"hi SneakPluginTarget ctermfg=black ctermbg=234 guibg=#181818
 
 " performance improvement settings
 " @see http://stackoverflow.com/questions/4775605/vim-syntax-highlight-improve-performance

@@ -1,6 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " colorschemes
+Plug 'altercation/vim-colors-solarized'
 Plug 'blueshirts/darcula'
 "Plug 'isobit/vim-darcula-colors'
 Plug 'tomasiser/vim-code-dark'

@@ -260,3 +260,5 @@ eval "$(starship init zsh)"
 #
 # vim: set ft=zsh fdm=marker:
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
