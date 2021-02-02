@@ -51,6 +51,7 @@ $character"""
 
 [java]
 symbol = " "
+style = "bold red"
 
 [custom.grails]
 description = "The version of Grails used in this project"

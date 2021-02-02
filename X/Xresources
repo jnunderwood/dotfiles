@@ -3,5 +3,6 @@
 ! load changes: $ xrdb -I$HOME ~/.Xresources
 
 #include ".Xresources.d/fonts"
-#include ".Xresources.d/colors-darcula"
+! #include ".Xresources.d/colors-darcula"
+#include ".Xresources.d/colors-solarized"
 #include ".Xresources.d/urxvt"

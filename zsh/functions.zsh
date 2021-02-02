@@ -7,14 +7,15 @@
 # + filename sorting dependent on LC_ALL env variable
 # + for long listings, use:
 #   - 'k' zsh plugin: https://github.com/supercrabtree/k/
+#   - 'lsd': https://github.com/Peltoche/lsd
 #   - 'exa': https://the.exa.website/
 
-# function  ls { /bin/ls --color=always --classify -C $@ }
+#function  ls { /bin/ls --color=always --classify -C $@ }
 #function  ll { k --human --group-directories-first $@ | $PAGER --style=plain }
 #function  lt { ll --reverse -t modified $@ | $PAGER --style=plain }
 #function ltc { ll --reverse -c --sort modified $@ }
 #function lls { ll --reverse -S $@ }
-function  ls { $HOME/.cargo/bin/exa --classify --color=always --icons --sort type $@ }
+function  ls { $HOME/.cargo/bin/exa --classify --color=always --icons --sort name $@ }
 function   l { ls $@ }
 function  lf { ls --group-directories-first $@ }
 function  ll { ls --long --group-directories-first --git $@ | $PAGER --style=plain }
@@ -313,6 +314,14 @@ function docker-health() {
     fi
     echo "/usr/bin/ssh $server /usr/bin/docker inspect --format='{{json .State.Health}}' $app | /usr/bin/jq"
     /usr/bin/ssh $server "/usr/bin/docker inspect --format='{{json .State.Health}}' $app" | /usr/bin/jq
+}
+
+function docker-registry-list() {
+    /usr/bin/docker run --rm anoxis/registry-cli --host https://webtools.unch.unc.edu/ --login unchadmin:hondatoyotaford
+}
+
+function docker-registry-clean() {
+    /usr/bin/docker run --rm anoxis/registry-cli --host https://webtools.unch.unc.edu/ --login unchadmin:hondatoyotaford --delete --num 5
 }
 
 function docker-logins() {

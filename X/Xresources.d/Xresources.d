@@ -1,0 +1,1 @@
+/home/UNCH/junderwo/dotfiles/X/Xresources.d
