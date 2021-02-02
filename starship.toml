@@ -1,3 +1,14 @@
+# --- starship prompt config file ----------------------------------------------
+
+# --- performance issues -------------------------------------------------------
+
+# - if there are performance issues, remove the following line
+#   $git_status\
+# - if performance issues have been addressed, the following line should appear after $git_state
+#   $git_status\
+
+# --- prompt format ------------------------------------------------------------
+
 format = """
 $username\
 $hostname\
@@ -48,6 +59,8 @@ $battery\
 $time\
 $status\
 $character"""
+
+# --- prompt overrides and additions -------------------------------------------
 
 [java]
 symbol = " "
