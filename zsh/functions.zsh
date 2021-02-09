@@ -132,7 +132,7 @@ function ldapname {
 #
 
 function wd  { /usr/bin/dirname `/usr/bin/which $@`; }
-function llw { /bin/ls -Fl `/usr/bin/which $@`; }
+function llw { ll `/usr/bin/which $@`; }
 function mw  { bat `/usr/bin/which $@`; }
 function cdw { cd `wd $@`; }
 function viw { $EDITOR `/usr/bin/which $@`; }
