@@ -5,32 +5,52 @@
 # Notes:
 # + aliases do not take parameters; use functions instead
 # + filename sorting dependent on LC_ALL env variable
-# + for long listings, use:
-#   - 'k' zsh plugin: https://github.com/supercrabtree/k/
-#   - 'lsd': https://github.com/Peltoche/lsd
-#   - 'exa': https://the.exa.website/
 
-#function  ls { /bin/ls --color=always --classify -C $@ }
+# + alternatives to default 'ls':
+#   - 'k': zsh plugin - https://github.com/supercrabtree/k/
+#   - 'exa': rust program, includes git integration - https://the.exa.website/
+#   - 'lsd': rust program, nice colors - https://github.com/Peltoche/lsd
+
+# use default 'ls'
+# function  ls { /bin/ls --color=always --classify -C $@ }
+
+# use 'k'
 #function  ll { k --human --group-directories-first $@ | $PAGER --style=plain }
 #function  lt { ll --reverse -t modified $@ | $PAGER --style=plain }
 #function ltc { ll --reverse -c --sort modified $@ }
 #function lls { ll --reverse -S $@ }
-function  ls { $HOME/.cargo/bin/exa --classify --color=always --icons --sort name $@ }
+
+# use 'exa'
+#function  ls { $HOME/.cargo/bin/exa --classify --color=always --icons --sort name $@ }
+#function   l { ls $@ }
+#function  lf { ls --group-directories-first $@ }
+#function  ll { ls --long --group-directories-first --time-style long-iso --git $@ | $PAGER --style=plain }
+#function  lh { ll --help }
+#function llh { ll --help }
+#function  la { ll --all $@ | $PAGER --style=plain }
+#function lla { ll --all $@ | $PAGER --style=plain }
+#function lld { ll --directory $@ .* | $PAGER --style=plain }
+#function  lt { ls --long --git --sort modified $@ | $PAGER --style=plain }
+#function lta { ls --all --long --git --sort modified $@ }
+#function ltu { ll -u --sort created $@ }
+#function lls { ll --sort size $@ }
+#function lss { ll --sort size $@ }
+#function ltree { ll --tree --level=3 $@ | $PAGER --style=plain }
+
+# use 'lsd'
+function  ls { $HOME/.cargo/bin/lsd --classify --color always $@ }
+function  lh { ls --help }
 function   l { ls $@ }
-function  lf { ls --group-directories-first $@ }
-function  ll { ls --long --group-directories-first --git $@ | $PAGER --style=plain }
-function  lh { ll --help }
-function llh { ll --help }
+function  lf { ls --group-dirs first $@ }
+function  ll { ls --long --group-dirs first $@ | $PAGER --style=plain }
+function lls { ll --total-size $@ | $PAGER --style=plain }
 function  la { ll --all $@ | $PAGER --style=plain }
 function lla { ll --all $@ | $PAGER --style=plain }
 function lld { ll --directory $@ .* | $PAGER --style=plain }
-function  lt { ls --long --git --sort modified $@ | $PAGER --style=plain }
-function lta { ls --all --long --git --sort modified $@ }
-function ltu { ll -u --sort created $@ }
-function lls { ll --sort size $@ }
+function  lt { ll --sort time $@ | $PAGER --style=plain }
+function lta { lt --all $@ }
 function lss { ll --sort size $@ }
-function ltree { ll --tree --level=3 $@ | $PAGER --style=plain }
-#function chpwd() { ls }
+function ltree { ll --tree $@ | $PAGER --style=plain }
 
 #
 # }}}
