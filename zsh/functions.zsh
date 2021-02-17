@@ -289,32 +289,6 @@ function ctop() {
     /usr/bin/docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
 }
 
-function deploy() {
-    if [[ -f "hosts.ini" ]]; then
-        hosts="hosts.ini"
-    elif [[ -f "hosts" ]]; then
-        hosts="hosts"
-    elif [[ -f "ansible/hosts.ini" ]]; then
-        hosts="ansible/hosts.ini"
-    elif [[ -f "ansible/hosts" ]]; then
-        hosts="ansible/hosts"
-    else
-        echo "missing hosts file"
-        exit(1)
-    fi
-
-    if [[ -f "playbook.yml" ]]; then
-        playbook="playbook.yml"
-    elif [[ -f "ansible/playbook.yml" ]]; then
-        playbook="ansible/playbook.yml"
-    else
-        echo "missing playbook file"
-        exit(1)
-    fi
-
-    ansible-playbook --inventory $hosts $playbook
-}
-
 function docker-health() {
     # /usr/bin/docker inspect --format='{{json .State.Health}}' $1.unch.unc.edu | /usr/bin/jq
     if [ "$#" -eq 0 ]; then
@@ -376,7 +350,6 @@ function json() {
         /usr/bin/python -m json.tool | pygmentize -l json
     fi
 }
-
 
 # for urxvt terminal; maybe others as well?
 function fontsize() {
