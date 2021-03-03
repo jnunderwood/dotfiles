@@ -4,7 +4,7 @@ https://github.com/sharkdp/bat
 
 ## Syntaxes
 
-You can add SublimeText syntax files, like Groovy.
+You can add SublimeText syntax files, like Groovy Server Pages (GSP).
 After upgrading bat or adding a syntax file, run:
 
 ```shell
