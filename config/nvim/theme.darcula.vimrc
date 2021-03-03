@@ -1,4 +1,4 @@
-" my theme settings
+" IntelliJ Darcula theme settings
 
 syntax enable
 
@@ -8,32 +8,9 @@ syntax enable
 "let g:enable_bold_font = 1
 "let g:enable_italic_font = 1
 
-" color settings
-if has('termguicolors') && $COLORTERM ==# 'truecolor'
-  " set Vim-specific sequences for RGB colors
-  " @see https://github.com/vim/vim/issues/993
-  "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors " must use a terminal which supports true colors
-else
-  "set t_AB="\<Esc>[48;5;%dm"
-  "set t_AF="\<Esc>[38;5;%dm"
-  set notermguicolors
-  set t_Co=256
-endif
-
-" for base16
-"if filereadable(expand("~/.vimrc_background"))
-"  let base16colorspace=256
-"  source ~/.vimrc_background
-"endif
+set termguicolors " must use a terminal which supports true colors
 
 " a nice colorscheme
-" colorscheme PaperColor
-" colorscheme codedark
-" colorscheme base16-ashes
-" colorscheme base16-material-darker
-" colorscheme hybrid_material
 " colorscheme darcula
 colorscheme py-darcula
 

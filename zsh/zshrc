@@ -103,7 +103,7 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 # use bat as default pager; also see $HOME/.config/bat/config
 export PAGER='bat'
 export MANPAGER='bat'
-export BAT_PAGER='/usr/bin/less -eiMRX'
+export BAT_PAGER='/usr/bin/less -eiFMR'
 
 # terminal
 #export TERM=rxvt-unicode-256color
@@ -141,6 +141,10 @@ export UPDATE_ZSH_DAYS=1
 
 # zsh plugin variables
 export PER_DIRECTORY_HISTORY_TOGGLE='^g'
+
+# Vagrant for WSL variables; see https://www.vagrantup.com/docs/other/wsl
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 
 #
 # end environment variables }}}
@@ -234,6 +238,12 @@ fi
 
 # rust programming language
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# windows powershell installation
+export PATH="$PATH:/mnt/c/windows/System32:/mnt/c/windows/System32/WindowsPowerShell/v1.0:/mnt/c/Program Files/PowerShell/7"
+
+# windows' virtual box installation
+export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
 
 # personal PATH directories
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/bin:/snap/bin:$PATH"

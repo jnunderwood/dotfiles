@@ -5,3 +5,4 @@ Session.vim
 *.tar
 *.bak
 vim/plugged
+config/nvim/plugged

@@ -18,7 +18,6 @@ $directory\
 $git_branch\
 $git_commit\
 $git_state\
-$git_status\
 $hg_branch\
 $docker_context\
 $package\
@@ -64,14 +63,14 @@ $character"""
 
 [java]
 symbol = " "
-style = "bold red"
+style = "red"
 
 [custom.grails]
 description = "The version of Grails used in this project"
-command = "/usr/bin/rg grailsVersion gradle.properties | /usr/bin/cut -d'=' -f2"
+command = "rg grailsVersion gradle.properties | cut -d'=' -f2"
 files = ["grailsw", "gradle.properties"]
 symbol = " "
-style = "bold green"
+style = "green"
 
 [time]
 disabled = false

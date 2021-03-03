@@ -17,7 +17,7 @@ if has("autocmd")
   augroup vimrcEx
     au!
 
-    " For all text files set 'textwidth' to 78 characters.
+    " For all text files set 'textwidth' to 108 characters.
     autocmd FileType text setlocal textwidth=108
 
     " Trim whitespace onsave
@@ -34,6 +34,15 @@ if has("autocmd")
           \ endif
 
   augroup END
+
+  " detect .gsp as "jsp" instead of "gnu server pages"
+  autocmd BufNewFile,BufReadPost *.gsp set filetype=jsp.html
+
+  " detect .md as markdown instead of modula-2
+  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+  " stop highlighting of underscores in markdown files
+  autocmd BufNewFile,BufRead,BufEnter *.md,*.markdown :syntax match markdownIgnore "_"
 endif " has("autocmd")
 
 " indent and tab stuff
@@ -93,12 +102,6 @@ if executable('/usr/bin/zsh')
 else
   set shell=/bin/bash
 endif
-
-" detect .md as markdown instead of modula-2
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-"
-" stop highlighting of underscores in markdown files
-autocmd BufNewFile,BufRead,BufEnter *.md,*.markdown :syntax match markdownIgnore "_"
 
 " add timstamp to backup files
 :if !exists("autocommands_loaded")

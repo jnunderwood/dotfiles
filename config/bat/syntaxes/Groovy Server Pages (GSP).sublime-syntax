@@ -1,0 +1,87 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: Groovy Server Page (GSP)
+file_extensions:
+  - gsp
+scope: text.html.gsp
+contexts:
+  main:
+    - match: "<%--|%{--"
+      scope: punctuation.definition.comment.gsp
+      push:
+        - meta_scope: comment.block.gsp
+        - match: "--%>|--}%"
+          scope: punctuation.definition.comment.gsp
+          pop: true
+    - match: <%@
+      scope: punctuation.section.directive.gsp
+      push:
+        - meta_scope: meta.directive.gsp
+        - match: "%>"
+          scope: punctuation.section.directive.gsp
+          pop: true
+        - match: \w+
+          scope: keyword.other.directive.gsp
+          push:
+            - match: \w+
+              scope: constant.other.directive.attribute.gsp
+            - match: "="
+              scope: keyword.operator.assignment.gsp
+            - match: '"'
+              scope: punctuation.definition.string.begin.gsp
+              push:
+                - meta_scope: string.quoted.double.gsp
+                - match: '"'
+                  scope: punctuation.definition.string.end.gsp
+                  pop: true
+                - match: \\.
+                  scope: constant.character.escape.gsp
+            - match: "'"
+              scope: punctuation.definition.string.begin.gsp
+              push:
+                - meta_scope: string.quoted.single.gsp
+                - match: "'"
+                  scope: punctuation.definition.string.end.gsp
+                  pop: true
+                - match: \\.
+                  scope: constant.character.escape.gsp
+            - match: '(?=\S)'
+              pop: true
+    - match: "(<%[!=]?)|(<gsp:scriptlet>|<gsp:expression>|<gsp:declaration>)"
+      captures:
+        1: punctuation.section.embedded.begin.gsp
+        2: meta.tag.block.gsp
+      push:
+        - match: (</gsp:scriptlet>|</gsp:expression>|</gsp:declaration>)|(%>)
+          captures:
+            1: meta.tag.block.gsp
+            2: punctuation.section.embedded.end.gsp
+          pop: true
+        - match: '(?<!\n)(?!</gsp:scriptlet>|</gsp:expression>|</gsp:declaration>|%>|\{|\})'
+          push:
+            - meta_scope: source.groovy.embedded.html
+            - match: '(?=</gsp:scriptlet>|</gsp:expression>|</gsp:declaration>|%>|\{|\})|\n'
+              pop: true
+            - include: scope:source.groovy
+        - match: "{"
+          push:
+            - match: "}"
+              pop: true
+            - match: (</gsp:scriptlet>|</gsp:expression>|</gsp:declaration>)|(%>)
+              captures:
+                1: meta.tag.block.gsp
+                2: punctuation.section.embedded.end.gsp
+              push:
+                - match: "(<gsp:scriptlet>|<gsp:expression>|<gsp:declaration>)|(<%(?!--)[!=]?)"
+                  captures:
+                    1: meta.tag.block.gsp
+                    2: punctuation.section.embedded.begin.gsp
+                  pop: true
+                - include: scope:text.html.gsp
+            - include: scope:source.groovy
+        # Prevent stray brace detection since brace matching won't work with
+        # %> pop pattern
+        - match: "}"
+        - include: scope:source.groovy
+    - include: scope:text.html.basic

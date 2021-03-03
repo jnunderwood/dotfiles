@@ -29,7 +29,7 @@
 #function llh { ll --help }
 #function  la { ll --all $@ | $PAGER --style=plain }
 #function lla { ll --all $@ | $PAGER --style=plain }
-#function lld { ll --directory $@ .* | $PAGER --style=plain }
+#function lld { ll --only-dirs $@ .* | $PAGER --style=plain }
 #function  lt { ls --long --git --sort modified $@ | $PAGER --style=plain }
 #function lta { ls --all --long --git --sort modified $@ }
 #function ltu { ll -u --sort created $@ }
@@ -42,15 +42,15 @@ function  ls { $HOME/.cargo/bin/lsd --classify --color always $@ }
 function  lh { ls --help }
 function   l { ls $@ }
 function  lf { ls --group-dirs first $@ }
-function  ll { ls --long --group-dirs first $@ | $PAGER --style=plain }
-function lls { ll --total-size $@ | $PAGER --style=plain }
-function  la { ll --all $@ | $PAGER --style=plain }
-function lla { ll --all $@ | $PAGER --style=plain }
-function lld { ll --directory $@ .* | $PAGER --style=plain }
-function  lt { ll --sort time $@ | $PAGER --style=plain }
+function  ll { ls --long --group-dirs first $@ }
+function lls { ll --total-size $@ }
+function  la { ll --all $@ }
+function lla { ll --all $@ }
+function lld { ll --directory-only $@ }
+function  lt { ll --sort time $@ }
 function lta { lt --all $@ }
 function lss { ll --sort size $@ }
-function ltree { ll --tree $@ | $PAGER --style=plain }
+function ltree { ll --tree $@ }
 
 #
 # }}}
@@ -201,6 +201,75 @@ function voldown {
 #
 # }}}
 
+# docker functions {{{
+#
+
+function ctop() {
+    /usr/bin/docker image pull quay.io/vektorlab/ctop:latest
+    /usr/bin/docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
+}
+
+function docker-health() {
+    # /usr/bin/docker inspect --format='{{json .State.Health}}' $1.unch.unc.edu | /usr/bin/jq
+    if [ "$#" -eq 0 ]; then
+        server="webapps-un1-p01.unch.unc.edu"
+        app="`/usr/bin/basename $PWD`.unch.unc.edu"
+    elif [ "$#" -eq 1 ]; then
+        server="webapps-un1-p01.unch.unc.edu"
+        app="${1}.unch.unc.edu"
+    else
+        if [[ "$2" == "dev" ]]; then
+            server="webappsdev1.unch.unc.edu"
+            app="${1}dev.unch.unc.edu"
+        else
+            server="webapps-un1-p01.unch.unc.edu"
+            app="${1}.unch.unc.edu"
+        fi
+    fi
+    echo "/usr/bin/ssh $server /usr/bin/docker inspect --format='{{json .State.Health}}' $app | /usr/bin/jq"
+    /usr/bin/ssh $server "/usr/bin/docker inspect --format='{{json .State.Health}}' $app" | /usr/bin/jq
+}
+
+# usage: docker-logs [appname [dev]]
+function docker-logs() {
+    if [ "$#" -eq 0 ]; then
+        server="webapps-un1-p01.unch.unc.edu"
+        app="`/usr/bin/basename $PWD`.unch.unc.edu"
+    elif [ "$#" -eq 1 ]; then
+        server="webapps-un1-p01.unch.unc.edu"
+        app="${1}.unch.unc.edu"
+    else
+        if [[ "$2" == "dev" ]]; then
+            server="webappsdev1.unch.unc.edu"
+            app="${1}dev.unch.unc.edu"
+        else
+            server="webapps-un1-p01.unch.unc.edu"
+            app="${1}.unch.unc.edu"
+        fi
+    fi
+    echo "/usr/bin/ssh $server docker logs --tail 500 --follow $app"
+    /usr/bin/ssh $server docker logs --tail 500 --follow $app
+}
+
+function docker-registry-list() {
+    /usr/bin/docker run --rm anoxis/registry-cli --host https://webtools.unch.unc.edu/ --login unchadmin:hondatoyotaford
+}
+
+function docker-registry-clean() {
+    /usr/bin/docker run --rm anoxis/registry-cli --host https://webtools.unch.unc.edu/ --login unchadmin:hondatoyotaford --delete --num 5
+}
+
+function docker-prune() {
+    /usr/bin/docker system prune --all
+}
+
+function docker-logins() {
+    /usr/bin/docker exec -it $1.unch.unc.edu /bin/sh -c "/bin/grep Username /home/app/logs/* | /usr/bin/wc -l"
+}
+
+#
+# }}}
+
 # miscellaneous functions {{{
 #
 
@@ -282,65 +351,6 @@ function manpage() {
 
 function dusn() {
     /usr/bin/du -BM -s $@ | /usr/bin/sort -n
-}
-
-function ctop() {
-    /usr/bin/docker image pull quay.io/vektorlab/ctop:latest
-    /usr/bin/docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
-}
-
-function docker-health() {
-    # /usr/bin/docker inspect --format='{{json .State.Health}}' $1.unch.unc.edu | /usr/bin/jq
-    if [ "$#" -eq 0 ]; then
-        server="webapps-un1-p01.unch.unc.edu"
-        app="`/usr/bin/basename $PWD`.unch.unc.edu"
-    elif [ "$#" -eq 1 ]; then
-        server="webapps-un1-p01.unch.unc.edu"
-        app="${1}.unch.unc.edu"
-    else
-        if [[ "$2" == "dev" ]]; then
-            server="webappsdev1.unch.unc.edu"
-            app="${1}dev.unch.unc.edu"
-        else
-            server="webapps-un1-p01.unch.unc.edu"
-            app="${1}.unch.unc.edu"
-        fi
-    fi
-    echo "/usr/bin/ssh $server /usr/bin/docker inspect --format='{{json .State.Health}}' $app | /usr/bin/jq"
-    /usr/bin/ssh $server "/usr/bin/docker inspect --format='{{json .State.Health}}' $app" | /usr/bin/jq
-}
-
-function docker-registry-list() {
-    /usr/bin/docker run --rm anoxis/registry-cli --host https://webtools.unch.unc.edu/ --login unchadmin:hondatoyotaford
-}
-
-function docker-registry-clean() {
-    /usr/bin/docker run --rm anoxis/registry-cli --host https://webtools.unch.unc.edu/ --login unchadmin:hondatoyotaford --delete --num 5
-}
-
-function docker-logins() {
-    /usr/bin/docker exec -it $1.unch.unc.edu /bin/sh -c "/bin/grep Username /home/app/logs/* | /usr/bin/wc -l"
-}
-
-# usage: docker-logs [appname [dev]]
-function docker-logs() {
-    if [ "$#" -eq 0 ]; then
-        server="webapps-un1-p01.unch.unc.edu"
-        app="`/usr/bin/basename $PWD`.unch.unc.edu"
-    elif [ "$#" -eq 1 ]; then
-        server="webapps-un1-p01.unch.unc.edu"
-        app="${1}.unch.unc.edu"
-    else
-        if [[ "$2" == "dev" ]]; then
-            server="webappsdev1.unch.unc.edu"
-            app="${1}dev.unch.unc.edu"
-        else
-            server="webapps-un1-p01.unch.unc.edu"
-            app="${1}.unch.unc.edu"
-        fi
-    fi
-    echo "/usr/bin/ssh $server docker logs --tail 200 --follow $app"
-    /usr/bin/ssh $server docker logs --tail 200 --follow $app
 }
 
 function json() {

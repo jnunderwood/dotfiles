@@ -11,6 +11,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'NLKNguyen/papercolor-theme'
 "Plug 'doums/darcula'
 Plug 'cohlin/vim-colorschemes'
+Plug 'chiendo97/intellij.vim'
 
 " general
 Plug 'tpope/vim-sensible'
@@ -26,9 +27,9 @@ Plug 'vim-utils/vim-husk'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'wincent/terminus'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-endif
+"if has('nvim')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"endif
 
 " editing
 Plug 'junegunn/vim-easy-align'
@@ -63,9 +64,9 @@ Plug 'digitaltoad/vim-jade'
 Plug 'mxw/vim-jsx'
 Plug 'posva/vim-vue'
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }
-if has('nvim')
-  Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
-endif
+"if has('nvim')
+"  Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] }
+"endif
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'json']  }
 Plug 'elzr/vim-json', { 'for': ['javascript', 'json']  }
 Plug 'moll/vim-node', { 'for': ['javascript', 'json']  }
