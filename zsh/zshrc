@@ -93,7 +93,7 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=1
 # settings for 'less'
 #export PAGER='$HOME/bin/less.sh'  # start vim with less.vim
 #export PAGER='/usr/bin/less'
-export LESS="-eiMRX"
+export LESS="-eFiMRX"
 #export LESSOPEN="|$HOME/bin/lesspipe.sh %s"
 export LESSOPEN="|/usr/bin/lessfile %s"
 

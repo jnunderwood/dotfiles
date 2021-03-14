@@ -1,5 +1,7 @@
 # --- starship prompt config file ----------------------------------------------
 
+# @see "https://starship.rs/config/#prompt"
+
 # --- performance issues -------------------------------------------------------
 
 # - if there are performance issues, remove the following line
@@ -65,11 +67,18 @@ $character"""
 symbol = " "
 style = "red"
 
+[custom.docker]
+description = "The Docker base image used in this project"
+command = "rg FROM docker/Dockerfile | cut -d':' -f1 | cut -d'/' -f2"
+directories = ["docker"]
+symbol = "🐳 "
+style = "blue"
+
 [custom.grails]
 description = "The version of Grails used in this project"
 command = "rg grailsVersion gradle.properties | cut -d'=' -f2"
 files = ["grailsw", "gradle.properties"]
-symbol = " "
+symbol = " v"
 style = "green"
 
 [time]
