@@ -47,7 +47,7 @@ function lls { ll --total-size $@ }
 function  la { ll --all $@ }
 function lla { ll --all $@ }
 function lld { ll --directory-only $@ }
-function  lt { ll --sort time $@ }
+function  lt { ll --reverse --sort time $@ }
 function lta { lt --all $@ }
 function lss { ll --sort size $@ }
 function ltree { ll --tree $@ }

@@ -67,16 +67,23 @@ $character"""
 symbol = " "
 style = "red"
 
-[custom.docker]
+[custom.docker1]
 description = "The Docker base image used in this project"
-command = "rg FROM docker/Dockerfile | cut -d':' -f1 | cut -d'/' -f2"
+command = "rg --case-sensitive --no-line-number FROM docker/Dockerfile | cut -d':' -f1 | cut -d' ' -f2"
 directories = ["docker"]
-symbol = "🐳 "
+symbol = " "
+style = "blue"
+
+[custom.docker2]
+description = "The Docker base image used in this project"
+command = "rg --case-sensitive --no-line-number FROM Dockerfile | cut -d':' -f1 | cut -d' ' -f2"
+files = ["Dockerfile"]
+symbol = " "
 style = "blue"
 
 [custom.grails]
 description = "The version of Grails used in this project"
-command = "rg grailsVersion gradle.properties | cut -d'=' -f2"
+command = "rg --case-sensitive --no-heading --no-messages --no-line-number grailsVersion gradle.properties | cut -d'=' -f2"
 files = ["grailsw", "gradle.properties"]
 symbol = " v"
 style = "green"
