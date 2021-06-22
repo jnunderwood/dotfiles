@@ -12,7 +12,7 @@
 #   - 'lsd': rust program, nice colors - https://github.com/Peltoche/lsd
 
 # use default 'ls'
-# function  ls { /bin/ls --color=always --classify -C $@ }
+# function  ls { ls --color=always --classify -C $@ }
 
 # use 'k'
 #function  ll { k --human --group-directories-first $@ | $PAGER --style=plain }
@@ -21,7 +21,7 @@
 #function lls { ll --reverse -S $@ }
 
 # use 'exa'
-#function  ls { $HOME/.cargo/bin/exa --classify --color=always --icons --sort name $@ }
+#function  ls { exa --classify --color=always --icons --sort name $@ }
 #function   l { ls $@ }
 #function  lf { ls --group-directories-first $@ }
 #function  ll { ls --long --group-directories-first --time-style long-iso --git $@ | $PAGER --style=plain }
@@ -38,7 +38,7 @@
 #function ltree { ll --tree --level=3 $@ | $PAGER --style=plain }
 
 # use 'lsd'
-function  ls { $HOME/.cargo/bin/lsd --classify --color always $@ }
+function  ls { lsd --classify --color always $@ }
 function  lh { ls --help }
 function   l { ls $@ }
 function  lf { ls --group-dirs first $@ }
@@ -63,11 +63,11 @@ function ldapuser {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(sAMAccountName=$@))" # | /usr/bin/sort -f
+        $HOMEldapfind $opt "(&(!(!(imrPID=*)))(sAMAccountName=$@))" # | sort -f
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(sAMAccountName=$@))" # | /usr/bin/sort -f
+        $HOMEldapfind "(&(!(!(imrPID=*)))(sAMAccountName=$@))" # | sort -f
     else
-        $HOME/bin/ldapfind
+        $HOMEldapfind
     fi
 }
 
@@ -76,11 +76,11 @@ function ldapperson {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(imrPID=$@)" # | /usr/bin/sort -f
+        $HOMEldapfind $opt "(imrPID=$@)" # | sort -f
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(imrPID=$@)" # | /usr/bin/sort -f
+        $HOMEldapfind "(imrPID=$@)" # | sort -f
     else
-        $HOME/bin/ldapfind
+        $HOMEldapfind
     fi
 }
 
@@ -89,11 +89,11 @@ function ldapeid {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(employeeNumber=$@))" # | /usr/bin/sort -f
+        $HOMEldapfind $opt "(&(!(!(imrPID=*)))(employeeNumber=$@))" # | sort -f
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(employeeNumber=$@))" # | /usr/bin/sort -f
+        $HOMEldapfind "(&(!(!(imrPID=*)))(employeeNumber=$@))" # | sort -f
     else
-        $HOME/bin/ldapfind
+        $HOMEldapfind
     fi
 }
 
@@ -102,11 +102,11 @@ function ldapmail {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(mail=$@))" # | /usr/bin/sort -f
+        $HOMEldapfind $opt "(&(!(!(imrPID=*)))(mail=$@))" # | sort -f
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(mail=$@))" # | /usr/bin/sort -f
+        $HOMEldapfind "(&(!(!(imrPID=*)))(mail=$@))" # | sort -f
     else
-        $HOME/bin/ldapfind
+        $HOMEldapfind
     fi
 }
 
@@ -115,13 +115,13 @@ function ldapname {
     if [ $# -gt 2 ]; then
         opt=$1
         shift
-        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" # | /usr/bin/sort -f
+        $HOMEldapfind $opt "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" # | sort -f
     elif [ $# -eq 2 ]; then
-        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" # | /usr/bin/sort -f
+        $HOMEldapfind "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" # | sort -f
     elif [ $# -eq 1 ]; then
-        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(&(sn=$1)))"
+        $HOMEldapfind "(&(!(!(imrPID=*)))(&(sn=$1)))"
     else
-        $HOME/bin/ldapfind
+        $HOMEldapfind
     fi
 }
 
@@ -131,17 +131,17 @@ function ldapname {
 # "which"/"type"/"dlocate" functions {{{
 #
 
-function wd  { /usr/bin/dirname `/usr/bin/which $@`; }
-function llw { ll `/usr/bin/which $@`; }
-function mw  { bat `/usr/bin/which $@`; }
+function wd  { dirname `which $@`; }
+function llw { ll `which $@`; }
+function mw  { bat `which $@`; }
 function cdw { cd `wd $@`; }
-function viw { $EDITOR `/usr/bin/which $@`; }
+function viw { $EDITOR `which $@`; }
 
 function where2 {
-    files=`builtin type -a -p $@ | /usr/bin/cut -d' ' -f3`
+    files=`builtin type -a -p $@ | cut -d' ' -f3`
     for file in $files; do
         if [ $file ]; then
-            /usr/bin/dlocate -S $file
+            dlocate -S $file
         fi
     done
 }
@@ -149,10 +149,10 @@ function where2 {
 function which2 {
     builtin type "$@"
     if [ $? = 0 ]; then
-        t=`builtin type -w $@ | /usr/bin/cut -d' ' -f2`
+        t=`builtin type -w $@ | cut -d' ' -f2`
         if [ $t = "file" ]; then
             p=`builtin type -p $@`
-            /usr/bin/dlocate -S "$p" | /bin/grep --color=auto " $p$"
+            dlocate -S "$p" | grep --color=auto " $p$"
         fi
     fi
 }
@@ -173,29 +173,29 @@ function pathto () {
 #
 
 function get-sink() {
-    sink=`/usr/bin/pactl list short sinks | grep RUNNING | cut -f1`
+    sink=`pactl list short sinks | grep RUNNING | cut -f1`
     if [ -z "$sink" ]; then
         sink=0
     fi
-    /bin/echo $sink
+    echo $sink
 }
 
 function mute {
-    /usr/bin/pactl set-sink-mute `get-sink` 1 && killall -SIGUSR1 i3status
+    pactl set-sink-mute `get-sink` 1 && killall -SIGUSR1 i3status
 }
 
 function unmute {
-    /usr/bin/pactl set-sink-mute `get-sink` 0 && killall -SIGUSR1 i3status
+    pactl set-sink-mute `get-sink` 0 && killall -SIGUSR1 i3status
 }
 
 function volup {
     unmute
-    /usr/bin/pactl set-sink-volume `get-sink` -- +5% && killall -SIGUSR1 i3status
+    pactl set-sink-volume `get-sink` -- +5% && killall -SIGUSR1 i3status
 }
 
 function voldown {
     unmute
-    /usr/bin/pactl set-sink-volume `get-sink` -- -5% && killall -SIGUSR1 i3status
+    pactl set-sink-volume `get-sink` -- -5% && killall -SIGUSR1 i3status
 }
 
 #
@@ -205,15 +205,15 @@ function voldown {
 #
 
 function ctop() {
-    /usr/bin/docker image pull quay.io/vektorlab/ctop:latest
-    /usr/bin/docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
+    docker image pull quay.io/vektorlab/ctop:latest
+    docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
 }
 
 function docker-health() {
-    # /usr/bin/docker inspect --format='{{json .State.Health}}' $1.unch.unc.edu | /usr/bin/jq
+    # docker inspect --format='{{json .State.Health}}' $1.unch.unc.edu | jq
     if [ "$#" -eq 0 ]; then
         server="webapps-un1-p01.unch.unc.edu"
-        app="`/usr/bin/basename $PWD`.unch.unc.edu"
+        app="`basename $PWD`.unch.unc.edu"
     elif [ "$#" -eq 1 ]; then
         server="webapps-un1-p01.unch.unc.edu"
         app="${1}.unch.unc.edu"
@@ -226,18 +226,23 @@ function docker-health() {
             app="${1}.unch.unc.edu"
         fi
     fi
-    echo "/usr/bin/ssh $server /usr/bin/docker inspect --format='{{json .State.Health}}' $app | /usr/bin/jq"
-    /usr/bin/ssh $server "/usr/bin/docker inspect --format='{{json .State.Health}}' $app" | /usr/bin/jq
+    echo "ssh $server docker inspect --format='{{json .State.Health}}' $app | jq"
+    ssh $server "docker inspect --format='{{json .State.Health}}' $app" | jq
 }
 
 # usage: docker-logs [appname [dev]]
 function docker-logs() {
     if [ "$#" -eq 0 ]; then
         server="webapps-un1-p01.unch.unc.edu"
-        app="`/usr/bin/basename $PWD`.unch.unc.edu"
+        app="`basename $PWD`.unch.unc.edu"
     elif [ "$#" -eq 1 ]; then
-        server="webapps-un1-p01.unch.unc.edu"
-        app="${1}.unch.unc.edu"
+        if [[ "$1" == "dev" ]]; then
+            server="webappsdev1.unch.unc.edu"
+            app="`basename $PWD`dev.unch.unc.edu"
+        else
+            server="webapps-un1-p01.unch.unc.edu"
+            app="${1}.unch.unc.edu"
+        fi
     else
         if [[ "$2" == "dev" ]]; then
             server="webappsdev1.unch.unc.edu"
@@ -247,24 +252,142 @@ function docker-logs() {
             app="${1}.unch.unc.edu"
         fi
     fi
-    echo "/usr/bin/ssh $server docker logs --tail 500 --follow $app"
-    /usr/bin/ssh $server docker logs --tail 500 --follow $app
+    echo "ssh $server docker logs --tail 500 --follow $app"
+    ssh $server docker logs --tail 500 --follow $app
 }
 
 function docker-registry-list() {
-    /usr/bin/docker run --rm anoxis/registry-cli --host https://webtools.unch.unc.edu/ --login unchadmin:hondatoyotaford
+    docker run --rm anoxis/registry-cli --host https://webtools.unch.unc.edu/ --login unchadmin:hondatoyotaford
 }
 
 function docker-registry-clean() {
-    /usr/bin/docker run --rm anoxis/registry-cli --host https://webtools.unch.unc.edu/ --login unchadmin:hondatoyotaford --delete --num 5
+    docker run --rm anoxis/registry-cli --host https://webtools.unch.unc.edu/ --login unchadmin:hondatoyotaford --delete --num 5
 }
 
 function docker-prune() {
-    /usr/bin/docker system prune --all
+    docker system prune
+}
+
+function docker-prune-all() {
+    docker system prune --all
 }
 
 function docker-logins() {
-    /usr/bin/docker exec -it $1.unch.unc.edu /bin/sh -c "/bin/grep Username /home/app/logs/* | /usr/bin/wc -l"
+    docker exec -it $1.unch.unc.edu sh -c "grep Username /home/app/logs/* | wc -l"
+}
+
+# remove docker images created by "intermediate" build stages
+function docker-rmi() {
+    docker image remove -f $(docker images -q --filter label=stage=intermediate)
+}
+
+#
+# }}}
+
+# update functions {{{
+#
+
+# replaced by '/usr/sbin/update-motd'
+#function motd() {
+#    lsb_release -s -d
+#    /usr/lib/update-notifier/apt-check --human-readable
+#    /usr/lib/ubuntu-release-upgrader/check-new-release -q
+#    /usr/lib/update-notifier/update-motd-reboot-required
+#}
+
+# update software via apt
+function update {
+    sudo --validate
+    echo ""
+    echo "# Updating motd"
+    echo "update-motd"
+    sudo update-motd
+
+    echo ""
+    echo "# Updating Packages (no output expected)"
+    echo "apt update -qq --fix-missing"
+    sudo apt update -qq --fix-missing
+
+    # apt full-upgrade should do this, plus more
+    #sudo --validate
+    #echo ""
+    #echo "# Upgrading Packages"
+    #echo "apt upgrade --with-new-pkgs"
+    #sudo apt upgrade --with-new-pkgs
+    #echo ""
+
+    sudo --validate
+    echo ""
+    echo "# Upgrading Distribution, including new kernel packages"
+    echo "apt full-upgrade"
+    sudo apt full-upgrade
+
+    sudo --validate
+    echo ""
+    echo "# Auto-Removing Packages"
+    echo "apt autoremove"
+    sudo apt autoremove
+
+    sudo --validate
+    echo ""
+    echo "# Auto-Cleaning Local Repository"
+    echo "apt-get autoclean"
+    sudo apt-get autoclean
+}
+
+# update software via cargo
+function update-cargo {
+    cargo install --list
+    echo "cargo install --quiet bat"
+    cargo install --quiet bat
+    echo "cargo install --quiet bottom"
+    cargo install --quiet bottom
+    echo "cargo install --quiet git-delta"
+    cargo install --quiet git-delta
+    echo "cargo install --quiet exa"
+    cargo install --quiet exa
+    echo "cargo install --quiet fd-find"
+    cargo install --quiet fd-find
+    echo "cargo install --quiet lsd"
+    cargo install --quiet lsd
+    echo "cargo install --quiet starship"
+    cargo install --quiet starship
+    echo "cargo install --quiet tealdeer"
+    cargo install --quiet tealdeer
+    echo "cargo install --quiet zoxide"
+    cargo install --quiet zoxide
+    cargo install --list
+}
+
+# update software via pip
+function update-pip {
+    export PYTHONWARNINGS="ignore:Unverified HTTPS request"
+    echo "python packages to be upgraded:"
+    pip3 show ansible bpytop glances httpie mssql-cli projector-installer testresources docker trash-cli | egrep -i "name|version"
+    echo "pip3 install --user --upgrade --quiet ansible"
+    pip3 install --user --upgrade --quiet ansible
+    echo "pip3 install --user --upgrade --quiet bpytop"
+    pip3 install --user --upgrade --quiet bpytop
+    echo "pip3 install --user --upgrade --quiet glances"
+    pip3 install --user --upgrade --quiet glances
+    echo "pip3 install --user --upgrade --quiet httpie"
+    pip3 install --user --upgrade --quiet httpie
+    echo "pip3 install --user --upgrade --quiet mssql-cli"
+    pip3 install --user --upgrade --quiet mssql-cli
+    echo "pip3 install --user --upgrade --quiet projector-installer"
+    pip3 install --user --upgrade --quiet projector-installer
+    echo "pip3 install --user --upgrade --quiet testresources docker"
+    pip3 install --user --upgrade --quiet testresources docker
+    echo "pip3 install --user --upgrade --quiet trash-cli"
+    pip3 install --user --upgrade --quiet trash-cli
+    export PYTHONWARNINGS=""
+}
+
+# update everything
+function update-all {
+    update
+    update-pip
+    update-cargo
 }
 
 #
@@ -284,7 +407,7 @@ function grails-or-grailsw() {
         ./grailsw $@
         cd ..
     else
-        echo "executing:" `where grails | /bin/grep -v alias`
+        echo "executing:" `where grails | grep -v alias`
         command grails $@
     fi
 }
@@ -300,7 +423,7 @@ function gradle-or-gradlew() {
         ./gradlew $@
         cd ..
     else
-        echo "executing:" `where gradle | /bin/grep -v alias`
+        echo "executing:" `where gradle | grep -v alias`
         command gradle $@
     fi
 }
@@ -308,56 +431,60 @@ function gradle-or-gradlew() {
 function lg() {
     export LAZYGIT_NEW_DIR_FILE=$HOME/.lazygit/newdir
 
-    /usr/bin/lazygit "$@"
+    lazygit "$@"
 
     if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-        cd "$(/bin/cat $LAZYGIT_NEW_DIR_FILE)"
+        cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
         rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
     fi
 }
 
 function weather() {
     if [[ "$1" == "-a" ]]; then
-        /usr/bin/ansiweather
+        ansiweather
     elif [[ "$1" == "-1" ]]; then
-        /usr/bin/curl -sf --compressed wttr.in/rdu?format=4
+        curl -sf --compressed wttr.in/rdu?format=4
     elif [[ "$1" == "-h" ]]; then
-        /usr/bin/curl -sf --compressed wttr.in/:help
+        curl -sf --compressed wttr.in/:help
     else
         if [[ "$COLUMNS" -lt 125 ]]; then
-            /usr/bin/curl -sf --compressed wttr.in/rdu?n
+            curl -sf --compressed wttr.in/rdu?n
         else
-            /usr/bin/curl -sf --compressed wttr.in/rdu
+            curl -sf --compressed wttr.in/rdu
         fi
     fi
 }
 
 # ripgrep piped through a pager
 function rg() {
-    /usr/bin/rg --pretty --smart-case --sort-files $@ | bat
+    rg --pretty --smart-case --sort-files $@ | bat
 }
 
 function findit() {
-    /usr/bin/find . -name $@ -print
+    find . -name $@ -print
 }
 
 function findgrep() {
-    /usr/bin/find . -name $@ -exec /bin/grep --color=auto -ls "$@" {} \;
+    find . -name $@ -exec grep --color=auto -ls "$@" {} \;
+}
+
+function findsize {
+    find . -size +$1$2 -printf "%5kk: %h/%f\n" | sort -n
 }
 
 function manpage() {
-    /usr/bin/groff -man $@ | $PAGER
+    groff -man $@ | $PAGER
 }
 
 function dusn() {
-    /usr/bin/du -BM -s $@ | /usr/bin/sort -n
+    du -BM -s $@ | sort -n
 }
 
 function json() {
     if [ -t 0 ]; then
-        /usr/bin/python -m json.tool <<< "$*" | pygmentize -l json
+        python -m json.tool <<< "$*" | pygmentize -l json
     else
-        /usr/bin/python -m json.tool | pygmentize -l json
+        python -m json.tool | pygmentize -l json
     fi
 }
 
@@ -374,11 +501,11 @@ function fontsize() {
 # run a command with sudo
 function please() {
     if [ "$1" ]; then
-        /usr/bin/sudo $@
+        sudo $@
     else
-        # /usr/bin/sudo "$BASH" -c "$(history -p !!)"
+        # sudo "$BASH" -c "$(history -p !!)"
         cmd=$(fc -ln -1)
-        cmd="/usr/bin/sudo ${cmd#*    }"
+        cmd="sudo ${cmd#*    }"
         echo "$cmd"
         # history -s "$cmd"
         print -S "$cmd"
@@ -390,7 +517,7 @@ function please() {
 # find-in-file - usage: fif <searchTerm>
 function fif() {
     if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
-    /usr/bin/rg --files-with-matches --no-messages "$1" | $HOME/.fzf/bin/fzf --preview "highlight -O ansi -l {} 2> /dev/null | /usr/bin/rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || /usr/bin/rg --ignore-case --pretty --context 10 '$1' {}"
+    rg --files-with-matches --no-messages "$1" | $HOME/.fzffzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
 }
 
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
@@ -425,7 +552,7 @@ function tm() {
     if [ $1 ]; then
          tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
     fi
-    session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | $HOME/.fzf/bin/fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
+    session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | $HOME/.fzffzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
 
 function man () {
@@ -437,79 +564,28 @@ function man () {
         LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
         LESS_TERMCAP_ue=$(printf "\e[0m") \
         LESS_TERMCAP_us=$(printf "\e[1;32m") \
-    /usr/bin/man "$@"
+    man "$@"
 }
-
-# replaced by 'update-motd'
-#function motd() {
-#    /usr/bin/lsb_release -s -d
-#    /usr/lib/update-notifier/apt-check --human-readable
-#    /usr/lib/ubuntu-release-upgrader/check-new-release -q
-#    /usr/lib/update-notifier/update-motd-reboot-required
-#}
 
 function dashedtitle {
     if [ -n "$1" ]; then
         count=0
         while [ $count -lt $1 ]; do
-            /bin/echo -n "-"
+            echo -n "-"
             let count=count+1
         done
-        /bin/echo ""
-        /bin/echo $2
+        echo ""
+        echo $2
     fi
 }
 
-function update {
-    /usr/bin/sudo --validate
-    /bin/echo ""
-    /bin/echo "# Updating motd"
-    /bin/echo "update-motd"
-    /usr/bin/sudo /usr/sbin/update-motd
-
-    /bin/echo ""
-    /bin/echo "# Updating Packages (no output expected)"
-    /bin/echo "apt update -qq --fix-missing"
-    /usr/bin/sudo /usr/bin/apt update -qq --fix-missing
-
-    # apt full-upgrade should do this, plus more
-    #/usr/bin/sudo --validate
-    #/bin/echo ""
-    #/bin/echo "# Upgrading Packages"
-    #/bin/echo "apt upgrade --with-new-pkgs"
-    #/usr/bin/sudo /usr/bin/apt upgrade --with-new-pkgs
-    #/bin/echo ""
-
-    /usr/bin/sudo --validate
-    /bin/echo ""
-    /bin/echo "# Upgrading Distribution, including new kernel packages"
-    /bin/echo "apt full-upgrade"
-    /usr/bin/sudo /usr/bin/apt full-upgrade
-
-    /usr/bin/sudo --validate
-    /bin/echo ""
-    /bin/echo "# Auto-Removing Packages"
-    /bin/echo "apt autoremove"
-    /usr/bin/sudo /usr/bin/apt autoremove
-
-    /usr/bin/sudo --validate
-    /bin/echo ""
-    /bin/echo "# Auto-Cleaning Local Repository"
-    /bin/echo "apt-get autoclean"
-    /usr/bin/sudo /usr/bin/apt-get autoclean
-}
-
 function af {
-    /usr/bin/apt-file search bin/$@ | /bin/grep -isv debug | /usr/bin/awk -F: '{ printf ( "FILE:%-30s PACKAGE: %s\n", $2, $1 ) }' | /usr/bin/sort -dfi | $PAGER
-}
-
-function findsize {
-    /usr/bin/find . -size +$1$2 -printf "%5kk: %h/%f\n" | /usr/bin/sort -n
+    apt-file search bin/$@ | grep -isv debug | awk -F: '{ printf ( "FILE:%-30s PACKAGE: %s\n", $2, $1 ) }' | sort -dfi | $PAGER
 }
 
 function aliasnames {
-    # alias | /usr/bin/awk -F '=' '{print $1}' | /usr/bin/awk -F ' ' '{print $2}'
-    alias | /usr/bin/awk -F '=' '{print $1}'
+    # alias | awk -F '=' '{print $1}' | awk -F ' ' '{print $2}'
+    alias | awk -F '=' '{print $1}'
 }
 
 function unaliasall {
@@ -520,16 +596,16 @@ function unaliasall {
 }
 
 function swap {
-    /bin/mv $1 /tmp/tmp.$$
-    /bin/mv $2 $1
-    /bin/mv /tmp/tmp.$$ $2
+    mv $1 /tmp/tmp.$$
+    mv $2 $1
+    mv /tmp/tmp.$$ $2
 }
 
 function svndiff {
     if [ $# = 1 ]; then
-        svn cat $1 | /usr/bin/sdiff -w$COLUMNS - $1
+        svn cat $1 | sdiff -w$COLUMNS - $1
     else
-        svn cat $2 | /usr/bin/sdiff $1 - $2
+        svn cat $2 | sdiff $1 - $2
     fi
 }
 
