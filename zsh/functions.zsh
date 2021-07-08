@@ -41,13 +41,13 @@
 function  ls { lsd --classify --color always $@ }
 function  lh { ls --help }
 function   l { ls $@ }
-function  lf { ls --group-dirs first $@ }
-function  ll { ls --long --group-dirs first $@ }
+function  lf { ls --group-dirs=first $@ }
+function  ll { lf --long $@ }
 function lls { ll --total-size $@ }
 function  la { ll --all $@ }
 function lla { ll --all $@ }
 function lld { ll --directory-only $@ }
-function  lt { ll --reverse --sort time $@ }
+function  lt { ll --reverse --sort=time $@ }
 function lta { lt --all $@ }
 function lss { ll --sort size $@ }
 function ltree { ll --tree $@ }
@@ -63,11 +63,11 @@ function ldapuser {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOMEldapfind $opt "(&(!(!(imrPID=*)))(sAMAccountName=$@))" # | sort -f
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(sAMAccountName=$@))" # | sort -f
     elif [ $# -eq 1 ]; then
-        $HOMEldapfind "(&(!(!(imrPID=*)))(sAMAccountName=$@))" # | sort -f
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(sAMAccountName=$@))" # | sort -f
     else
-        $HOMEldapfind
+        $HOME/bin/ldapfind
     fi
 }
 
@@ -76,11 +76,11 @@ function ldapperson {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOMEldapfind $opt "(imrPID=$@)" # | sort -f
+        $HOME/bin/ldapfind $opt "(imrPID=$@)" # | sort -f
     elif [ $# -eq 1 ]; then
-        $HOMEldapfind "(imrPID=$@)" # | sort -f
+        $HOME/bin/ldapfind "(imrPID=$@)" # | sort -f
     else
-        $HOMEldapfind
+        $HOME/bin/ldapfind
     fi
 }
 
@@ -89,11 +89,11 @@ function ldapeid {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOMEldapfind $opt "(&(!(!(imrPID=*)))(employeeNumber=$@))" # | sort -f
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(employeeNumber=$@))" # | sort -f
     elif [ $# -eq 1 ]; then
-        $HOMEldapfind "(&(!(!(imrPID=*)))(employeeNumber=$@))" # | sort -f
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(employeeNumber=$@))" # | sort -f
     else
-        $HOMEldapfind
+        $HOME/bin/ldapfind
     fi
 }
 
@@ -102,11 +102,11 @@ function ldapmail {
     if [ $# -gt 1 ]; then
         opt=$1
         shift
-        $HOMEldapfind $opt "(&(!(!(imrPID=*)))(mail=$@))" # | sort -f
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(mail=$@))" # | sort -f
     elif [ $# -eq 1 ]; then
-        $HOMEldapfind "(&(!(!(imrPID=*)))(mail=$@))" # | sort -f
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(mail=$@))" # | sort -f
     else
-        $HOMEldapfind
+        $HOME/bin/ldapfind
     fi
 }
 
@@ -115,13 +115,13 @@ function ldapname {
     if [ $# -gt 2 ]; then
         opt=$1
         shift
-        $HOMEldapfind $opt "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" # | sort -f
+        $HOME/bin/ldapfind $opt "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" # | sort -f
     elif [ $# -eq 2 ]; then
-        $HOMEldapfind "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" # | sort -f
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(&(sn=$1)(givenName=$2)))" # | sort -f
     elif [ $# -eq 1 ]; then
-        $HOMEldapfind "(&(!(!(imrPID=*)))(&(sn=$1)))"
+        $HOME/bin/ldapfind "(&(!(!(imrPID=*)))(&(sn=$1)))"
     else
-        $HOMEldapfind
+        $HOME/bin/ldapfind
     fi
 }
 
@@ -457,7 +457,7 @@ function weather() {
 
 # ripgrep piped through a pager
 function rg() {
-    rg --pretty --smart-case --sort-files $@ | bat
+    /usr/bin/rg --pretty --smart-case --sort-files $@ | bat
 }
 
 function findit() {

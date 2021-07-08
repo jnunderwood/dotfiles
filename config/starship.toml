@@ -9,6 +9,17 @@
 # - if performance issues have been addressed, the following line should appear after $git_state
 #   $git_status\
 
+# --- options ------------------------------------------------------------------
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+# Wait 500 milliseconds for commands to finish running
+command_timeout = 500
+
+# Enable the blank line at the start of the prompt
+add_newline = true
+
 # --- prompt format ------------------------------------------------------------
 
 format = """
@@ -67,16 +78,25 @@ $character"""
 symbol = " "
 style = "red"
 
+[custom.git]
+description = "The project name for git projects"
+command = "basename `git rev-parse --show-toplevel`"
+when = "git rev-parse --show-toplevel"
+format = "in [$symbol($output )]($style)"
+symbol = " "
+style = "bold fg:208"
+
 [custom.docker1]
 description = "The Docker base image used in this project"
-command = "rg --case-sensitive --no-line-number FROM docker/Dockerfile | cut -d':' -f1 | cut -d' ' -f2"
+command = "rg --case-sensitive --no-line-number '^FROM' docker/Dockerfile | cut -d':' -f1 | cut -d' ' -f2"
 directories = ["docker"]
+files = ["Dockerfile"]
 symbol = " "
 style = "blue"
 
 [custom.docker2]
 description = "The Docker base image used in this project"
-command = "rg --case-sensitive --no-line-number FROM Dockerfile | cut -d':' -f1 | cut -d' ' -f2"
+command = "rg --case-sensitive --no-line-number '^FROM' Dockerfile | cut -d':' -f1 | cut -d' ' -f2"
 files = ["Dockerfile"]
 symbol = " "
 style = "blue"
