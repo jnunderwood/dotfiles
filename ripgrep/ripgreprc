@@ -1,0 +1,9 @@
+--pretty
+--smart-case
+--trim
+--type-add=font:*.{eot,svg,ttf,woff,woff2}
+--type-add=gsp:*.gsp
+--type-add=i18n:messages*.properties
+--type-add=images:*.{gif,ico,jpg,png,svg}
+--type-add=web:*.{css,js,ts,less,scss,map}
+--type-add=assets:include:font,images,web

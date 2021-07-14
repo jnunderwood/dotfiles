@@ -284,7 +284,7 @@ function docker-rmi() {
 #
 # }}}
 
-# update functions {{{
+# upgrade functions {{{
 #
 
 # replaced by '/usr/sbin/update-motd'
@@ -295,8 +295,8 @@ function docker-rmi() {
 #    /usr/lib/update-notifier/update-motd-reboot-required
 #}
 
-# update software via apt
-function update {
+# upgrade software via apt
+function upgrade {
     sudo --validate
     echo ""
     echo "# Updating motd"
@@ -335,8 +335,8 @@ function update {
     sudo apt-get autoclean
 }
 
-# update software via cargo
-function update-cargo {
+# upgrade software via cargo
+function upgrade-cargo {
     cargo install --list
     echo "cargo install --quiet bat"
     cargo install --quiet bat
@@ -359,8 +359,8 @@ function update-cargo {
     cargo install --list
 }
 
-# update software via pip
-function update-pip {
+# upgrade software via pip
+function upgrade-pip {
     export PYTHONWARNINGS="ignore:Unverified HTTPS request"
     echo "python packages to be upgraded:"
     pip3 show ansible bpytop glances httpie mssql-cli projector-installer testresources docker trash-cli | egrep -i "name|version"
@@ -383,11 +383,11 @@ function update-pip {
     export PYTHONWARNINGS=""
 }
 
-# update everything
-function update-all {
-    update
-    update-pip
-    update-cargo
+# upgrade everything
+function upgrade-all {
+    upgrade
+    upgrade-pip
+    upgrade-cargo
 }
 
 #

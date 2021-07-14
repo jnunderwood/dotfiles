@@ -105,6 +105,9 @@ export PAGER='bat'
 export MANPAGER='bat'
 export BAT_PAGER='/usr/bin/less -eiFMR'
 
+# ripgrep
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
 # terminal
 #export TERM=rxvt-unicode-256color
 
@@ -130,6 +133,12 @@ export VISUAL=$EDITOR
 export FZF_DEFAULT_OPTS='--height=70% --preview="/usr/bin/bat --style=numbers --color=always {}" --preview-window=right:60%:wrap'
 export FZF_DEFAULT_COMMAND='/usr/bin/rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# perl variables
+export PERL5LIB="/home/junderwo/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+export PERL_LOCAL_LIB_ROOT="/home/junderwo/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+export PERL_MB_OPT="--install_base \"/home/junderwo/perl5\""
+export PERL_MM_OPT="INSTALL_BASE=/home/junderwo/perl5"
 
 # zsh variables
 export COMPLETION_WAITING_DOTS="true"
@@ -227,16 +236,19 @@ source $HOME/dotfiles/zsh/functions.zsh
 
 # PATH settings {{{
 
-# go programming language
+# go
 export GOPATH=$HOME/go
 export PATH="$GOPATH/bin:$PATH"
 
-# ruby programming language
+# perl
+export PATH="/home/junderwo/perl5/bin${PATH:+:${PATH}}"
+
+# ruby
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-# rust programming language
+# rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # windows powershell installation
@@ -285,3 +297,4 @@ eval "$(starship init zsh)"
 
 #
 # vim: set ft=zsh fdm=marker:
+
