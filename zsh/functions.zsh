@@ -342,6 +342,8 @@ function upgrade-cargo {
     cargo install --quiet bat
     echo "cargo install --quiet bottom"
     cargo install --quiet bottom
+    echo "cargo install --quiet exa"
+    cargo install --quiet exa
     echo "cargo install --quiet git-delta"
     cargo install --quiet git-delta
     echo "cargo install --quiet exa"
