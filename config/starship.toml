@@ -31,6 +31,7 @@ $directory\
 $git_branch\
 $git_commit\
 $git_state\
+$git_status\
 $hg_branch\
 $docker_context\
 $package\
@@ -74,23 +75,28 @@ $character"""
 
 # --- prompt overrides and additions -------------------------------------------
 
+[username]
+format = "[$user]($style)"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "@[$hostname](bold green) "
+
+[directory]
+truncate_to_repo = true
+truncation_length = 3
+truncation_symbol = "…/"
+
 [java]
 symbol = " "
 style = "red"
-
-[custom.git]
-description = "The project name for git projects"
-command = "basename `git rev-parse --show-toplevel`"
-when = "git rev-parse --show-toplevel"
-format = "in [$symbol($output )]($style)"
-symbol = " "
-style = "bold fg:208"
 
 [custom.docker1]
 description = "The Docker base image used in this project"
 command = "rg --case-sensitive --no-line-number '^FROM' docker/Dockerfile | cut -d':' -f1 | cut -d' ' -f2"
 directories = ["docker"]
-files = ["Dockerfile"]
 symbol = " "
 style = "blue"
 
@@ -107,6 +113,15 @@ command = "rg --case-sensitive --no-heading --no-messages --no-line-number grail
 files = ["grailsw", "gradle.properties"]
 symbol = " v"
 style = "green"
+
+[custom.git]
+description = "The project name for git projects"
+command = "basename `git rev-parse --show-toplevel`"
+when = "git rev-parse --show-toplevel"
+os = "linux"
+format = "in [$symbol($output )]($style)"
+symbol = " "
+style = "bold fg:208"
 
 [time]
 disabled = false
