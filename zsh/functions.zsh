@@ -206,15 +206,16 @@ function voldown {
 
 function ctop() {
     docker image pull quay.io/vektorlab/ctop:latest
-    docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
+    docker run --rm -it \
+        --volume /var/run/docker.sock:/var/run/docker.sock \
+        --name ctop quay.io/vektorlab/ctop:latest
 }
 
 function dockly() {
-    docker run -it \
+    docker run --rm -it \
         --volume /var/run/docker.sock:/var/run/docker.sock \
         --name dockly lirantal/dockly
 }
-
 
 function docker-health() {
     # docker inspect --format='{{json .State.Health}}' $1.unch.unc.edu | jq
