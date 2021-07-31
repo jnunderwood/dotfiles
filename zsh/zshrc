@@ -27,15 +27,19 @@ fi
 #
 # end completion }}}
 
-# zgen {{{
+# zgenom {{{
 #
+
+#if [ -f $HOME/.zgenom/zgenom.zsh ]; then
+#    source "$HOME/.zgenom/zgenom.zsh"
+#fi
 
 if [ -f $HOME/.zgen-setup ]; then
   source $HOME/.zgen-setup
 fi
 
 #
-# end zgen }}}
+# end zgenom }}}
 
 # u-settings {{{
 #
@@ -297,4 +301,3 @@ eval "$(starship init zsh)"
 
 #
 # vim: set ft=zsh fdm=marker:
-

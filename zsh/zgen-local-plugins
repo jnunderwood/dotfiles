@@ -12,52 +12,62 @@ ZGEN_COMPLETIONS=()
 # Load me last
 GENCOMPL_FPATH=$HOME/.zsh/complete
 
-# zgen plugins {{{
+# ohmyzsh plugins {{{
 
-zgen oh-my-zsh
+zgen ohmyzsh
 
-# oh-my-zsh plugins
-zgen oh-my-zsh plugins/bgnotify
-zgen oh-my-zsh plugins/colored-man-pages
-zgen oh-my-zsh plugins/colorize
-zgen oh-my-zsh plugins/command-not-found
-zgen oh-my-zsh plugins/docker
-zgen oh-my-zsh plugins/docker-compose
-zgen oh-my-zsh plugins/extract
-zgen oh-my-zsh plugins/git
-# zgen oh-my-zsh plugins/git-extras
-zgen oh-my-zsh plugins/github
-zgen oh-my-zsh plugins/gradle
-zgen oh-my-zsh plugins/last-working-dir
-# zgen oh-my-zsh plugins/per-directory-history
-zgen oh-my-zsh plugins/pip
-zgen oh-my-zsh plugins/python
-zgen oh-my-zsh plugins/rsync
-zgen oh-my-zsh plugins/sudo
-zgen oh-my-zsh plugins/vagrant
-zgen oh-my-zsh plugins/wd
-# zgen oh-my-zsh plugins/z
-zgen oh-my-zsh plugins/zsh-navigation-tools
-zgen oh-my-zsh plugins/zsh_reload
+# ohmyzsh plugins
+zgen ohmyzsh plugins/bgnotify
+zgen ohmyzsh plugins/colored-man-pages
+zgen ohmyzsh plugins/colorize
+zgen ohmyzsh plugins/command-not-found
+zgen ohmyzsh plugins/docker
+zgen ohmyzsh plugins/docker-compose
+zgen ohmyzsh plugins/extract
+zgen ohmyzsh plugins/git
+# zgen ohmyzsh plugins/git-extras
+zgen ohmyzsh plugins/github
+zgen ohmyzsh plugins/gradle
+zgen ohmyzsh plugins/last-working-dir
+# zgen ohmyzsh plugins/per-directory-history
+zgen ohmyzsh plugins/pip
+zgen ohmyzsh plugins/python
+zgen ohmyzsh plugins/rsync
+zgen ohmyzsh plugins/sudo
+zgen ohmyzsh plugins/vagrant
+zgen ohmyzsh plugins/wd
+# zgen ohmyzsh plugins/z
+zgen ohmyzsh plugins/zsh-navigation-tools
+zgen ohmyzsh plugins/zsh_reload
 
-# bulk load plugins
+# end ohmyzsh plugins }}}
+
+# other plugins {{{
+
 # notes:
 # - load syntax-highlighting before history-substring-search
 # - load fz after z
-# no longer used...
-# - marlonrichert/zsh-autocomplete
+
+# unused, but possibly worthwhile...
+# - jeffreytse/zsh-vi-mode
 # - changyuheng/fz
-# - rupa/z
+# - marlonrichert/zsh-autocomplete
 # - rimraf/k
 # - romkatv/powerlevel10k powerlevel10k
+# - rupa/z
+# - unixorn/autoupdate-zgen
+# - unixorn/zsh-quickstart-kit
+
+# bulk load other zsh plugins
 zgen loadall <<EOPLUGINS
   chrissicool/zsh-256color
+  djui/alias-tips
   gradle/gradle-completion
   mafredri/zsh-async
   nobeans/zsh-sdkman
   RobSis/zsh-completion-generator
   skx/sysadmin-util
-  unixorn/autoupdate-zgen
+  unixorn/fzf-zsh-plugin
   unixorn/git-extra-commands
   unixorn/jpb.zshplugin
   zsh-users/zsh-autosuggestions
@@ -67,10 +77,10 @@ zgen loadall <<EOPLUGINS
 EOPLUGINS
 # ^ can't indent this EOPLUGINS
 
+# end other plugins }}}
+
 # Save it all to init script
 zgen save
-
-# end zgen plugins }}}
 
 #
 # vim: set ft=zsh fdm=marker:

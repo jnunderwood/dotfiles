@@ -209,6 +209,13 @@ function ctop() {
     docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
 }
 
+function dockly() {
+    docker run -it \
+        --volume /var/run/docker.sock:/var/run/docker.sock \
+        --name dockly lirantal/dockly
+}
+
+
 function docker-health() {
     # docker inspect --format='{{json .State.Health}}' $1.unch.unc.edu | jq
     if [ "$#" -eq 0 ]; then
@@ -254,6 +261,32 @@ function docker-logs() {
     fi
     echo "ssh $server docker logs --tail 500 --follow $app"
     ssh $server docker logs --tail 500 --follow $app
+}
+
+# usage: docker-restart [appname [dev]]
+function docker-restart() {
+    if [ "$#" -eq 0 ]; then
+        server="webapps-un1-p01.unch.unc.edu"
+        app="`basename $PWD`.unch.unc.edu"
+    elif [ "$#" -eq 1 ]; then
+        if [[ "$1" == "dev" ]]; then
+            server="webappsdev1.unch.unc.edu"
+            app="`basename $PWD`dev.unch.unc.edu"
+        else
+            server="webapps-un1-p01.unch.unc.edu"
+            app="${1}.unch.unc.edu"
+        fi
+    else
+        if [[ "$2" == "dev" ]]; then
+            server="webappsdev1.unch.unc.edu"
+            app="${1}dev.unch.unc.edu"
+        else
+            server="webapps-un1-p01.unch.unc.edu"
+            app="${1}.unch.unc.edu"
+        fi
+    fi
+    echo "ssh $server docker container restart $app"
+    ssh $server docker container restart $app
 }
 
 function docker-registry-list() {
